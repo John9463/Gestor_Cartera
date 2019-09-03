@@ -46,7 +46,7 @@
                               <p class="text-center">Para iniciar sesiòn debes aceptar nuestros <a href="#">Terminos De Uso</a></p>
                            </div>
                            <div class="col-md-12 text-center ">
-                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesiòns</button>
+                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesión</button>
                            </div>
                            <div class="col-md-12 ">
                               <div class="login-or">

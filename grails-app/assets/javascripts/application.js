@@ -8,4 +8,12 @@
 //= require jquery-3.3.1.min
 //= require bootstrap
 //= require popper.min
+//= require perfect-scrollbar.jquery.min
+// --Chart JS
+//= require chartjs.min
+//-- Notifications Plugin
+//= require bootstrap-notify
+//----------
+//= require paper-dashboard.min
+//= require file
 //= require_self
