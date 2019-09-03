@@ -42,10 +42,10 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="active ">
-            <a href="./dashboard.html">
+            <g:link controller="dashboard" action="index">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
-            </a>
+            </g:link>
           </li>
           <li>
             <a href="./icons.html">
@@ -60,10 +60,10 @@
             </a>
           </li>
           <li>
-            <a href="./notifications.html">
+            <g:link controller="profile" action="index">
               <i class="nc-icon nc-bell-55"></i>
               <p>Perfil</p>
-            </a>
+            </g:link>
           </li>
         </ul>
       </div>

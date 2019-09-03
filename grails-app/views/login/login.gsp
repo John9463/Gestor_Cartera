@@ -46,7 +46,8 @@
                               <p class="text-center">Para iniciar sesiòn debes aceptar nuestros <a href="#">Terminos De Uso</a></p>
                            </div>
                            <div class="col-md-12 text-center ">
-                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesión</button>
+                               <!-- <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesión</button> -->
+                               <g:link class=" btn btn-block mybtn btn-primary tx-tfm" controller="dashboard" action="index"> Iniciar Sesion </g:link >
                            </div>
                            <div class="col-md-12 ">
                               <div class="login-or">
