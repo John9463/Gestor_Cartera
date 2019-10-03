@@ -27,12 +27,12 @@
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
       <div class="logo">
-        <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+        <a href="/dashboard/index" class="simple-text logo-mini">
           <div class="logo-image-small">
             <asset:image src="img/logo-small.png" />
           </div>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="/dashboard/index" class="simple-text logo-normal">
           Gestor Cartera
           <!-- <div class="logo-image-big">
             <asset:image src="img/logo-big.png"/>
@@ -48,9 +48,10 @@
             </g:link>
           </li>
           <li>
-            <a href="./icons.html">
+            <g:link controller="poliza" action="index">
               <i class="nc-icon nc-diamond"></i>
-              <p>Registros</p>
+              <p>Poliza</p>
+            </g:link>
             </a>
           </li>
           <li>

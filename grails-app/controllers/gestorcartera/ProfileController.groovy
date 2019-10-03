@@ -6,4 +6,10 @@ class ProfileController{
         render view:'profile.gsp'
     }
 
+    def save(){
+        println params
+
+        index()
+    }
+
 }

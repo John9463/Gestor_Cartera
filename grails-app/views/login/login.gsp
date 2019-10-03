@@ -33,78 +33,37 @@
 							<h1>Bienvenidos a Gestor de Cartera | Iniciar Sesion</h1>
 						 </div>
 					</div>
-                   <form action="" method="post" name="login">
+                   <g:form controller="login" action="" method="post" name="login">
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email o Usuario: </label>
-                              <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                              <input name="user" class="form-control" id="user" aria-describedby="emailHelp" placeholder="Enter email">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Contraseña: </label>
                               <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
                            </div>
-                           <div class="form-group">
-                              <p class="text-center">Para iniciar sesiòn debes aceptar nuestros <a href="#">Terminos De Uso</a></p>
-                           </div>
+                        
                            <div class="col-md-12 text-center ">
                                <!-- <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesión</button> -->
-                               <g:link class=" btn btn-block mybtn btn-primary tx-tfm" controller="dashboard" action="index"> Iniciar Sesion </g:link >
-                           </div>
-                           <div class="col-md-12 ">
-                              <div class="login-or">
-                                 <hr class="hr-or">
-                                 <span class="span-or">or</span>
-                              </div>
-                           </div>
-                           <div class="col-md-12 mb-3">
-                              <p class="text-center">
-                                 <a href="javascript:void();" class="google btn mybtn"><i class="fa fa-google-plus">
-                                 </i> Signup using Google
-                                 </a>
-                              </p>
+                               <%-- <g:link class=" btn btn-block mybtn btn-primary tx-tfm" params="[user: 'title', password:]" controller="login" action="logIn"> Iniciar Sesion </g:link > --%>
+                              <g:actionSubmit value="Iniciar Sesion" action="logIn"/>
                            </div>
                            <div class="form-group">
                               <p class="text-center">Don't have account? <a href="#" id="signup">Sign up here</a></p>
                            </div>
-                        </form>
-
+                        </g:form>
+               <g:if test="${ error  == 'not-data'}">
+                  <p class="text-danger"> Ingresa un Usuario y Contraseña para continuar</p>
+               </g:if>
+               <g:elseif test="${ error == 'not-user'}">
+                  <p class="text-warning">Ingresa un usuario para continuar</p>
+               </g:elseif>
+               <g:elseif test="${ error == 'not-pass'}">
+                  <p class="text-warning">Ingresa una contraseña para continuar</p>
+               </g:elseif>
 				</div>
 			</div>
-			  <div id="second">
-			      <div class="myform form ">
-                        <div class="logo mb-3">
-                           <div class="col-md-12 text-center">
-                              <h1 >Signup</h1>
-                           </div>
-                        </div>
-                        <form action="#" name="registration">
-                           <div class="form-group">
-                              <label for="exampleInputEmail1">First Name</label>
-                              <input type="text"  name="firstname" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter Firstname">
-                           </div>
-                           <div class="form-group">
-                              <label for="exampleInputEmail1">Last Name</label>
-                              <input type="text"  name="lastname" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter Lastname">
-                           </div>
-                           <div class="form-group">
-                              <label for="exampleInputEmail1">Email address</label>
-                              <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-                           </div>
-                           <div class="form-group">
-                              <label for="exampleInputEmail1">Password</label>
-                              <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
-                           </div>
-                           <div class="col-md-12 text-center mb-3">
-                              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Get Started For Free</button>
-                           </div>
-                           <div class="col-md-12 ">
-                              <div class="form-group">
-                                 <p class="text-center"><a href="#" id="signin">Already have an account?</a></p>
-                              </div>
-                           </div>
-                            </div>
-                        </form>
-                     </div>
-			</div>
+		
 		</div>
       </div>
 
