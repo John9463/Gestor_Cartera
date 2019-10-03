@@ -138,7 +138,7 @@
 
 </div> -->
 
-          <div class="col-md-8">
+          <div class="col-md-12">
             <div class="card card-user">
               <div class="card-header">
                 <h5 class="card-title">Generar Poliza</h5>
@@ -217,47 +217,39 @@
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>Grupo</label>
                         <input type="text" class="form-control" name="grupo" >
                       </div>
                     </div>
+                    <div class="col-md-4 px-1">
+                      <div class="form-group">
+                        <label>Empresa</label>
+                        <input type="text" class="form-control" name="empresa" >
+                      </div>
+                    </div>
+                    <div class="col-md-4 pl-1">
+                      <div class="form-group">
+                        <label>Sucursal</label>
+                        <input type="text" class="form-control" name="sucursal" >
+                      </div>
+                    </div>
                   </div>
                   <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label>Empresa</label>
-                          <input type="text" class="form-control" name="empresa" >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label>Sucursal</label>
-                          <input type="text" class="form-control" name="sucursal" >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-4 px-1">
                         <div class="form-group">
                           <label>cis</label>
                           <input type="number" class="form-control" name="cis" >
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-4 px-1">
                         <div class="form-group">
                           <label>comCedida</label>
                           <input type="number" class="form-control" name="comCedida" >
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-4 px-1">
                         <div class="form-group">
                           <label>fnanto</label>
                           <input tyoe="number" class="form-control" name="fnanto" >
@@ -265,15 +257,13 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-6 px-1">
                         <div class="form-group">
                           <label>gtosExp</label>
                           <input type="number" class="form-control" name="gtosExp" >
                         </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
+                      <div class="col-md-6 px-1">
                         <div class="form-group">
                           <label>primaTotal</label>
                           <input type="number" class="form-control" name="primaTotal" >
@@ -291,7 +281,7 @@
               </g:form>
               </div>
             </div>
-        
+
       </div>
       <footer class="footer footer-black  footer-white ">
         <div class="container-fluid">
