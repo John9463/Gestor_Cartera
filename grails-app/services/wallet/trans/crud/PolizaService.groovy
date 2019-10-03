@@ -8,15 +8,17 @@ import wallet.Poliza
 class PolizaService {
 
     def save(def values){
+        def newPoliza = new Poliza( cleanKeys(values) ).save()
 
-
+        newPoliza
     }
 
+    @Transactional(readOnly = true)
     def list(){
-        DescPoliza.list()
+        Poliza.list()
     }
 
-    def cleanKeys(def values){
+    private def cleanKeys(def values){
         values.remove('_action_save')
         values.remove('controller')
         values.remove('format')

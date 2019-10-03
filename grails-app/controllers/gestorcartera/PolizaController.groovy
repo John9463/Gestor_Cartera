@@ -12,16 +12,13 @@ class PolizaController {
     }
 
     def save(){
-       render new Poliza(cleanKeys(params)).save()
+        if ( polizaService.save( params ))
+            render "<h1>La poliza fue guardada exitosamente</h1>"
+        else
+            redirect view: 'poliza', model: []
     }
 
-    def cleanKeys(def values){
-        values.remove('_action_save')
-        values.remove('controller')
-        values.remove('format')
-        values.remove('action')
-        values
-    }
+
 
 
 
