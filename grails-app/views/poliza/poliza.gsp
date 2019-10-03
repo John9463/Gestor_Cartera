@@ -146,11 +146,19 @@
               <div class="card-body">
               <g:form controller="poliza" action="save">
                 <form>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>id Poliza</label>
+                      <input type="number" class="form-control" name="idPoliza" >
+                    </div>
+                  </div>
+                </div>
                   <div class="row">
                     <div class="col-md-5 pr-1">
                       <div class="form-group">
                         <label>IdCliente:</label>
-                        <input type="number" class="form-control" name="idClient" placeholder="Identificador Cliente" >
+                        <input type="number" class="form-control" name="idCliente" placeholder="Identificador Cliente" >
                       </div>
                     </div>
                     <div class="col-md-3 px-1">
@@ -192,13 +200,13 @@
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>Vigencia Desde:</label>
-                        <input type="text" class="form-control" name="vigenciaDsd" placeholder="example:28/09/18">
+                        <input type="date" class="form-control" name="vigenciaDsd" placeholder="example:28/09/18">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>Vigencia Hasta</label>
-                        <input type="text" class="form-control" name="vigenciaHasta" placeholder="Country" >
+                        <input type="date" class="form-control" name="vigenciaHasta" placeholder="Country" >
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
@@ -212,14 +220,71 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Grupo</label>
-                        <input class="form-control" name="grupo" >
+                        <input type="text" class="form-control" name="grupo" >
                       </div>
                     </div>
                   </div>
                   <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Empresa</label>
+                          <input type="text" class="form-control" name="empresa" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>Sucursal</label>
+                          <input type="text" class="form-control" name="sucursal" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>cis</label>
+                          <input type="number" class="form-control" name="cis" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>comCedida</label>
+                          <input type="number" class="form-control" name="comCedida" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>fnanto</label>
+                          <input tyoe="number" class="form-control" name="fnanto" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>gtosExp</label>
+                          <input type="number" class="form-control" name="gtosExp" >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label>primaTotal</label>
+                          <input type="number" class="form-control" name="primaTotal" >
+                        </div>
+                      </div>
+                    </div>
+
+                  <div class="row">
                     <div class="update ml-auto mr-auto">
                       <%-- <button type="submit" class="btn btn-primary btn-round">Guardar Poliza</button> --%>
-                      <g:actionSubmit class="btn btn-primary btn-round" value="Iniciar Sesion" action="save"/>
+                      <g:actionSubmit class="btn btn-primary btn-round" value="Guardar Poliza" action="save"/>
                     </div>
                   </div>
                 </form>
