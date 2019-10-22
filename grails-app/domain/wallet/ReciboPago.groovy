@@ -7,19 +7,13 @@ import java.sql.Date
 @GrailsCompileStatic
 class ReciboPago implements GormEntity<ReciboPago>{
 
-    Integer idRecibo
-    Integer idPoliza
-    Integer numRecibo
-    String formaPago
-    Integer numPago
-    Float monto
-    Date vigenciaDsd
-    Date vigenciaHasta
+    long idRecibo
+    long idCliente
+    long idPoliza
+    float monto
+    int numeroPeriodoPago
     Date fechaPago
-    String moneda
-    String estado
-    Float comision
-
+    String status_pago
 
     static constraints = {
     }

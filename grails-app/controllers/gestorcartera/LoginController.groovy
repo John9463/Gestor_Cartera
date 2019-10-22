@@ -1,10 +1,7 @@
 package gestorcartera
 
-import wallet.trans.crud.ClientsService
-
 class LoginController {
 
-    ClientsService clientsService
 
     def index(){
         render view:'login'

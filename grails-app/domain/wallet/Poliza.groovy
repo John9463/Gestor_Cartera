@@ -8,24 +8,20 @@ import java.sql.Date
 @GrailsCompileStatic
 class Poliza implements GormEntity<Poliza>{
 
-    Integer idPoliza
-    Integer idCliente
-    String numRemision
-    String tipoDoc
-    String ramo
-    String subramo
-    String aseguradora
-    Date vigenciaDsd
-    Date vigenciaHasta
+    long idPoliza
+    long idSeguro
+    long idCliente
+    long idRamo
+    long idStatus
+    long primaTotal
+    String clave
+    float gastosExpedicion
+    float financiamiento
+    float comisionCedida
     String periodo
-    String grupo
-    String empresa
-    String sucursal
-    Integer cis
-    Float comCedida
-    Float fnanto
-    Float gtosExp
-    Float primaTotal
+    int numeroRemision
+    Date fecha_desde
+    Date fecha_hasta
 
     static constraints = {
     }

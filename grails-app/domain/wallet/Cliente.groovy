@@ -3,26 +3,25 @@ package wallet
 import grails.compiler.GrailsCompileStatic
 import org.grails.datastore.gorm.GormEntity
 
-import java.sql.Date
 
 @GrailsCompileStatic
 class Cliente implements GormEntity<Cliente>{
 
-    Integer idCliente
-    Integer clave
-    String tipo
-    String nombre
-    String apellPa
-    String apellMa
-    String rfc
-    Date fechaNac
-    Long tel
+    int idClient
     String correo
-    String calle
-    String numero
-    String colonia
+    Date fechaNac
+    String nombre
+    String apellMa
+    String apellPa
     String ciudad
+    String rfc
+    String colonia
+    String calle
     String cp
+    String tipo
+    String numeros;
+    long tel
+
 
     static constraints = {
     }

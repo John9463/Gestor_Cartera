@@ -1,6 +1,5 @@
 databaseChangeLog = {
-
-    changeSet(author: "aldo (generated)", id: "1570062978368-1") {
+    changeSet(author: "aldo (generated)", id: "1571776146164-3") {
         createTable(tableName: "cliente") {
             column(autoIncrement: "true", name: "id", type: "BIGINT") {
                 constraints(primaryKey: "true", primaryKeyName: "clientePK")
@@ -14,11 +13,7 @@ databaseChangeLog = {
                 constraints(nullable: "false")
             }
 
-            column(name: "id_cliente", type: "INT") {
-                constraints(nullable: "false")
-            }
-
-            column(name: "fecha_nac", type: "date") {
+            column(name: "fecha_nac", type: "datetime") {
                 constraints(nullable: "false")
             }
 
@@ -27,10 +22,6 @@ databaseChangeLog = {
             }
 
             column(name: "tipo", type: "VARCHAR(255)") {
-                constraints(nullable: "false")
-            }
-
-            column(name: "clave", type: "INT") {
                 constraints(nullable: "false")
             }
 
@@ -62,7 +53,11 @@ databaseChangeLog = {
                 constraints(nullable: "false")
             }
 
-            column(name: "numero", type: "VARCHAR(255)") {
+            column(name: "numeros", type: "VARCHAR(255)") {
+                constraints(nullable: "false")
+            }
+
+            column(name: "id_client", type: "INT") {
                 constraints(nullable: "false")
             }
 
@@ -71,5 +66,4 @@ databaseChangeLog = {
             }
         }
     }
-
 }

@@ -1,7 +1,6 @@
 package wallet.trans.crud
 
 import grails.gorm.transactions.Transactional
-import wallet.DescPoliza
 import wallet.Poliza
 
 @Transactional

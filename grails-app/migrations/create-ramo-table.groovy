@@ -1,28 +1,25 @@
 databaseChangeLog = {
-
-    changeSet(author: "aldo (generated)", id: "1570062978368-2") {
-        createTable(tableName: "desc_poliza") {
+    changeSet(author: "aldo (generated)", id: "1571776146164-7") {
+        createTable(tableName: "ramo") {
             column(autoIncrement: "true", name: "id", type: "BIGINT") {
-                constraints(primaryKey: "true", primaryKeyName: "desc_polizaPK")
+                constraints(primaryKey: "true", primaryKeyName: "ramoPK")
             }
 
             column(name: "version", type: "BIGINT") {
                 constraints(nullable: "false")
             }
 
-            column(name: "descripcion", type: "VARCHAR(255)") {
+            column(name: "nombre_ramo", type: "VARCHAR(255)") {
                 constraints(nullable: "false")
             }
 
-            column(name: "id_producto", type: "INT") {
+            column(name: "idsubramo", type: "BIGINT") {
                 constraints(nullable: "false")
             }
 
-            column(name: "id_desc_producto", type: "INT") {
+            column(name: "id_ramo", type: "BIGINT") {
                 constraints(nullable: "false")
             }
         }
     }
-
-
 }
