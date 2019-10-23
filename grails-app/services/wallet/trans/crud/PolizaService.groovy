@@ -1,4 +1,4 @@
-package wallet.trans.crud
+package trans.crud
 
 import grails.gorm.transactions.Transactional
 import wallet.Poliza
@@ -7,9 +7,8 @@ import wallet.Poliza
 class PolizaService {
 
     def save(def values){
-        def newPoliza = new Poliza( cleanKeys(values) ).save()
-
-        newPoliza
+        values << [idPoliza: Poliza.list().size() + 2]
+        new Poliza( cleanKeys(values) ).save()
     }
 
     @Transactional(readOnly = true)

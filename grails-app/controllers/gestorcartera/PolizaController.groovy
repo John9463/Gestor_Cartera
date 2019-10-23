@@ -1,18 +1,28 @@
 package gestorcartera
 
+import trans.crud.PolizaService
+import wallet.Poliza
+
 class PolizaController {
 
+    PolizaService polizaService
 
     def index(){
-        render view:'poliza'
+//        def polizas = polizaService?.list()
+//        if(!polizas.isEmpty())
+//            render view:'poliza', model:[polizas: polizas]
+//        else
+            render view: 'poliza'
     }
 
-//    def save(){
-//        if ( polizaService.save( params ))
-//            render "<h1>La poliza fue guardada exitosamente</h1> <br> <a href=\"/index\"> Regresar </a>"
-//        else
-//            redirect view: 'poliza', model: []
-//    }
+    def save(){
+        def poliza = new Poliza(params).save()
+        if( poliza ){
+            render poliza.toString()
+        }else{
+            redirect action: 'index'
+        }
+    }
 
 
 

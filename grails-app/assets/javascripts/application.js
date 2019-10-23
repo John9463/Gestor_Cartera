@@ -17,3 +17,6 @@
 //= require paper-dashboard.min
 //= require file
 //= require_self
+
+
+document.getElementById
