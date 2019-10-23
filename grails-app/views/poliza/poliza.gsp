@@ -26,18 +26,20 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
+        <th>Clave Cliente</th>
+        <th>Poliza</th>
         <th>Acciones</th>
       </tr>
     </thead>
+    <g:each var="poliza" in="${ polizas }">
     <tbody>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
+        <td>${poliza.clave}</td>
+        <td>${poliza.idPoliza}</td>
         <td><button onclick="show('mod')"><i class="fas fa-edit">Editar</i></button> <button><i class="far fa-trash-alt">Borrar</i> </button> </td>
       </tr>
     </tbody>
+    </g:each>
   </table>
 </div>
 
@@ -73,10 +75,10 @@
           <div class="col-6">
               <label for="uname">RAMO:</label>
               <select name="cars" height="30px" name="idRamo">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="fiat">Fiat</option>
-                <option value="audi">Audi</option>
+                <option value="5">Volvo</option>
+                <option value="6">Saab</option>
+                <option value="7">Fiat</option>
+                <option value="8">Audi</option>
               </select>
               <div class="valid-feedback">Correcto.</div>
               <div class="invalid-feedback">El campo es requerido.</div>
@@ -85,10 +87,10 @@
             <div class="col-6">
               <label for="uname">STATUS:</label>
               <select name="idStatus">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="fiat">Fiat</option>
-                <option value="audi">Audi</option>
+                <option value="0">Volvo</option>
+                <option value="1">Saab</option>
+                <option value="2">Fiat</option>
+                <option value="3">Audi</option>
               </select>
               <div class="valid-feedback">Correcto.</div>
               <div class="invalid-feedback">El campo es requerido.</div>
@@ -144,16 +146,35 @@
 
         </div>
      
+      <div class="row pt-4">
+
+          <div class="col-12">
+            <label for="pwd">FINANCIAMIENTO:</label>
+            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="financiamiento" required>
+            <div class="valid-feedback">Correcto.</div>
+            <div class="invalid-feedback">El campo es requerido.</div>
+          </div>
+
+        </div>
 
 <div class="row pt-4">
-        <div class="col-12">
+        <div class="col-6">
         <label for="pwd">PRIMA TOTAL:</label>
         <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $20.00" name="primaTotal" required>
         <div class="valid-feedback">Correcto.</div>
         <div class="invalid-feedback">El campo es requerido.</div>
         </div>
+
+        <div class="col-6">
+        <label for="pwd">CLAVE CLIENTE:</label>
+        <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: USR4325" name="clave" required>
+        <div class="valid-feedback">Correcto.</div>
+        <div class="invalid-feedback">El campo es requerido.</div>
+        </div>
    
       <div class="col-12 pt-4">
+
+      
     <button type="submit" class="btn btn-primary">Guardar</button>
      </div>
       </div>

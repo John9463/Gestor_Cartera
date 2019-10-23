@@ -8,14 +8,15 @@ class PolizaController {
     PolizaService polizaService
 
     def index(){
-//        def polizas = polizaService?.list()
-//        if(!polizas.isEmpty())
-//            render view:'poliza', model:[polizas: polizas]
-//        else
-            render view: 'poliza'
+            def list = Poliza.list()
+            if(list.isEmpty())
+                render view: 'poliza'
+            else
+                render view: 'poliza', model:[polizas: list]
     }
 
     def save(){
+        params << [idPoliza: 5]
         def poliza = new Poliza(params).save()
         if( poliza ){
             render poliza.toString()
