@@ -26,7 +26,7 @@
         <a class="nav-link" onclick="changeView('seguro')">Seguro</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" onclick="changeView('poliza')">Disabled</a>
+        <a class="nav-link disabled" onclick="changeView('poliza')">Reportes</a>
       </li>
     </ul>
   </div>

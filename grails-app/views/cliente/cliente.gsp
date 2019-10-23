@@ -16,30 +16,30 @@
 <p>Click on the buttons inside the tabbed menu:</p> --%>
 
 <div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'London')" id="defaultOpen">Lista Poliza</button>
-  <button id="add-mod" class="tablinks" onclick="openTab(event, 'Paris')" hidden>Crear Poliza</button>
+  <button class="tablinks" onclick="openTab(event, 'London')" id="defaultOpen">Lista Clientes</button>
+  <button id="add-mod" class="tablinks" onclick="openTab(event, 'Paris')" hidden>Crear Clientes</button>
 </div>
 
 <div id="London" class="tabcontent">
-  <button onclick="show('add')"><i class="far fa-plus-square">Crear Poliza</i></button>
+  <button onclick="show('add')"><i class="far fa-plus-square">Crear Cliente</i></button>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Poliza</th>
-        <th>Clave Cliente</th>
-        <th>Desde</th>
-        <th>Hasta</th>
+        <th>Cliente</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Ciudad</th>
         <th>Acciones</th>
       </tr>
     </thead>
-    <g:each var="poliza" in="${ polizas }">
+    <g:each var="cliente" in="${ clientes }">
     <tbody>
       <tr>
-        <td>${poliza.id}</td>
-        <td>${poliza.clave}</td>
-        <td>${poliza.fechaDesde}</td>
-        <td>${poliza.fechaHasta}</td>
-        <td><button onclick="edit(${poliza.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${poliza.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
+        <td>${cliente.id}</td>
+        <td>${cliente.nombre}</td>
+        <td>${cliente.correo}</td>
+        <td>${cliente.ciudad}</td>
+        <td><button onclick="edit(${cliente.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${cliente.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
       </tr>
     </tbody>
     </g:each>
@@ -47,28 +47,28 @@
 </div>
 
 <div id="Paris" class="tabcontent">
-  <g:form controller="poliza" action="save" class="was-validated" name="form-poliza">
+  <g:form controller="cliente" action="save" class="was-validated" name="form-cliente">
 
       <div class="form-group">
         <div class="row pt-4">
 
           <div class="col-4">
-            <label for="uname">ID SEGURO:</label>
-            <input type="number" class="form-control" id="uname" placeholder="Ejemplo: 1520" name="idSeguro" maxlenght="5" required>
+            <label for="uname">CORREO ELECTRONICO:</label>
+            <input type="email" class="form-control" id="uname" placeholder="Ejemplo: example@mail.com" name="correo" maxlenght="5" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-4">
-            <label for="uname">ID CLIENTE:</label>
-            <input type="number" class="form-control" id="uname" placeholder="Ejemplo: 1020" name="idCliente" required>
+            <label for="uname">FECHA DE NACIMIENTO:</label>
+            <input type="date" class="form-control" id="uname" placeholder="Ejemplo: 1020" name="fechaNac" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-4">
-            <label for="pwd">PERIODO:</label>
-            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: 12/02/1997" name="periodo" required>
+            <label for="pwd">NOMBRE:</label>
+            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: juan barreras" name="nombre" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -76,25 +76,15 @@
         </div>
         <div class="row pt-4">
           <div class="col-6">
-              <label for="uname">RAMO:</label>
-              <select height="30px" name="idRamo" required>
-                <option value="5">Volvo</option>
-                <option value="6">Saab</option>
-                <option value="7">Fiat</option>
-                <option value="8">Audi</option>
-              </select>
+              <label for="pwd">APELLIDO PATERNO:</label>
+              <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: vargas" name="apellPa" required>
               <div class="valid-feedback">Correcto.</div>
               <div class="invalid-feedback">El campo es requerido.</div>
             </div>
 
             <div class="col-6">
-              <label for="uname">STATUS:</label>
-              <select name="idStatus" required>
-                <option value="0">Volvo</option>
-                <option value="1">Saab</option>
-                <option value="2">Fiat</option>
-                <option value="3">Audi</option>
-              </select>
+              <label for="pwd">APELLIDO MATERNO:</label>
+              <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: contreras" name="apellMa" required>
               <div class="valid-feedback">Correcto.</div>
               <div class="invalid-feedback">El campo es requerido.</div>
             </div>
@@ -106,15 +96,15 @@
         <div class="row pt-4">
 
           <div class="col-6">
-            <label for="pwd">NUMERO DE REMISION:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 1547" name="numeroRemision" required>
+            <label for="pwd">CIUDAD:</label>
+            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: Toluca" name="ciudad" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-6">
-            <label for="pwd">COMISION CONCEDIDA:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 147" name="comisionCedida" required>
+            <label for="pwd">RFC:</label>
+            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: 147" name="rfc" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -127,22 +117,22 @@
         <div class="row pt-4">
 
           <div class="col-sm-4">
-            <label for="pwd">GASTOS DE EXPEDICION:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="gastosExpedicion" required>
+            <label for="pwd">COLONIA:</label>
+            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="colonia" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-sm-4">
-            <label for="pwd">DESDE:</label>
-            <input type="date" class="form-control" id="pwd" placeholder="Enter password" name="fechaDesde" required>
+            <label for="pwd">CALLE:</label>
+            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: Av. Dependencia" name="calle" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-sm-4">
-            <label for="pwd">HASTA:</label>
-            <input type="date" class="form-control" id="pwd" placeholder="Enter password" name="fechaHasta" required>
+            <label for="pwd">CODIGO POSTAL:</label>
+            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 50100" name="cp" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -152,8 +142,8 @@
       <div class="row pt-4">
 
           <div class="col-12">
-            <label for="pwd">FINANCIAMIENTO:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="financiamiento" required>
+            <label for="pwd">TIPO:</label>
+            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: afore" name="tipo" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -164,15 +154,15 @@
 
 <div class="row pt-4">
         <div class="col-6">
-        <label for="pwd">PRIMA TOTAL:</label>
-        <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $20.00" name="primaTotal" required>
+        <label for="pwd">NUMEROS:</label>
+        <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 2000" name="numeros" required>
         <div class="valid-feedback">Correcto.</div>
         <div class="invalid-feedback">El campo es requerido.</div>
         </div>
 
         <div class="col-6">
-        <label for="pwd">CLAVE CLIENTE:</label>
-        <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: USR4325" name="clave" required>
+        <label for="pwd">TELEFONO CELULAR:</label>
+        <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 7291586478" name="tel" required>
         <div class="valid-feedback">Correcto.</div>
         <div class="invalid-feedback">El campo es requerido.</div>
         </div>
@@ -220,7 +210,7 @@
 
 
   <asset:javascript src="application.js" />
-  <asset:javascript src="poliza.js" />
+  <asset:javascript src="cliente.js" />
 </body>
 
 </html>
