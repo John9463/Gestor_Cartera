@@ -1,18 +1,41 @@
 package gestorcartera
 
-class PolizaController {
+import wallet.trans.crud.PolizaService
 
+class PolizaController {
+    static responseFormats = ['json']
+
+    PolizaService polizaService
 
     def index(){
-        render view:'poliza'
+            def list = polizaService.list()
+            if(list.isEmpty())
+                render view: 'poliza'
+            else
+                render view: 'poliza', model:[polizas: list]
     }
 
-//    def save(){
-//        if ( polizaService.save( params ))
-//            render "<h1>La poliza fue guardada exitosamente</h1> <br> <a href=\"/index\"> Regresar </a>"
-//        else
-//            redirect view: 'poliza', model: []
-//    }
+    def save(){
+        def poliza = polizaService.save(params)
+        if( poliza )
+            render poliza
+        else
+            redirect action: 'index'
+    }
+
+
+    def update(){
+        render polizaService.update( params )
+    }
+
+    def getPoliza(){
+        response << polizaService.get(request.JSON.id)
+    }
+
+    def delete(){
+        response << polizaService.delete(request.JSsON.id)
+    }
+
 
 
 

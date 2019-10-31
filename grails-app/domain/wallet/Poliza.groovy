@@ -1,11 +1,11 @@
 package wallet
 
 import grails.compiler.GrailsCompileStatic
+import groovy.transform.ToString
 import org.grails.datastore.gorm.GormEntity
 
-import java.sql.Date
-
 @GrailsCompileStatic
+@ToString
 class Poliza implements GormEntity<Poliza>{
 
     long idPoliza
@@ -20,8 +20,8 @@ class Poliza implements GormEntity<Poliza>{
     float comisionCedida
     String periodo
     int numeroRemision
-    Date fecha_desde
-    Date fecha_hasta
+    Date fechaDesde
+    Date fechaHasta
 
     static constraints = {
     }
