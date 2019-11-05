@@ -20,9 +20,11 @@
   <button id="add-mod" class="tablinks" onclick="openTab(event, 'Paris')" hidden>Crear Clientes</button>
 </div>
 
+<input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por nombre.." title="Type in a name">
+
 <div id="London" class="tabcontent">
   <button onclick="show('add')"><i class="far fa-plus-square">Crear Cliente</i></button>
-  <table class="table table-striped">
+  <table id="clientes-table" class="table table-striped">
     <thead>
       <tr>
         <th>Cliente</th>

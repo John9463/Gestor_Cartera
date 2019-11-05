@@ -20,9 +20,11 @@
   <button id="add-mod" class="tablinks" onclick="openTab(event, 'Paris')" hidden>Crear Poliza</button>
 </div>
 
+<input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por clave.." title="Type in a name">
+
 <div id="London" class="tabcontent">
   <button onclick="show('add')"><i class="far fa-plus-square">Crear Poliza</i></button>
-  <table class="table table-striped">
+  <table id="polizas-table" class="table table-striped">
     <thead>
       <tr>
         <th>Poliza</th>
@@ -33,15 +35,17 @@
       </tr>
     </thead>
     <g:each var="poliza" in="${ polizas }">
-    <tbody>
-      <tr>
-        <td>${poliza.id}</td>
-        <td>${poliza.clave}</td>
-        <td>${poliza.fechaDesde}</td>
-        <td>${poliza.fechaHasta}</td>
-        <td><button onclick="edit(${poliza.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${poliza.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
-      </tr>
-    </tbody>
+
+        <tbody>
+          <tr>
+            <td>${poliza.id}</td>
+            <td>${poliza.clave}</td>
+            <td>${poliza.fechaDesde}</td>
+            <td>${poliza.fechaHasta}</td>
+            <td><button onclick="edit(${poliza.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${poliza.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
+          </tr>
+        </tbody>
+  
     </g:each>
   </table>
 </div>
