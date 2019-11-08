@@ -8,11 +8,11 @@ class PolizaController {
     PolizaService polizaService
 
     def index(){
-            def list = polizaService.list()
-            if(list.isEmpty())
+            def polizas = polizaService.list()
+            if(polizas.isEmpty())
                 render view: 'poliza'
             else
-                render view: 'poliza', model:[polizas: list]
+                render view: 'poliza', model:[polizas: polizas]
     }
 
     def save(){
@@ -23,7 +23,6 @@ class PolizaController {
             redirect action: 'index'
     }
 
-
     def update(){
         render polizaService.update( params )
     }
@@ -33,7 +32,7 @@ class PolizaController {
     }
 
     def delete(){
-        response << polizaService.delete(request.JSsON.id)
+        response << polizaService.delete(request.JSON.id)
     }
 
 

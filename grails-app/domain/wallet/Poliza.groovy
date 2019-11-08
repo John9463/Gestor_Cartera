@@ -8,20 +8,26 @@ import org.grails.datastore.gorm.GormEntity
 @ToString
 class Poliza implements GormEntity<Poliza>{
 
-    long idPoliza
-    long idSeguro
-    long idCliente
-    long idRamo
-    long idStatus
+    static belongsTo = [cliente:Cliente]
+
+    static hasOne = [
+            ramo: Ramo
+    ]
+
+    static hasMany = [recibosPago: ReciboPago]
+
+    StatusPoliza status
+
+    Periodos periodo
+    Seguro seguro
     long primaTotal
     String clave
     float gastosExpedicion
     float financiamiento
     float comisionCedida
-    String periodo
     int numeroRemision
     Date fechaDesde
-    Date fechaHasta
+    Date fechaExpicion
 
     static constraints = {
     }

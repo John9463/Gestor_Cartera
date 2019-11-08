@@ -4,7 +4,8 @@ import org.grails.datastore.gorm.GormEntity
 
 class TipoSeguro implements GormEntity<TipoSeguro>{
 
-    long idTipoSeguro
+    static belongTo = [ seguro: Seguro ]
+
     String nombre
 
 }

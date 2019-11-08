@@ -7,9 +7,9 @@ import java.sql.Date
 @GrailsCompileStatic
 class ReciboPago implements GormEntity<ReciboPago>{
 
-    long idRecibo
-    long idCliente
-    long idPoliza
+    static belongsTo = [poliza: Poliza]
+
+    String numRecibo
     float monto
     int numeroPeriodoPago
     Date fechaPago

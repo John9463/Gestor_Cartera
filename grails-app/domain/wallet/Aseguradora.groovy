@@ -4,7 +4,12 @@ import org.grails.datastore.gorm.GormEntity
 
 class Aseguradora implements GormEntity<Aseguradora>{
 
-    int idAseguradora
+    static hasMany = [seguros: Seguro]
+
     String nombre
+
+    static constrains = {
+        version false
+    }
 
 }

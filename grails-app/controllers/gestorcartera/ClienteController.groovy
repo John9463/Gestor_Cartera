@@ -8,11 +8,11 @@ class ClienteController {
     ClientsService clientsService
 
     def index(){
-        def list = clientsService.list()
-        if(list.isEmpty())
+        def clientes = clientsService.list()
+        if(clientes.isEmpty())
             render view: 'cliente'
         else
-            render view: 'cliente', model:[clientes: list]
+            render view: 'cliente', model:[clientes: clientes]
     }
 
     def save(){
