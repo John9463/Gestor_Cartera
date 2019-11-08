@@ -1,6 +1,10 @@
 package wallet
 
-class Usuario {
+import groovy.transform.ToString
+import org.grails.datastore.gorm.GormEntity
+
+@ToString
+class Usuario implements GormEntity <Usuario>{
 
     String username
     String password
