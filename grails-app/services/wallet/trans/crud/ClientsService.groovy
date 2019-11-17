@@ -39,8 +39,7 @@ class ClientsService{
     }
 
     def get(int id){
-        def cliente = Cliente.get(id)
-        new JsonBuilder(cliente.properties).toPrettyString()
+        Cliente.get(id)
     }
 
     def delete(int id){
@@ -51,6 +50,10 @@ class ClientsService{
         }catch(Exception ex){
             false
         }
+    }
+
+    boolean exist(int id) {
+        Cliente.list().find { it.ident() == id }
     }
 
 }

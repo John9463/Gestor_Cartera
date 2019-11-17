@@ -6,10 +6,14 @@ class Asesor {
 
     String homoclave
 
-    TipoAsesor asesor
+    String tipoAsesor
 
     boolean isAdmin
 
     static hasMany = [clientes: Cliente]
+
+    static mapping = {
+        version false
+    }
 
 }

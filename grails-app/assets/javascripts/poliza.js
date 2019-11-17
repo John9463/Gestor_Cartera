@@ -1,22 +1,77 @@
 
 document.getElementById("defaultOpen").click();
-document.title = "Gestor Cartera - Polizas"
-var keys = ["numeroRemision"
-,"idPoliza"
-,"fechaDesde"
-,"idSeguro"
-,"financiamiento"
-,"periodo"
-,"idStatus"
-,"idCliente"
-,"comisionCedida"
-,"primaTotal"
-,"idRamo"
-,"gastosExpedicion"
-,"fechaHasta"
-,"clave"]
 
 var superid
+
+var keys = ["numeroRemision"
+,"fechaDesde"
+,"seguro"
+,"financiamiento"
+,"periodo"
+,"status"
+,"cliente"
+,"comisionCedida"
+,"primaTotal"
+,"ramo"
+,"gastosExpedicion"
+,"fechaExpedicion"
+,"clave"
+]
+
+
+$('#form-poliza-source').validate({
+    rules:{
+        seguro: 'required',
+        cliente: {
+            required: true
+        },
+        periodo: "required",
+        ramo: "required",
+        status: "required",
+        numeroRemision: {
+            required: true,
+            minlength: 2,
+            maxlength: 4
+        },
+        comisionCedida:{
+             required: true,
+             minlength: 2,
+             maxlength: 4
+        },
+        gastosExpedicion:{
+             required: true,
+             minlength: 2,
+             maxlength: 4
+        }
+    },
+    messages:{
+        seguro:{
+            required: 'Es necesario ingresar un usuario existente'
+        },
+        cliente: {
+            required: 'Es necesario ingresar un cliente'
+        },
+        periodo: 'Seleccione un periodo de tiempo',
+        ramo: 'Seleccione un ramo',
+        status: 'Seleccione un status',
+        numeroRemision: {
+            required:'Campo es requerido',
+            minlength: "El campo no es valido",
+            maxlength: 'el campo es mayor a los permitidos'
+        },
+        comisionCedida: {
+            required: 'Campo es requerido',
+            minlength: 'El campo no es valido',
+            maxlength: 'El campo es mayor a los permitidos'
+        },
+        gastosExpedicion: {
+            required: 'Campo es requerido',
+            minlength: 'El campo no es valido',
+            maxlength: 'El campo es mayor a los permitidos'
+        }
+    }
+
+})
 
 function show(it){
      var tab = document.getElementById('add-mod')
@@ -40,7 +95,6 @@ function show(it){
 }
 
 function edit(id){
-
      let request = {
           method: 'POST',
           body : JSON.stringify({id: id})
@@ -51,11 +105,13 @@ function edit(id){
      .then( poliza => {
           for (let key in poliza){
                let input = $("[name='"+key+"']")
-          
-               if(key == 'fechaHasta' || key == 'fechaDesde'){
+
+               if(key == 'fechaDesde' || key == 'fechaExpedicion'){
                     let d = poliza[key]
                     let date = d.substring(0,10)
                     input.val(date)
+               }else if(key === 'cliente'){
+                   input.val(poliza.cliente.id)
                }else{
                     input.val(poliza[key])
                }
@@ -114,3 +170,5 @@ function filter() {
        }       
      }
    }
+
+

@@ -1,6 +1,7 @@
 package gestorcartera
 
 import wallet.trans.crud.ClientsService
+import worker.Util
 
 class ClienteController {
     static responseFormats = ['json']
@@ -10,9 +11,9 @@ class ClienteController {
     def index(){
         def clientes = clientsService.list()
         if(clientes.isEmpty())
-            render view: 'cliente'
+            render view: 'cliente', model: Util.getUtilitiesCliente()
         else
-            render view: 'cliente', model:[clientes: clientes]
+            render view: 'cliente', model: [clientes: clientes] + Util.getUtilitiesCliente()
     }
 
     def save(){
@@ -29,11 +30,15 @@ class ClienteController {
     }
 
     def getCliente(){
-        response << clientsService.get(request.JSON.id)
+        respond clientsService.get(request.JSON.id)
     }
 
     def delete(){
         response << clientsService.delete(request.JSON.id)
+    }
+
+    def exist(int idCliente) {
+        respond clientsService.exist(idCliente)
     }
 
 }

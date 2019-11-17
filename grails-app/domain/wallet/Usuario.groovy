@@ -1,9 +1,11 @@
 package wallet
 
+import grails.compiler.GrailsCompileStatic
 import groovy.transform.ToString
 import org.grails.datastore.gorm.GormEntity
 
 @ToString
+@GrailsCompileStatic
 class Usuario implements GormEntity <Usuario>{
 
     String username
@@ -22,6 +24,8 @@ class Usuario implements GormEntity <Usuario>{
     String noCasa
     long tel
 
-
+    static mapping = {
+        version: false
+    }
 
 }

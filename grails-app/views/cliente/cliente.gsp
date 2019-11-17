@@ -38,9 +38,9 @@
     <tbody>
       <tr>
         <td>${cliente.id}</td>
-        <td>${cliente.nombre}</td>
-        <td>${cliente.correo}</td>
-        <td>${cliente.ciudad}</td>
+        <td>${cliente.usuario.nombre}</td>
+        <td>${cliente.usuario.correo}</td>
+        <td>${cliente.usuario.ciudad}</td>
         <td><button onclick="edit(${cliente.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${cliente.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
       </tr>
     </tbody>

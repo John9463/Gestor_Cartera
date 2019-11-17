@@ -1,14 +1,18 @@
 package wallet
 
+import grails.compiler.GrailsCompileStatic
+import groovy.transform.ToString
 import org.grails.datastore.gorm.GormEntity
 
+@ToString
+@GrailsCompileStatic
 class Automovil implements GormEntity<Automovil>{
 
     static belongsTo = [
-            cliente:Cliente,
-            seguro:Seguro
+            cliente: Cliente
     ]
 
+    Seguro seguro
     String nombre
     int modelo
     String tipo
@@ -17,4 +21,7 @@ class Automovil implements GormEntity<Automovil>{
     long num_serie
     long num_motor
 
+    static mapping = {
+        version: false
+    }
 }

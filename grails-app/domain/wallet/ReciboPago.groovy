@@ -1,10 +1,9 @@
 package wallet
 
-import grails.compiler.GrailsCompileStatic
+import groovy.transform.ToString
 import org.grails.datastore.gorm.GormEntity
-import java.sql.Date
 
-@GrailsCompileStatic
+@ToString
 class ReciboPago implements GormEntity<ReciboPago>{
 
     static belongsTo = [poliza: Poliza]
@@ -13,9 +12,10 @@ class ReciboPago implements GormEntity<ReciboPago>{
     float monto
     int numeroPeriodoPago
     Date fechaPago
-    String status_pago
+    String statusPago
 
-    static constraints = {
+    static mapping = {
+        version false
     }
 
 }

@@ -41,7 +41,7 @@
             <td>${poliza.id}</td>
             <td>${poliza.clave}</td>
             <td>${poliza.fechaDesde}</td>
-            <td>${poliza.fechaHasta}</td>
+            <td>${poliza.fechaExpedicion}</td>
             <td><button onclick="edit(${poliza.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${poliza.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
           </tr>
         </tbody>
@@ -51,28 +51,42 @@
 </div>
 
 <div id="Paris" class="tabcontent">
-  <g:form controller="poliza" action="save" class="was-validated" name="form-poliza">
-
+  <g:form controller="poliza" action="save" class="was-validated" id="form-poliza" name="form-poliza">
+    <form id="form-poliza-source">
       <div class="form-group">
         <div class="row pt-4">
 
           <div class="col-4">
             <label for="uname">ID SEGURO:</label>
-            <input type="number" class="form-control" id="uname" placeholder="Ejemplo: 1520" name="idSeguro" maxlenght="5" required>
+            <select name="seguro" name="seguro" required >
+                <option selected>Seleccione un Seguro</option>
+              <g:each var="aseguradora" in="${ aseguradoras }">
+                  <optgroup label="${ aseguradora.name }">
+                    <g:each var="seguro" in="${aseguradora.seguros}">
+                        <option value="${seguro.id}">${seguro.nombre}</option>
+                    </g:each>
+                  </optgroup>
+              </g:each>
+            </select>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-4">
             <label for="uname">ID CLIENTE:</label>
-            <input type="number" class="form-control" id="uname" placeholder="Ejemplo: 1020" name="idCliente" required>
+            <input type="number" class="form-control" placeholder="Ejemplo: 1020" name="cliente" id="cliente_id" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-4">
             <label for="pwd">PERIODO:</label>
-            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: 12/02/1997" name="periodo" required>
+            <select height="30px" name="periodo" required>
+                <option selected>Seleccione un periodo</option>
+                <g:each var="periodo" in="${periodos}">
+                    <option>${periodo}</option>
+                </g:each>
+              </select>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -81,11 +95,11 @@
         <div class="row pt-4">
           <div class="col-6">
               <label for="uname">RAMO:</label>
-              <select height="30px" name="idRamo" required>
-                <option value="5">Volvo</option>
-                <option value="6">Saab</option>
-                <option value="7">Fiat</option>
-                <option value="8">Audi</option>
+              <select height="30px" name="ramo" required>
+                <option selected>Seleccione un ramo</option>
+                <g:each var="ramo" in="${ramos}">
+                    <option>${ramo}</option>
+                </g:each>
               </select>
               <div class="valid-feedback">Correcto.</div>
               <div class="invalid-feedback">El campo es requerido.</div>
@@ -93,11 +107,11 @@
 
             <div class="col-6">
               <label for="uname">STATUS:</label>
-              <select name="idStatus" required>
-                <option value="0">Volvo</option>
-                <option value="1">Saab</option>
-                <option value="2">Fiat</option>
-                <option value="3">Audi</option>
+              <select name="status" required>
+                <option selected>Seleccione un status</option>
+                <g:each var="st" in="${status}">
+                    <option>${st}</option>
+                </g:each>
               </select>
               <div class="valid-feedback">Correcto.</div>
               <div class="invalid-feedback">El campo es requerido.</div>
@@ -124,9 +138,9 @@
           </div>
 
         </div>
-     
 
-      
+
+
      
         <div class="row pt-4">
 
@@ -145,8 +159,8 @@
           </div>
 
           <div class="col-sm-4">
-            <label for="pwd">HASTA:</label>
-            <input type="date" class="form-control" id="pwd" placeholder="Enter password" name="fechaHasta" required>
+            <label for="pwd">Expedicion:</label>
+            <input type="date" class="form-control" id="pwd" placeholder="Enter password" name="fechaExpedicion" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -188,6 +202,7 @@
      </div>
       </div>
       </div>
+  </form>
 </g:form>
 
 

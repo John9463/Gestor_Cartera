@@ -10,12 +10,12 @@
 //= require popper.min
 //= require perfect-scrollbar.jquery.min
 // --Chart JS
-//= require chartjs.min
+//= require chartjs.mins
 //-- Notifications Plugin
 //= require bootstrap-notify
+//= require jquery.validate
 //----------
 //= require paper-dashboard.min
-//= require file
 //= require_self
 
 
@@ -32,4 +32,14 @@ function openTab(evt, cityName) {
      }
      document.getElementById(cityName).style.display = "block";
      evt.currentTarget.className += " active";
-   }
+}
+
+function checkId(event){
+    let model = event.target.name
+    let id = event.target.value
+    fetch(`${model}/check/${id}`,request)
+    .then( response => response.json() )
+    .then( json => {
+         alert(json)
+    }).catch((err) => alert("Problems in server" + err) );
+}

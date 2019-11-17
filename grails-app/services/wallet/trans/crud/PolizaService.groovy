@@ -2,7 +2,10 @@ package wallet.trans.crud
 
 import grails.gorm.transactions.Transactional
 import groovy.json.JsonBuilder
+import wallet.Cliente
 import wallet.Poliza
+import wallet.Seguro
+
 import java.text.SimpleDateFormat
 
 @Transactional
@@ -14,8 +17,8 @@ class PolizaService {
     }
 
     def save(def params){
-        params << [idPoliza: 5]
-        new Poliza(params).save()
+        def poliza = new Poliza(params)
+        poliza.save()
     }
 
     def update(def params){
@@ -38,12 +41,11 @@ class PolizaService {
         poliza.save(flush: true)
     }
 
-    def get(int id){
-        def poliza = Poliza.get(id)
-        def out = new JsonBuilder(poliza.properties).toPrettyString()
+    Poliza get(int id) {
+        Poliza.get(id)
     }
 
-    def delete(int id){
+    boolean delete(int id) {
         try{
             def del = Poliza.get(id)
             del.delete()

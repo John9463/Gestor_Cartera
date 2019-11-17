@@ -16,22 +16,22 @@
 <p>Click on the buttons inside the tabbed menu:</p> --%>
 
 <div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'London')" id="defaultOpen">Lista Poliza</button>
-  <button id="add-mod" class="tablinks" onclick="openTab(event, 'Paris')" hidden>Crear Poliza</button>
+  <button class="tablinks" onclick="openTab(event, 'London')" id="defaultOpen">Lista Seguro</button>
+  <button id="add-mod" class="tablinks" onclick="openTab(event, 'Paris')" hidden>Crear Seguro</button>
 </div>
 
 <input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por clave.." title="Type in a name">
 
 <div id="London" class="tabcontent">
-  <button onclick="show('add')"><i class="far fa-plus-square">Crear Poliza</i></button>
-  <table id="polizas-table" class="table table-striped">
+  <button onclick="show('add')"><i class="far fa-plus-square">Crear Seguro</i></button>
+  <table id="seguro-table" class="table table-striped">
     <thead>
       <tr>
-        <th>Poliza</th>
-        <th>Clave Cliente</th>
-        <th>Desde</th>
-        <th>Hasta</th>
-        <th>Acciones</th>
+        <th>Id Seguro:</th>
+        <th>Nombre</th>
+        <th>Aseguradora</th>
+        <th>Cobertura</th>
+        <th>sumaAsegurada</th>
       </tr>
     </thead>
     <g:each var="seguro" in="${ seguros }">
@@ -39,10 +39,11 @@
         <tbody>
           <tr>
             <td>${seguro.id}</td>
-            <td>${seguro.clave}</td>
-            <td>${seguro.fechaDesde}</td>
-            <td>${seguro.fechaHasta}</td>
-            <td><button onclick="edit(${poliza.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${poliza.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
+            <td>${seguro.nombre}</td>
+            <td>${seguro.aseguradora}</td>
+            <td>${seguro.cobertura}</td>
+            <td>${seguro.sumaAsegurada}</td>
+            <td><button onclick="edit(${seguro.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${seguro.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
           </tr>
         </tbody>
   
@@ -51,7 +52,7 @@
 </div>
 
 <div id="Paris" class="tabcontent">
-  <g:form controller="poliza" action="save" class="was-validated" name="form-poliza">
+  <g:form controller="seguro" action="save" class="was-validated" name="form-seguro">
 
       <div class="form-group">
         <div class="row pt-4">
@@ -166,7 +167,7 @@
 
         </div>
 
-<div class="row pt-4">
+        <div class="row pt-4">
         <div class="col-6">
         <label for="pwd">PRIMA TOTAL:</label>
         <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $20.00" name="primaTotal" required>

@@ -4,9 +4,8 @@ import grails.compiler.GrailsCompileStatic
 import groovy.transform.ToString
 import org.grails.datastore.gorm.GormEntity
 
-
-@GrailsCompileStatic
 @ToString
+@GrailsCompileStatic
 class Cliente implements GormEntity<Cliente>{
 
     static hasMany = [
@@ -20,10 +19,8 @@ class Cliente implements GormEntity<Cliente>{
 
     boolean isIntegral
 
-    static constraints = {
+    static mapping = {
+        version: false
     }
-
-
-
 
 }

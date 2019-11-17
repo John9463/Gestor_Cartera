@@ -108,7 +108,7 @@ dataSource:
     jmxExport: true
     driverClassName: com.mysql.cj.jdbc.Driver
     dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-    username: aldo
+    username: dev
     password: 'password'
 
 environments:

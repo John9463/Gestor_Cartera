@@ -33,4 +33,8 @@ class SeguroController {
         response << seguroService.delete(request.JSON.id)
     }
 
+    def exist(int idSeguro) {
+        respond seguroService.exist(idSeguro)
+    }
+
 }
