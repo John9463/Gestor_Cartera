@@ -24,7 +24,7 @@
 
 <div id="London" class="tabcontent">
   <button onclick="show('add')"><i class="far fa-plus-square">Crear Cliente</i></button>
-  <table id="clientes-table" class="table table-striped">
+  <table id="table" class="table table-striped">
     <thead>
       <tr>
         <th>Cliente</th>
@@ -145,7 +145,19 @@
 
           <div class="col-12">
             <label for="pwd">TIPO:</label>
-            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: afore" name="tipo" required>
+            <select name="tipo">
+                <option>Seleccione un tipo</option>
+              <g:each var="tipo" in="${tipos}">
+                <option>${tipo}</option>
+              </g:each>
+            </select>
+            <div class="valid-feedback">Correcto.</div>
+            <div class="invalid-feedback">El campo es requerido.</div>
+          </div>
+
+             <div class="col-12">
+            <label for="pwd">Clave de Usuario:</label>
+            <input type="text" class="form-control" name="clave" required />
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -156,8 +168,8 @@
 
 <div class="row pt-4">
         <div class="col-6">
-        <label for="pwd">NUMEROS:</label>
-        <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 2000" name="numeros" required>
+        <label for="pwd">NO. CASA:</label>
+        <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 2000" name="noCasa" required>
         <div class="valid-feedback">Correcto.</div>
         <div class="invalid-feedback">El campo es requerido.</div>
         </div>
@@ -168,8 +180,37 @@
         <div class="valid-feedback">Correcto.</div>
         <div class="invalid-feedback">El campo es requerido.</div>
         </div>
-   
-      <div class="col-12 pt-4">
+   <div>
+    
+    <div class="row pt-4">
+        <div class="col-4">
+        <label for="pwd">Username:</label>
+        <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: 2000" name="username" required>
+        <div class="valid-feedback">Correcto.</div>
+        <div class="invalid-feedback">El campo es requerido.</div>
+        </div>
+
+        <div class="col-4">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Ejemplo: 7291586478" name="password" required>
+        <div class="valid-feedback">Correcto.</div>
+        <div class="invalid-feedback">El campo es requerido.</div>
+        </div>
+
+        <div class="col-6">
+        <label for="pwd">Confirmacion Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Ejemplo: 7291586478" name="passwordConfirm" required>
+        <div class="valid-feedback">Correcto.</div>
+        <div class="invalid-feedback">El campo es requerido.</div>
+        </div>
+   <div>
+
+        <div class="col-6">
+        <label for="pwd">Es un usuario integral:</label>
+        <input type="checkbox" class="form-control" id="pwd" placeholder="Ejemplo: 7291586478" name="isIntegral">
+        <div class="valid-feedback">Correcto.</div>
+        <div class="invalid-feedback">El campo es requerido.</div>
+        </div>
 
       
     <button type="submit" class="btn btn-primary">Guardar</button>

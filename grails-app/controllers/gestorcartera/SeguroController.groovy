@@ -1,6 +1,7 @@
 package gestorcartera
 
 import wallet.trans.crud.SeguroService
+import worker.Util
 
 class SeguroController {
 
@@ -8,11 +9,12 @@ class SeguroController {
 
     def index() {
         def seguros = seguroService.list()
+        def defaultModel = Util.getModelSeguro()
 
         if(seguros.isEmpty()){
-            render view: 'seguro'
+            render view: 'seguro', model:
         }else{
-            render view: 'seguro', model:[seguros: seguros]
+            render view: 'seguro', model: [seguros: seguros] + [aseguradoras: Util.getUtilitiesClassSeguro().getAseguradoras()]
         }
 
     }

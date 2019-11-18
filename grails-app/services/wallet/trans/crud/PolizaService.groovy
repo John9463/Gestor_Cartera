@@ -22,22 +22,7 @@ class PolizaService {
     }
 
     def update(def params){
-        def poliza = Poliza.get(params.id)
-
-        poliza.idCliente = params.idCliente as long
-        poliza.idSeguro = params.idSeguro as long
-        poliza.idRamo = params.idRamo as long
-        poliza.idStatus = params.idStatus as long
-        poliza.primaTotal = params.primaTotal as long
-        poliza.clave = params.clave
-        poliza.gastosExpedicion = params.gastosExpedicion as float
-        poliza.financiamiento = params.financiamiento as float
-        poliza.comisionCedida = params.comisionCedida as float
-        poliza.numeroRemision = params.numeroRemision as int
-        poliza.periodo = params.periodo
-        poliza.fechaDesde = new SimpleDateFormat('dd-MM-YYYY').parse(params.fechaDesde)
-        poliza.fechaHasta = new SimpleDateFormat('dd-MM-YYYY').parse(params.fechaHasta)
-
+        def poliza = Poliza.get(params)
         poliza.save(flush: true)
     }
 

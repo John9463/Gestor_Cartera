@@ -24,7 +24,7 @@
 
 <div id="London" class="tabcontent">
   <button onclick="show('add')"><i class="far fa-plus-square">Crear Seguro</i></button>
-  <table id="seguro-table" class="table table-striped">
+  <table id="table" class="table table-striped">
     <thead>
       <tr>
         <th>Id Seguro:</th>
@@ -43,7 +43,7 @@
             <td>${seguro.aseguradora}</td>
             <td>${seguro.cobertura}</td>
             <td>${seguro.sumaAsegurada}</td>
-            <td><button onclick="edit(${seguro.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${seguro.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
+          <td><button onclick="edit(${seguro.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${seguro.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
           </tr>
         </tbody>
   
@@ -58,48 +58,48 @@
         <div class="row pt-4">
 
           <div class="col-4">
-            <label for="uname">ID SEGURO:</label>
-            <input type="number" class="form-control" id="uname" placeholder="Ejemplo: 1520" name="idSeguro" maxlenght="5" required>
+            <label for="uname">Nombre:</label>
+            <input type="number" class="form-control" placeholder="Ejemplo: 1520" name="nombre" maxlenght="5" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-4">
-            <label for="uname">ID CLIENTE:</label>
-            <input type="number" class="form-control" id="uname" placeholder="Ejemplo: 1020" name="idCliente" required>
+            <label for="uname">Aseguradora:</label>
+              <select name="aseguradora" required>
+                <option selected>Selecciona una Aseguradora</option>
+                <g:each var="aseguradora" in="${aseguradoras}">
+                  <option>${aseguradora}</option>
+                </g:each>
+              </select>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-4">
-            <label for="pwd">PERIODO:</label>
-            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: 12/02/1997" name="periodo" required>
+            <label for="pwd">Tipo:</label>
+            <select name="tipo" required>
+                <option selected>Selecciona un Tipo</option>
+                <g:each var="tipo" in="${tipos}">
+                  <option >${tipo}</option>
+                </g:each>
+              </select>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
+          </div>  
 
         </div>
         <div class="row pt-4">
           <div class="col-6">
-              <label for="uname">RAMO:</label>
-              <select height="30px" name="idRamo" required>
-                <option value="5">Volvo</option>
-                <option value="6">Saab</option>
-                <option value="7">Fiat</option>
-                <option value="8">Audi</option>
-              </select>
+              <label for="uname">Valor Seguro:</label>
+               <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 1547" name="valorSeguro " required>
               <div class="valid-feedback">Correcto.</div>
               <div class="invalid-feedback">El campo es requerido.</div>
             </div>
 
             <div class="col-6">
-              <label for="uname">STATUS:</label>
-              <select name="idStatus" required>
-                <option value="0">Volvo</option>
-                <option value="1">Saab</option>
-                <option value="2">Fiat</option>
-                <option value="3">Audi</option>
-              </select>
+              <label for="uname">Emisor:</label>
+               <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 1547" name="emisor" required>
               <div class="valid-feedback">Correcto.</div>
               <div class="invalid-feedback">El campo es requerido.</div>
             </div>
@@ -111,15 +111,20 @@
         <div class="row pt-4">
 
           <div class="col-6">
-            <label for="pwd">NUMERO DE REMISION:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 1547" name="numeroRemision" required>
+            <label for="pwd">Renovacion:</label>
+            <input type="date" class="form-control" id="pwd" placeholder="Ejemplo: 1547" name="renovacion" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-6">
-            <label for="pwd">COMISION CONCEDIDA:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 147" name="comisionCedida" required>
+            <label for="pwd">Cobertura:</label>
+            <select name="cobertura" required>
+                <option></option>
+                <g:each var="cobertura" in="${coberturas}">
+                  <option >${cobertura}</option>
+                </g:each>
+              </select>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -132,66 +137,28 @@
         <div class="row pt-4">
 
           <div class="col-sm-4">
-            <label for="pwd">GASTOS DE EXPEDICION:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="gastosExpedicion" required>
+            <label for="pwd">Suma Asegurada:</label>
+            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="sumaAsegurada" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-sm-4">
-            <label for="pwd">DESDE:</label>
-            <input type="date" class="form-control" id="pwd" placeholder="Enter password" name="fechaDesde" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-          <div class="col-sm-4">
-            <label for="pwd">HASTA:</label>
-            <input type="date" class="form-control" id="pwd" placeholder="Enter password" name="fechaHasta" required>
+            <label for="pwd">Prima Neta:</label>
+            <input type="number" class="form-control" placeholder="" name="primaNeta" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
         </div>
      
-      <div class="row pt-4">
-
-          <div class="col-12">
-            <label for="pwd">FINANCIAMIENTO:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="financiamiento" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-        <input type="number" class="form-control" id="id" name="id" hidden>
-
-        </div>
-
-        <div class="row pt-4">
-        <div class="col-6">
-        <label for="pwd">PRIMA TOTAL:</label>
-        <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $20.00" name="primaTotal" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
-        </div>
-
-        <div class="col-6">
-        <label for="pwd">CLAVE CLIENTE:</label>
-        <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: USR4325" name="clave" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
-        </div>
-   
-      <div class="col-12 pt-4">
-
       
     <button type="submit" class="btn btn-primary">Guardar</button>
      </div>
       </div>
       </div>
 </g:form>
-
-
+</div>
 
 
 <!-- The Modal -->
@@ -201,13 +168,13 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Confirmacion Baja de Poliza</h4>
+        <h4 class="modal-title">Confirmacion Baja de Seguro</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        <b>¿Estas seguro que deseas eliminar la poliza?</b>
+        <b>¿Estas seguro que deseas eliminar la seguro?</b>
         <br>
         <span>Esta accion no puede deshacerse una vez ejecutada. </span>
       </div>

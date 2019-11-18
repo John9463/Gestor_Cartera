@@ -4,9 +4,8 @@ import grails.compiler.GrailsCompileStatic
 import groovy.transform.ToString
 import org.grails.datastore.gorm.GormEntity
 
-
-@ToString
 @GrailsCompileStatic
+@ToString
 class Poliza implements GormEntity<Poliza>{
 
     static hasMany = [recibosPago: ReciboPago]

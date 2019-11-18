@@ -10,10 +10,12 @@ class ClienteController {
 
     def index(){
         def clientes = clientsService.list()
+        def defaultModel = Util.getModelCliente()
+
         if(clientes.isEmpty())
-            render view: 'cliente', model: Util.getUtilitiesCliente()
+            render view: 'cliente', model: defaultModel
         else
-            render view: 'cliente', model: [clientes: clientes] + Util.getUtilitiesCliente()
+            render view: 'cliente', model: [clientes: clientes] + defaultModel
     }
 
     def save(){
@@ -29,16 +31,17 @@ class ClienteController {
         render clientsService.update( params )
     }
 
-    def getCliente(){
-        respond clientsService.get(request.JSON.id)
+    def get(int id) {
+        respond clientsService.get(id)
     }
 
     def delete(){
-        response << clientsService.delete(request.JSON.id)
+        respond clientsService.delete(request.JSON.id)
     }
 
     def exist(int idCliente) {
         respond clientsService.exist(idCliente)
     }
+
 
 }

@@ -10,8 +10,11 @@ class UrlMappings {
         }
 
         "/"(view:"/login/login")
-        "/seguro/check/$idPoliza"(controller: 'seguro', action: 'exist')
-        "/cliente/check/$idCliente"(controller: 'cliente', action: 'exist')
+        "/poliza/get/$id"(controller: poliza, action: 'get')
+        "/poliza/delete/$id"(controller: poliza, action: 'delete')
+        "/cliente/get/$id"(controller: cliente, action: 'get')
+        "/seguro/check/$id"(controller: 'seguro', action: 'exist')
+        "/cliente/check/$id"(controller: 'cliente', action: 'exist')
         "500"(view:'/error')
         "404"(view:'/notFound')
     }

@@ -7,7 +7,7 @@ import wallet.Seguro
 class SeguroService {
 
     boolean exist(int id) {
-        Seguro.list().find { it.ident() == id }
+        Seguro.exists(id)
     }
 
     def get(int id){
@@ -24,10 +24,8 @@ class SeguroService {
         Seguro.list()
     }
 
-    Map getAseguradoras() {
-        def seguros = Seguro.list()
-        def aseguradoras = seguros.groupBy { it.aseguradora }.collect { new Aseguradora(it) }
-        return [aseguradoras: aseguradoras]
+    ArrayList<Aseguradora> getAseguradoras() {
+        list().groupBy { it.aseguradora }.collect { new Aseguradora(it) }
     }
 
     private class Aseguradora {

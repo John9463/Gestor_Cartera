@@ -24,7 +24,7 @@
 
 <div id="London" class="tabcontent">
   <button onclick="show('add')"><i class="far fa-plus-square">Crear Poliza</i></button>
-  <table id="polizas-table" class="table table-striped">
+  <table id="table" class="table table-striped">
     <thead>
       <tr>
         <th>Poliza</th>
@@ -51,14 +51,13 @@
 </div>
 
 <div id="Paris" class="tabcontent">
-  <g:form controller="poliza" action="save" class="was-validated" id="form-poliza" name="form-poliza">
-    <form id="form-poliza-source">
+  <g:form controller="poliza" action="save" class="was-validated" name="form-poliza">
       <div class="form-group">
         <div class="row pt-4">
 
           <div class="col-4">
             <label for="uname">ID SEGURO:</label>
-            <select name="seguro" name="seguro" required >
+            <select name="seguro" required >
                 <option selected>Seleccione un Seguro</option>
               <g:each var="aseguradora" in="${ aseguradoras }">
                   <optgroup label="${ aseguradora.name }">
@@ -176,9 +175,8 @@
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
-        <input type="number" class="form-control" id="id" name="id" hidden>
-
-        </div>
+     
+      </div>
 
 <div class="row pt-4">
         <div class="col-6">
@@ -194,18 +192,18 @@
         <div class="valid-feedback">Correcto.</div>
         <div class="invalid-feedback">El campo es requerido.</div>
         </div>
-   
-      <div class="col-12 pt-4">
+</div>
 
-      
-    <button type="submit" class="btn btn-primary">Guardar</button>
+      <input type="number" class="form-control" id="id" name="id" hidden>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+     
      </div>
-      </div>
-      </div>
-  </form>
+    </div>
+    </div>
+      
 </g:form>
 
-
+</div>
 
 
 <!-- The Modal -->

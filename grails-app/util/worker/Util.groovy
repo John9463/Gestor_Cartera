@@ -6,32 +6,31 @@ class Util {
 
     static def utilities = [
 
-            poliza      : [
+            poliza : [
                     periodos: ["trimestral", "cuatrimestral", "semestral", "anual"],
                     ramos   : ["ramo1", "ramo2", "ramo3", "ramo4"],
                     status  : ["status1", "status2", "status3", "status4"]
             ],
 
-            aseguradoras: ["aseguradora1", "aseguradora2", "aseguradora3", "asegurador4"],
-
-            cliente     : [
+            cliente: [
                     tipos: ['tipoCliente1', 'tipoCliente2', 'tipoCliente3', 'tipoCliente4', 'tipoCliente5']
             ],
 
-            asesor      : [
+            asesor : [
                     tipos: ['tipoAsesor1', 'tipoAsesor2', 'tipoAsesor3', 'tipoAsesor4', 'tipoAsesor5']
             ],
 
-            seguro      : [
-                    tipos: ['tipoSeguro1', 'tipoSeguro2', 'tipoSeguro3', 'tipoSeguro4', 'tipoSeguro5']
-            ],
+            seguro : [
+                    tipos       : ['tipoSeguro1', 'tipoSeguro2', 'tipoSeguro3', 'tipoSeguro4', 'tipoSeguro5'],
+                    aseguradoras: ["aseguradora1", "aseguradora2", "aseguradora3", "asegurador4"],
+                    coberturas  : ['cobetura1', 'cobertura2', 'cobertura3'],
+            ]
 
-            coberturas  : ['cobetura1', 'cobertura2', 'cobertura3'],
 
     ]
 
 
-    static Date toDate(String source){
+    static Date toDate(String source) {
         new SimpleDateFormat('dd-MM-yyyy').parse(source)
     }
 
@@ -39,28 +38,26 @@ class Util {
         toDate("$day-$month-$year")
     }
 
-    static ArrayList<String> getAseguradoras() {
-        utilities.aseguradoras as ArrayList<String>
+    static Map getModelPoliza(ArrayList aseguradoras) {
+        def classSeguro = getUtilitiesClassSeguro().getProperties()
+        classSeguro.replace('aseguradoras', aseguradoras)
+        getUtilitiesClassPoliza().getProperties() + classSeguro
     }
 
-    static Map getUtilitiesPoliza() {
-        getUtilitiesClassPoliza().properties
+    static Map getModelCliente() {
+        getUtilitiesClassCliente().getProperties()
     }
 
-    static Map getUtilitiesCliente() {
-        new UtilitiesCliente(utilities.cliente).properties
+    static Map getModelSeguro() {
+        getUtilitiesClassSeguro().getProperties()
+    }
+
+    static UtilitiesCliente getUtilitiesClassCliente() {
+        new UtilitiesCliente(utilities.cliente)
     }
 
     static UtilitiesPoliza getUtilitiesClassPoliza() {
         new UtilitiesPoliza(utilities.poliza)
-    }
-
-    static Map getUtilitiesSeguro() {
-        getUtilitiesClassSeguro().properties
-    }
-
-    static ArrayList<String> getCoberturas() {
-        utilities.coberturas as ArrayList<String>
     }
 
     static UtilitiesSeguro getUtilitiesClassSeguro() {
@@ -84,6 +81,8 @@ class Util {
     static private class UtilitiesSeguro {
 
         ArrayList<String> tipos
+        ArrayList<String> aseguradoras
+        ArrayList<String> coberturas
 
     }
 
