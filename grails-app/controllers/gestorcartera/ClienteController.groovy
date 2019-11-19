@@ -12,23 +12,29 @@ class ClienteController {
         def clientes = clientsService.list()
         def defaultModel = Util.getModelCliente()
 
-        if (clientes.isEmpty())
+        if (!clientes.isEmpty())
+            defaultModel+=[clientes: clientes]
+        if (chainModel)
+            defaultModel+=chainModel
+
             render view: 'cliente', model: defaultModel
-        else
-            render view: 'cliente', model: [clientes: clientes] + defaultModel
     }
 
     def save() {
         def cliente = clientsService.save(params)
+        def model = [complete: true, message: 'El cliente NO fue guardado']
+
         if (cliente)
-            render cliente
-        else
-            redirect action: 'index'
+            model.message = 'El cliente fue guardado Exitosamente'
+
+            chain action: 'index', model: model
     }
 
-
     def update() {
-        render clientsService.update(params)
+        clientsService.update(params)
+        def model = [show: true, message: 'El cliente NO fue guardado']
+
+        chain action: 'index', model: model
     }
 
     def get(int id) {
