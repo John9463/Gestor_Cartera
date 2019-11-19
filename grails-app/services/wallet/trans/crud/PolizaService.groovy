@@ -1,30 +1,25 @@
 package wallet.trans.crud
 
 import grails.gorm.transactions.Transactional
-import groovy.json.JsonBuilder
-import wallet.Cliente
 import wallet.Poliza
-import wallet.Seguro
-
-import java.text.SimpleDateFormat
 
 @Transactional
 class PolizaService {
 
-    boolean exist(int id){
+    boolean exist(int id) {
         Poliza.exists(id)
     }
 
     @Transactional(readOnly = true)
-    def list(){
+    def list() {
         Poliza.list()
     }
 
-    def save(def params){
-         new Poliza(params).save(flush: true)
+    def save(def params) {
+        new Poliza(params).save(flush: true)
     }
 
-    def update(def params){
+    def update(def params) {
         def poliza = get(params.id.toInteger())
         poliza.properties = params
         poliza.save(flush: true)

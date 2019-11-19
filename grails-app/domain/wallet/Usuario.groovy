@@ -6,7 +6,7 @@ import org.grails.datastore.gorm.GormEntity
 
 @ToString
 @GrailsCompileStatic
-class Usuario implements GormEntity <Usuario>{
+class Usuario implements GormEntity<Usuario> {
 
     String username
     String password

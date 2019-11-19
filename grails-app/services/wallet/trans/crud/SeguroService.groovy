@@ -10,17 +10,17 @@ class SeguroService {
         Seguro.exists(id)
     }
 
-    def get(int id){
+    def get(int id) {
         Seguro.get(id)
     }
 
-    def save(def params){
-        if(params){
+    def save(def params) {
+        if (params) {
 
         }
     }
 
-    def list(){
+    def list() {
         Seguro.list()
     }
 

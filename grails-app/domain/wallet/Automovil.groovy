@@ -6,7 +6,7 @@ import org.grails.datastore.gorm.GormEntity
 
 @ToString
 @GrailsCompileStatic
-class Automovil implements GormEntity<Automovil>{
+class Automovil implements GormEntity<Automovil> {
 
     static belongsTo = [
             cliente: Cliente

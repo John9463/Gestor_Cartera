@@ -6,8 +6,13 @@ import wallet.Usuario
 @Transactional
 class UsuariosService {
 
-    Usuario get(String user, String pass) {
-        Usuario.find { username == user && password == pass }
+    boolean exist(int id){
+        Usuario.exists(id)
     }
+
+    Usuario get(def entry) {
+        Usuario.find { username == entry.user && password == entry.password }
+    }
+
 
 }

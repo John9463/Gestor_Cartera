@@ -1,41 +1,41 @@
 package gestorcartera
 
 import wallet.trans.crud.ClientsService
-import worker.Util
+import kit.Util
 
 class ClienteController {
     static responseFormats = ['json']
 
     ClientsService clientsService
 
-    def index(){
+    def index() {
         def clientes = clientsService.list()
         def defaultModel = Util.getModelCliente()
 
-        if(clientes.isEmpty())
+        if (clientes.isEmpty())
             render view: 'cliente', model: defaultModel
         else
             render view: 'cliente', model: [clientes: clientes] + defaultModel
     }
 
-    def save(){
+    def save() {
         def cliente = clientsService.save(params)
-        if( cliente )
+        if (cliente)
             render cliente
         else
             redirect action: 'index'
     }
 
 
-    def update(){
-        render clientsService.update( params )
+    def update() {
+        render clientsService.update(params)
     }
 
     def get(int id) {
         respond clientsService.get(id)
     }
 
-    def delete(){
+    def delete() {
         respond clientsService.delete(request.JSON.id)
     }
 

@@ -1,14 +1,16 @@
 package wallet
 
-class Asesor {
+import org.grails.datastore.gorm.GormEntity
 
-    static belongsTo= [ usuario:Usuario ]
+class Asesor implements GormEntity<Asesor>{
+
+    static belongsTo = [usuario: Usuario]
 
     String homoclave
 
     String tipoAsesor
 
-    boolean isAdmin
+    int isAdmin
 
     static hasMany = [clientes: Cliente]
 

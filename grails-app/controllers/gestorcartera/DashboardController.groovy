@@ -2,8 +2,8 @@ package gestorcartera
 
 class DashboardController {
 
-    def index(){
-        render view:'dashboard.gsp'
+    def index() {
+        render view: 'dashboard.gsp'
     }
 
 }

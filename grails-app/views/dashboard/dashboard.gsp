@@ -10,35 +10,28 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Cartera</a>
+  <a class="navbar-brand" href="#">Cartera - ${session.permissions.domain.endsWith('_admin') ? 'Admin' : session.permissions.domain }</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" onclick="changeView('poliza')">Polizas<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" onclick="changeView('cliente')">Clientes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" onclick="changeView('seguro')">Seguro</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" onclick="changeView('poliza')">Reportes</a>
-      </li>
+      <g:each var="module" in="${ session.permissions.modules }">  
+          <li class="nav-item active">
+            <a class="nav-link" onclick="changeView('${module}')">${module.capitalize()}<span class="sr-only">(current)</span></a>
+          </li>
+      </g:each>
     </ul>
   </div>
 </nav>
 
+  <%-- Alert Message Custom --%>
   <div class="alert alert-success" role="alert">
     <h4 class="alert-heading">Well done!</h4>
       <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
       <hr>
     <p class="mb-0">status: ok.</p>
   </div>
-
 
   <button onclick="show()">show alert</button>
 

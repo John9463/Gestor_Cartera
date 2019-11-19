@@ -6,11 +6,11 @@ import org.grails.datastore.gorm.GormEntity
 
 @GrailsCompileStatic
 @ToString
-class Poliza implements GormEntity<Poliza>{
+class Poliza implements GormEntity<Poliza> {
 
     static hasMany = [recibosPago: ReciboPago]
 
-    Cliente cliente
+    Usuario usuario
     Seguro seguro
     String ramo
     String clave

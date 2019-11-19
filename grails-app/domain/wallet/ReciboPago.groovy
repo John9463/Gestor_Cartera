@@ -4,7 +4,7 @@ import groovy.transform.ToString
 import org.grails.datastore.gorm.GormEntity
 
 @ToString
-class ReciboPago implements GormEntity<ReciboPago>{
+class ReciboPago implements GormEntity<ReciboPago> {
 
     static belongsTo = [poliza: Poliza]
 

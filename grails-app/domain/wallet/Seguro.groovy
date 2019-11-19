@@ -6,7 +6,7 @@ import org.grails.datastore.gorm.GormEntity
 
 @ToString
 @GrailsCompileStatic
-class Seguro implements GormEntity<Seguro>{
+class Seguro implements GormEntity<Seguro> {
 
     String nombre
     String aseguradora

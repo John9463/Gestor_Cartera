@@ -6,14 +6,14 @@ import org.grails.datastore.gorm.GormEntity
 
 @GrailsCompileStatic
 @ToString
-class Cliente implements GormEntity<Cliente>{
+class Cliente implements GormEntity<Cliente> {
 
     static hasMany = [
-            polizas: Poliza,
+            polizas : Poliza,
             asesores: Asesor
     ]
 
-    static  belongsTo = [ usuario: Usuario ]
+    static belongsTo = [usuario: Usuario]
 
     String clave
 

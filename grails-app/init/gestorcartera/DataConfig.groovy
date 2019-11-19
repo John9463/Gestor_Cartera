@@ -1,12 +1,8 @@
 package gestorcartera
 
 import groovy.util.logging.Slf4j
-import wallet.Asesor
-import wallet.Cliente
-import wallet.Poliza
-import wallet.Seguro
-import wallet.Usuario
-import worker.Util
+import wallet.*
+import kit.Util
 
 @Singleton
 @Slf4j
@@ -30,27 +26,28 @@ class DataConfig {
                     noCasa  : '417',
                     tel     : 7222024401
             ],
-            homoclave     : 'sdasd123',
+            homoclave : 'sdasd123',
             tipoAsesor: Util.getAsesorTipo().get(0),
-            isAdmin: 1
+            isAdmin   : 1
     ]
 
     //mapa de datos para un <code>Seguro</code> por default
     def defaultSeguro = [
-            nombre       : "Seguros Axa",
-            aseguradora  : Util.getUtilitiesClassSeguro().getAseguradoras().get(0),
-            tipo         : Util.getUtilitiesClassSeguro().getTipos().get(0),
-            valorSeguro  : 0,
-            emisor       : 109321,
-            renovacion   : Util.toDate(29, 12, 1997),
-            cobertura    : Util.getUtilitiesClassSeguro().getCoberturas().get(0),
+            nombre     : "Seguros Axa",
+            aseguradora: Util.getUtilitiesClassSeguro().getAseguradoras().get(0),
+            tipo       : Util.getUtilitiesClassSeguro().getTipos().get(0),
+            valorSeguro: 0,
+            emisor     : 109321,
+            sumaAsegurada: '15.00',
+            renovacion : Util.toDate(29, 12, 1997),
+            cobertura  : Util.getUtilitiesClassSeguro().getCoberturas().get(0),
 
     ]
 
 
     //,mapara de datos para un <code>Poliza</code> por default
     def defaultPoliza = [
-            cliente         : Cliente.get(1),
+            usuario         : Usuario.get(1),
             seguro          : Seguro.get(1),
             ramo            : Util.getUtilitiesClassPoliza().getRamos().get(0),
             clave           : 'Dwas93Sde',
@@ -66,12 +63,12 @@ class DataConfig {
     ]
 
 
-    void init(){
+    void init() {
         log.info('init configuration')
         adminRoot()
     }
 
-    void adminRoot(){
+    void adminRoot() {
         if (Usuario.list().isEmpty()) {
             def root = new Asesor(superUser).save()
             log.info("Ingresando usuario ROOT: " + root.toString())
