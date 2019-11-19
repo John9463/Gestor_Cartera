@@ -49,7 +49,7 @@ class ClientsService{
     }
 
     boolean exist(int id) {
-        Cliente.list().find { it.ident() == id }
+        Cliente.exists(id)
     }
 
 }

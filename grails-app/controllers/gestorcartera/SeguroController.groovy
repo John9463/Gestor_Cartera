@@ -12,7 +12,7 @@ class SeguroController {
         def defaultModel = Util.getModelSeguro()
 
         if(seguros.isEmpty()){
-            render view: 'seguro', model:
+            render view: 'seguro', model: defaultModel
         }else{
             render view: 'seguro', model: [seguros: seguros] + [aseguradoras: Util.getUtilitiesClassSeguro().getAseguradoras()]
         }
