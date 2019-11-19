@@ -36,7 +36,7 @@ class DataConfig {
     //mapa de datos para un <code>Seguro</code> por default
     def defaultSeguro = [
             nombre       : "Seguros Axa",
-            aseguradora  : Util.getAseguradoras().get(0),
+            aseguradora  : Util.getAseguradoras().get(1),
             tipo         : Util.getUtilitiesClassSeguro().getTipos().get(0),
             valorSeguro  : 0,
             emisor       : 109321,
