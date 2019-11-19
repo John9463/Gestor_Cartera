@@ -144,18 +144,6 @@
       <div class="row pt-4">
 
           <div class="col-12">
-            <label for="pwd">TIPO:</label>
-            <select name="tipo">
-                <option>Seleccione un tipo</option>
-              <g:each var="tipo" in="${tipos}">
-                <option>${tipo}</option>
-              </g:each>
-            </select>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-             <div class="col-12">
             <label for="pwd">Clave de Usuario:</label>
             <input type="text" class="form-control" name="clave" required />
             <div class="valid-feedback">Correcto.</div>

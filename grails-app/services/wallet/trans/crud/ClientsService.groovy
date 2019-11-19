@@ -13,7 +13,6 @@ class ClientsService {
     }
 
     def save(def params) {
-        params.isIntegral = params.isIntegral == 'on'
         params.usuario = new Usuario(params)
         new Cliente(params).save()
     }
