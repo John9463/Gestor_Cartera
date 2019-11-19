@@ -17,7 +17,7 @@ class Cliente implements GormEntity<Cliente> {
 
     String clave
 
-    boolean isIntegral
+    int isIntegral
 
     static mapping = {
         version: false

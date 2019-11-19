@@ -8,18 +8,15 @@ import org.grails.datastore.gorm.GormEntity
 @GrailsCompileStatic
 class Automovil implements GormEntity<Automovil> {
 
-    static belongsTo = [
-            cliente: Cliente
-    ]
-
+    Cliente cliente
     Seguro seguro
     String nombre
     int modelo
     String tipo
     String placas
     String uso
-    long num_serie
-    long num_motor
+    long numSerie
+    long numMotor
 
     static mapping = {
         version: false

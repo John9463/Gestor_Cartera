@@ -126,14 +126,14 @@
 
           <div class="col-6">
             <label for="pwd">NUMERO DE REMISION:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 1547" name="numeroRemision" required>
+            <input type="number" class="form-control"  placeholder="Ejemplo: 1547" name="numeroRemision" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-6">
             <label for="pwd">COMISION CONCEDIDA:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 147" name="comisionCedida" required>
+            <input type="number" class="form-control"  placeholder="Ejemplo: 147" name="comisionCedida" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -147,21 +147,21 @@
 
           <div class="col-sm-4">
             <label for="pwd">GASTOS DE EXPEDICION:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="gastosExpedicion" required>
+            <input type="number" class="form-control"  placeholder="Ejemplo: $15.50" name="gastosExpedicion" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-sm-4">
             <label for="pwd">DESDE:</label>
-            <input type="date" class="form-control" id="pwd" placeholder="Enter password" name="fechaDesde" required>
+            <input type="date" class="form-control"  placeholder="Enter password" name="fechaDesde" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-sm-4">
             <label for="pwd">Expedicion:</label>
-            <input type="date" class="form-control" id="pwd" placeholder="Enter password" name="fechaExpedicion" required>
+            <input type="date" class="form-control"  placeholder="Enter password" name="fechaExpedicion" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -172,7 +172,7 @@
 
           <div class="col-12">
             <label for="pwd">FINANCIAMIENTO:</label>
-            <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="financiamiento" required>
+            <input type="number" class="form-control"  placeholder="Ejemplo: $15.50" name="financiamiento" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -183,14 +183,14 @@
 <div class="row pt-4">
         <div class="col-6">
         <label for="pwd">PRIMA TOTAL:</label>
-        <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: $20.00" name="primaTotal" required>
+        <input type="number" class="form-control"  placeholder="Ejemplo: $20.00" name="primaTotal" required>
         <div class="valid-feedback">Correcto.</div>
         <div class="invalid-feedback">El campo es requerido.</div>
         </div>
 
         <div class="col-6">
         <label for="pwd">CLAVE CLIENTE:</label>
-        <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: USR4325" name="clave" required>
+        <input type="text" class="form-control"  placeholder="Ejemplo: USR4325" name="clave" required>
         <div class="valid-feedback">Correcto.</div>
         <div class="invalid-feedback">El campo es requerido.</div>
         </div>

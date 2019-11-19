@@ -5,6 +5,8 @@ import kit.Util
 
 class SeguroController {
 
+    static responseFormats = ['json']
+
     SeguroService seguroService
 
     def index() {
@@ -19,20 +21,20 @@ class SeguroController {
 
     }
 
-    def getSeguro() {
-        response << seguroService.get(request.JSON.id)
+    def get(int id) {
+        respond seguroService.get(request.JSON.id)
     }
 
     def save() {
-        response << seguroService.save(params)
+        respond seguroService.save(params)
     }
 
     def update() {
-        response << seguroService.update(params)
+        respond seguroService.update(params)
     }
 
     def delete() {
-        response << seguroService.delete(request.JSON.id)
+        respond seguroService.delete(request.JSON.id)
     }
 
     def exist(int idSeguro) {

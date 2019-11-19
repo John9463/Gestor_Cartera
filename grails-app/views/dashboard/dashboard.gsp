@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,11 +16,15 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <g:each var="module" in="${ session.permissions.modules }">  
-          <li class="nav-item active">
+          <li class="active button">
             <a class="nav-link" onclick="changeView('${module}')">${module.capitalize()}<span class="sr-only">(current)</span></a>
           </li>
       </g:each>
+          <li class="nav-item active">
+            <a class="nav-link" onclick="logOut()">Cerrar Sesion</a>
+          </li>
     </ul>
+    
   </div>
 </nav>
 
@@ -42,9 +45,14 @@
 <asset:javascript src="application.js"/>
 <script>
 function changeView(view){
-  console.log(view)
   var frame = document.getElementById('frame')
   frame.src = '/'+view+'/index'
+}
+
+function logOut(){
+  console.log('log out')
+  fetch('/login/logout').
+  then(response => window.location.href = "/" )
 }
 </script>
 </body>

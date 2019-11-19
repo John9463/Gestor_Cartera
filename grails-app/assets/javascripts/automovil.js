@@ -95,22 +95,15 @@ function show(it){
 }
 
 function edit(id){
-     fetch('/seguro/get/'+id)
-     .then( Response => Response.json())
-     .then( poliza => {
-          for (let key in poliza){
-               let input = $("[name='"+key+"']")
+     fetch('/automovil/get/'+id)
+     .then( response => response.json())
+     .then( automovil => {
+               console.log(automovil)
 
-               if(key == 'fechaDesde' || key == 'fechaExpedicion'){
-                    let d = poliza[key]
-                    let date = d.substring(0,10)
-                    input.val(date)
-               }else if(key === 'cliente'){
-                   input.val(poliza.cliente.id)
-               }else{
-                    input.val(poliza[key])
-               }
-          }
+          // for (let key in automovil){
+          //      let input = $("[name='"+key+"']")
+
+          // }
           document.getElementById('id').value = id
           show('mod')
      }).catch((err) => alert("Problems in server" + err) );
@@ -128,13 +121,8 @@ function previusDelete(id){
      superid = id
 }
 
-function deletePoliza(){
-     let request = {
-          method: 'POST',
-          body : JSON.stringify({id: superid})
-     }
-
-     fetch('/seguro/delete',request)
+function deleteAutomovil(){
+     fetch('/automovil/delete/'+superid)
      .then( Response => Response.text() )
      .then( response => {
           if(response == 'true'){
@@ -151,7 +139,7 @@ function filter() {
      var input, filter, table, tr, td, i, txtValue;
      input = document.getElementById("filter-value");
      filter = input.value.toUpperCase();
-     table = document.getElementById("seguros-table");
+     table = document.getElementById("autos-table");
      tr = table.getElementsByTagName("tr");
      for (i = 0; i < tr.length; i++) {
        td = tr[i].getElementsByTagName("td")[1];

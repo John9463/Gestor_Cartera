@@ -9,7 +9,7 @@ import kit.Util
 class DataConfig {
 
     //mapa de datos para super usuario
-    def superUser = [
+    def defaultAsesorAdmin = [
             usuario   : [
                     username: 'pacman',
                     password: 'pass',
@@ -29,6 +29,27 @@ class DataConfig {
             homoclave : 'sdasd123',
             tipoAsesor: Util.getAsesorTipo().get(0),
             isAdmin   : 1
+    ]
+
+    def defaultCliente = [
+            usuario   : [
+                    username: 'blacked',
+                    password: 'pass',
+                    correo  : 'aldodaniel@hotmail.com',
+                    nombre  : 'aldo daniel',
+                    apellMa : 'sanchez',
+                    apellPa : 'bastida',
+                    ciudad  : 'toluca',
+                    rfc     : 'ssdafasdfsadf',
+                    colonia : 'Parques Zoquiapan',
+                    calle   : 'laguna de huapango',
+                    cp      : '50100',
+                    fechaNac: Util.toDate(29, 12, 1997),
+                    noCasa  : '417',
+                    tel     : 7291615267
+            ],
+            clave: 'asasda',
+            isIntegral: 1
     ]
 
     //mapa de datos para un <code>Seguro</code> por default
@@ -63,15 +84,32 @@ class DataConfig {
     ]
 
 
+    def defaultAuto = [
+            cliente: Cliente.get(1),
+            seguro: Seguro.get(1),
+            nombre: 'Ford Fiesta',
+            model: 2019,
+            tipo: Util.getUtilitiesClassAutomovil().getTipos().get(0),
+            placas: 'ASD123',
+            uso: Util.getUtilitiesClassAutomovil().getUsos().get(0),
+            numSerie: 64879,
+            numMotor: 4785411
+    ]
+
     void init() {
         log.info('init configuration')
         adminRoot()
     }
 
     void adminRoot() {
-        if (Usuario.list().isEmpty()) {
-            def root = new Asesor(superUser).save()
-            log.info("Ingresando usuario ROOT: " + root.toString())
+        if (Asesor.list().isEmpty()) {
+            def asesor = new Asesor(defaultAsesorAdmin).save()
+            log.info("Ingresando usuario ROOT: " + asesor.toString())
+        }
+
+        if (Cliente.list().isEmpty()){
+            def cliente = new Cliente(defaultCliente).save()
+            log.info("Ingresando usuario ROOT: " + cliente.toString())
         }
 
         if (Seguro.list().isEmpty()) {
@@ -82,6 +120,11 @@ class DataConfig {
         if (Poliza.list().isEmpty()) {
             def poliza = new Poliza(defaultPoliza).save()
             log.info("Ingresando Poliza: " + poliza.toString())
+        }
+
+        if (Automovil.list().isEmpty() && !Seguro.list().isEmpty() && !Cliente.list().isEmpty() ){
+            def automovil = new Automovil(defaultAuto).save()
+            log.info("Ingresando Automovil: " + automovil.toString())
         }
 
     }

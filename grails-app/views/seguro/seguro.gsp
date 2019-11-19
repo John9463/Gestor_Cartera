@@ -92,14 +92,14 @@
         <div class="row pt-4">
           <div class="col-6">
               <label for="uname">Valor Seguro:</label>
-               <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 1547" name="valorSeguro " required>
+               <input type="number" class="form-control"  placeholder="Ejemplo: 1547" name="valorSeguro " required>
               <div class="valid-feedback">Correcto.</div>
               <div class="invalid-feedback">El campo es requerido.</div>
             </div>
 
             <div class="col-6">
               <label for="uname">Emisor:</label>
-               <input type="number" class="form-control" id="pwd" placeholder="Ejemplo: 1547" name="emisor" required>
+               <input type="number" class="form-control"  placeholder="Ejemplo: 1547" name="emisor" required>
               <div class="valid-feedback">Correcto.</div>
               <div class="invalid-feedback">El campo es requerido.</div>
             </div>
@@ -112,7 +112,7 @@
 
           <div class="col-6">
             <label for="pwd">Renovacion:</label>
-            <input type="date" class="form-control" id="pwd" placeholder="Ejemplo: 1547" name="renovacion" required>
+            <input type="date" class="form-control"  placeholder="Ejemplo: 1547" name="renovacion" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -138,7 +138,7 @@
 
           <div class="col-sm-4">
             <label for="pwd">Suma Asegurada:</label>
-            <input type="text " class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="sumaAsegurada" required>
+            <input type="text " class="form-control"  placeholder="Ejemplo: $15.50" name="sumaAsegurada" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>

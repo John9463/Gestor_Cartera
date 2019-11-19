@@ -24,6 +24,10 @@ class Util {
                     tipos       : ['tipoSeguro1', 'tipoSeguro2', 'tipoSeguro3', 'tipoSeguro4', 'tipoSeguro5'],
                     aseguradoras: ["aseguradora1", "aseguradora2", "aseguradora3", "asegurador4"],
                     coberturas  : ['cobetura1', 'cobertura2', 'cobertura3'],
+            ],
+            automovil: [
+                    tipos       : ['tipoAuto1','tipoAuto2','tipoAuto3'],
+                    usos        : ['uso1','uso2','uso3','uso4']
             ]
 
 
@@ -72,6 +76,10 @@ class Util {
         new UtilitiesSeguro(utilities.seguro)
     }
 
+    static UtilitiesAutomovil getUtilitiesClassAutomovil(){
+        new UtilitiesAutomovil(utilities.automovil)
+    }
+
     static private class UtilitiesCliente {
 
         List<String> tipos
@@ -105,6 +113,11 @@ class Util {
             domain = domain0
         }
 
+    }
+
+    static private class UtilitiesAutomovil{
+        ArrayList<String> tipos
+        ArrayList<String> usos
     }
 
 }

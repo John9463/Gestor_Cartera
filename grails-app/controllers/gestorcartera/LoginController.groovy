@@ -30,4 +30,8 @@ class LoginController implements Controller{
     }
 
 
+    def logout(){
+        session.invalidate()
+    }
+
 }
