@@ -8,25 +8,21 @@ class Util {
 
             poliza      : [
                     periodos: ["trimestral", "cuatrimestral", "semestral", "anual"],
-                    ramos   : ["ramo1", "ramo2", "ramo3", "ramo4"],
-                    status  : ["status1", "status2", "status3", "status4"]
+                    ramos   : ["Seguros", "Autos", "Gastos Médicos", "Daños"],
+                    status  : ["Vigente", "Cancelada", "Vencida", "Sin renovar"]
             ],
 
-            aseguradoras: ["aseguradora1", "aseguradora2", "aseguradora3", "asegurador4"],
-
-            cliente     : [
-                    tipos: ['tipoCliente1', 'tipoCliente2', 'tipoCliente3', 'tipoCliente4', 'tipoCliente5']
-            ],
+            aseguradoras: ["Inbursa", "Axa", "Mapfre", "Ana", "Atlas"],
 
             asesor      : [
-                    tipos: ['tipoAsesor1', 'tipoAsesor2', 'tipoAsesor3', 'tipoAsesor4', 'tipoAsesor5']
+                    tipos: ['A', 'B', 'C', 'D']
             ],
 
             seguro      : [
-                    tipos: ['tipoSeguro1', 'tipoSeguro2', 'tipoSeguro3', 'tipoSeguro4', 'tipoSeguro5']
+                    tipos: ['Individual', 'Colectivo', 'Conyugal', 'Educa', 'paquete']
             ],
 
-            coberturas  : ['cobetura1', 'cobertura2', 'cobertura3'],
+            coberturas  : ['Amplia', 'Limitada', 'Plus'],
 
     ]
 
@@ -47,9 +43,6 @@ class Util {
         getUtilitiesClassPoliza().properties
     }
 
-    static Map getUtilitiesCliente() {
-        new UtilitiesCliente(utilities.cliente).properties
-    }
 
     static UtilitiesPoliza getUtilitiesClassPoliza() {
         new UtilitiesPoliza(utilities.poliza)
@@ -65,12 +58,6 @@ class Util {
 
     static UtilitiesSeguro getUtilitiesClassSeguro() {
         new UtilitiesSeguro(utilities.seguro)
-    }
-
-    static private class UtilitiesCliente {
-
-        List<String> tipos
-
     }
 
     static private class UtilitiesPoliza {
