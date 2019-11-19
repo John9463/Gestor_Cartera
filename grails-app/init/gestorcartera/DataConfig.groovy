@@ -1,6 +1,7 @@
 package gestorcartera
 
 import groovy.util.logging.Slf4j
+import wallet.Asesor
 import wallet.Cliente
 import wallet.Poliza
 import wallet.Seguro
@@ -29,8 +30,9 @@ class DataConfig {
                     noCasa  : '417',
                     tel     : 7222024401
             ],
-            clave     : 'dsfdsf',
-            isIntegral: false
+            homoclave     : 'sdasd123',
+            tipoAsesor: Util.getAsesorTipo().get(0),
+            isAdmin: 1
     ]
 
     //mapa de datos para un <code>Seguro</code> por default
@@ -42,8 +44,7 @@ class DataConfig {
             emisor       : 109321,
             renovacion   : Util.toDate(29, 12, 1997),
             cobertura    : Util.getUtilitiesClassSeguro().getCoberturas().get(0),
-            sumaAsegurada: 'dasdasd',
-            primaNeta    : 12000
+
     ]
 
 
@@ -72,7 +73,7 @@ class DataConfig {
 
     void adminRoot(){
         if (Usuario.list().isEmpty()) {
-            def root = new Cliente(superUser).save()
+            def root = new Asesor(superUser).save()
             log.info("Ingresando usuario ROOT: " + root.toString())
         }
 

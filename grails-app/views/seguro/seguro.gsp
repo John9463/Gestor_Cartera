@@ -58,8 +58,8 @@
         <div class="row pt-4">
 
           <div class="col-4">
-            <label for="uname">Nombre:</label>
-            <input type="number" class="form-control" placeholder="Ejemplo: 1520" name="nombre" maxlenght="5" required>
+            <label for="uname">Nombre seguro:</label>
+            <input type="text" class="form-control" placeholder="Ejemplo: miseguro" name="nombre" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>
@@ -67,7 +67,7 @@
           <div class="col-4">
             <label for="uname">Aseguradora:</label>
               <select name="aseguradora" required>
-                <option selected>Selecciona una Aseguradora</option>
+                <opti on selected>Selecciona una Aseguradora</option>
                 <g:each var="aseguradora" in="${aseguradoras}">
                   <option>${aseguradora}</option>
                 </g:each>
@@ -138,7 +138,7 @@
 
           <div class="col-sm-4">
             <label for="pwd">Suma Asegurada:</label>
-            <input type="text" class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="sumaAsegurada" required>
+            <input type="text " class="form-control" id="pwd" placeholder="Ejemplo: $15.50" name="sumaAsegurada" required>
             <div class="valid-feedback">Correcto.</div>
             <div class="invalid-feedback">El campo es requerido.</div>
           </div>

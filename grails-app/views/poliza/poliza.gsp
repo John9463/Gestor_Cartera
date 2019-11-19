@@ -22,6 +22,8 @@
 
 <input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por clave.." title="Type in a name">
 
+<h1>home: ${confirm?.action}</h1>
+
 <div id="London" class="tabcontent">
   <button onclick="show('add')"><i class="far fa-plus-square">Crear Poliza</i></button>
   <table id="table" class="table table-striped">

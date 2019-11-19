@@ -38,6 +38,10 @@ class Util {
         toDate("$day-$month-$year")
     }
 
+    static ArrayList<String> getAsesorTipo(){
+        utilities.asesor.tipos
+    }
+
     static Map getModelPoliza(ArrayList aseguradoras) {
         def classSeguro = getUtilitiesClassSeguro().getProperties()
         classSeguro.replace('aseguradoras', aseguradoras)
@@ -54,6 +58,10 @@ class Util {
 
     static UtilitiesCliente getUtilitiesClassCliente() {
         new UtilitiesCliente(utilities.cliente)
+    }
+
+    static ResponseConfirm responseConfirm(String action, String message, String domain){
+        new ResponseConfirm(action, message, domain)
     }
 
     static UtilitiesPoliza getUtilitiesClassPoliza() {
@@ -83,6 +91,19 @@ class Util {
         ArrayList<String> tipos
         ArrayList<String> aseguradoras
         ArrayList<String> coberturas
+
+    }
+
+    static private class ResponseConfirm{
+        String action
+        String message
+        String domain
+
+        ResponseConfirm(String action0, String message0, String domain0){
+            action = action0
+            message = message0
+            domain = domain0
+        }
 
     }
 

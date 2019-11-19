@@ -18,7 +18,7 @@
 //= require paper-dashboard.min
 //= require_self
 
-
+$('.alert').hide()
 
 function openTab(evt, cityName) {
     var i, tabcontent, tablinks;
@@ -61,4 +61,28 @@ function checkId(event) {
         .then(json => {
             alert(json)
         }).catch((err) => alert("Problems in server" + err));
+}
+
+function showAlert(confirm) {
+    let alert = '.alert-info'
+
+    console.log(confim)
+
+    if (confirm.action == 'ok')
+        alert = 'alert-success'
+    else if (confirm.action == 'nok')
+        alert = '.alert-danger'
+
+    document.getElementById('domain-alert').innerHTML = confirm.domain
+    document.getElementById('message-alert').innerHTML = confirm.message
+    document.getElementsByClassName('alert').classList.add(alert)
+
+    show()
+}
+
+function show() {
+    $('.alert').show()
+    $('.alert').fadeTo(3000, 500).slideUp(500, function() {
+        $('.alert').slideUp(500);
+    });
 }

@@ -11,18 +11,22 @@ import java.text.SimpleDateFormat
 @Transactional
 class PolizaService {
 
+    boolean exist(int id){
+        Poliza.exists(id)
+    }
+
     @Transactional(readOnly = true)
     def list(){
         Poliza.list()
     }
 
     def save(def params){
-        def poliza = new Poliza(params)
-        poliza.save()
+         new Poliza(params).save(flush: true)
     }
 
     def update(def params){
-        def poliza = Poliza.get(params)
+        def poliza = get(params.id.toInteger())
+        poliza.properties = params
         poliza.save(flush: true)
     }
 
@@ -31,13 +35,8 @@ class PolizaService {
     }
 
     boolean delete(int id) {
-        try{
-            def del = Poliza.get(id)
-            del.delete()
-            true
-        }catch(Exception ex){
-            false
-        }
+        def del = Poliza.get(id)
+        del.delete()
     }
 
 }

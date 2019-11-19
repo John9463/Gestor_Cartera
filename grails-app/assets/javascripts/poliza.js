@@ -119,11 +119,9 @@ function deletePoliza() {
     fetch('/poliza/delete/' + superid)
         .then(response => response.text())
         .then(confirm => {
-            if (confirm == 'true') {
+            console.log(confirm)
+            if (confirm.action == 'ok')
                 location.reload()
-                alert("La poliza fue eliminada")
-            } else
-                alert("La poliza NO fue eliminada")
-
+            showAlert(confirm)
         }).catch((err) => alert("Problems trying delete Poliza : " + err));
 }
