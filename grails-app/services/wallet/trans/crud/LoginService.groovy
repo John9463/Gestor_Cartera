@@ -25,7 +25,6 @@ class LoginService {
                 }
 
             }else if( cliente ){
-            }else if( cliente ){
                 permissions.modules = ['poliza','automovil']
                 permissions.domain = 'cliente'
             }else
