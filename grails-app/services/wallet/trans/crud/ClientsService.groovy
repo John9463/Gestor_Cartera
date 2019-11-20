@@ -36,13 +36,10 @@ class ClientsService {
     }
 
     def delete(int id) {
-        try {
-            def del = Cliente.get(id)
-            del.delete()
-            true
-        } catch (Exception ex) {
-            false
-        }
+        def del = Cliente.get(id)
+        del.delete()
+
+        exist(id)
     }
 
     boolean exist(int id) {

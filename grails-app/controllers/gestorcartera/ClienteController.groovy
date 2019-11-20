@@ -31,10 +31,16 @@ class ClienteController {
     }
 
     def update() {
-        clientsService.update(params)
+        def cliente = clientsService.update(params)
         def model = [show: true, message: 'El cliente NO fue guardado']
 
-        chain action: 'index', model: model
+        flash.header = "hola mundo"
+        flash.alert = cliente ? 'alert-success' : 'alert-warning'
+        flash.message = "respuesta de lo que sucedio"
+        flash.show = true
+
+
+        forward controller: 'dashboard', action: 'index', model: model
     }
 
     def get(int id) {

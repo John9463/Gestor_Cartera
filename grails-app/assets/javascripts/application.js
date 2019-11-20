@@ -18,7 +18,6 @@
 //= require paper-dashboard.min
 //= require_self
 
-
 function openTab(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");

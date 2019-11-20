@@ -20,6 +20,17 @@
   <button id="add-mod" class="tablinks" onclick="openTab(event, 'Paris')" hidden>Crear Clientes</button>
 </div>
 
+<h1>complete: ${show}</h1>
+<g:if test="${ show  }">
+   
+    <div class="alert alert-success" role="alert">
+      <h4 class="alert-heading">Well done!</h4>
+        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+        <hr>
+      <p class="mb-0">status: ok.</p>
+    </div>
+
+</g:if>
 <input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por nombre.." title="Type in a name">
 
 <div id="London" class="tabcontent">

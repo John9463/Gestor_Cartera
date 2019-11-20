@@ -28,17 +28,18 @@
   </div>
 </nav>
 
-<g:if test="${ flash.show }">
-   <div class="alert alert-success" role="alert">
-    <h4 class="alert-heading">Well done!</h4>
-      <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-      <hr>
-    <p class="mb-0">status: ok.</p>
-  </div>
-</g:if>
-  
+<g:if test="${ flash.show  }">
+   
+    <div class="alert ${flash.alert}" role="alert">
+      <h4 class="alert-heading">${flash.header}</h4>
+        <p>${flash.message}</p>
+        <hr>
+      <p class="mb-0">status: ok.</p>
+    </div>
 
-  <button onclick="show()">show alert: ${show}</button>
+</g:if>
+
+  
 
 <iframe id="frame" src="/poliza" width="100%" height="90%"></iframe>
 
@@ -46,6 +47,7 @@
 
 <asset:javascript src="application.js"/>
 <script>
+
 function changeView(view){
   var frame = document.getElementById('frame')
   frame.src = '/'+view+'/index'
