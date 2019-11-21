@@ -8,7 +8,7 @@ class LoginService {
 
     UsuariosService usuariosService
 
-    def get(def bodyAgent){
+    def getUserForLogin(def bodyUser){
         def user = usuariosService.get(bodyUser)
 
         if( user ){
@@ -17,12 +17,11 @@ class LoginService {
                     permissions: getPermissions(user)
             )
         }
-
         user
     }
 
     Map getPermissions(Usuario user){
-        if(usuariosService.exist(user.id)){
+        if(usuariosService.existId(user.id)){
 
             def permissions = [modules: [], domain: '']
             Asesor asesor = Asesor.find{ usuario == user }
@@ -50,9 +49,8 @@ class LoginService {
 
     private class UserLogin{
 
-        Usuario rootUser
-        ArrayList<String> permissions
-
+        Usuario usuario
+        Map permissions
     }
 
 

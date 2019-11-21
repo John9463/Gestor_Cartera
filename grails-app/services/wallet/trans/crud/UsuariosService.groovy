@@ -6,7 +6,7 @@ import wallet.Usuario
 @Transactional
 class UsuariosService {
 
-    boolean exist(int id){
+    boolean existId(long id){
         Usuario.exists(id)
     }
 

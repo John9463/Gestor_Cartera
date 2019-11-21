@@ -4,6 +4,7 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="layout" content="theme">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 <asset:stylesheet src="application.css"/>
@@ -20,17 +21,6 @@
   <button id="add-mod" class="tablinks" onclick="openTab(event, 'Paris')" hidden>Crear Clientes</button>
 </div>
 
-<h1>complete: ${show}</h1>
-<g:if test="${ show  }">
-   
-    <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading">Well done!</h4>
-        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-        <hr>
-      <p class="mb-0">status: ok.</p>
-    </div>
-
-</g:if>
 <input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por nombre.." title="Type in a name">
 
 <div id="London" class="tabcontent">
@@ -68,22 +58,16 @@
           <div class="col-4">
             <label for="uname">CORREO ELECTRONICO:</label>
             <input type="email" class="form-control"  placeholder="Ejemplo: example@mail.com" name="correo" maxlenght="5" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-4">
             <label for="uname">FECHA DE NACIMIENTO:</label>
             <input type="date" class="form-control"  placeholder="Ejemplo: 1020" name="fechaNac" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-4">
             <label for="pwd">NOMBRE:</label>
             <input type="text" class="form-control"  placeholder="Ejemplo: juan barreras" name="nombre" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
         </div>
@@ -91,15 +75,11 @@
           <div class="col-6">
               <label for="pwd">APELLIDO PATERNO:</label>
               <input type="text" class="form-control"  placeholder="Ejemplo: vargas" name="apellPa" required>
-              <div class="valid-feedback">Correcto.</div>
-              <div class="invalid-feedback">El campo es requerido.</div>
             </div>
 
             <div class="col-6">
               <label for="pwd">APELLIDO MATERNO:</label>
               <input type="text" class="form-control"  placeholder="Ejemplo: contreras" name="apellMa" required>
-              <div class="valid-feedback">Correcto.</div>
-              <div class="invalid-feedback">El campo es requerido.</div>
             </div>
           </div>
       </div>
@@ -132,22 +112,16 @@
           <div class="col-sm-4">
             <label for="pwd">COLONIA:</label>
             <input type="text" class="form-control"  placeholder="Ejemplo: $15.50" name="colonia" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-sm-4">
             <label for="pwd">CALLE:</label>
             <input type="text" class="form-control"  placeholder="Ejemplo: Av. Dependencia" name="calle" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-sm-4">
             <label for="pwd">CODIGO POSTAL:</label>
             <input type="number" class="form-control"  placeholder="Ejemplo: 50100" name="cp" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
         </div>
@@ -163,52 +137,40 @@
 
         <input type="number" class="form-control" id="id" name="id" hidden>
 
-        </div>
+      </div>
 
-<div class="row pt-4">
+      <div class="row pt-4">
         <div class="col-6">
         <label for="pwd">NO. CASA:</label>
         <input type="number" class="form-control"  placeholder="Ejemplo: 2000" name="noCasa" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
         </div>
 
         <div class="col-6">
         <label for="pwd">TELEFONO CELULAR:</label>
         <input type="number" class="form-control"  placeholder="Ejemplo: 7291586478" name="tel" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
         </div>
-   <div>
+      <div>
     
     <div class="row pt-4">
         <div class="col-4">
         <label for="pwd">Username:</label>
         <input type="text" class="form-control"  placeholder="Ejemplo: 2000" name="username" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
         </div>
 
         <div class="col-4">
         <label for="pwd">Password:</label>
         <input type="password" class="form-control"  placeholder="Ejemplo: 7291586478" name="password" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
         </div>
 
         <div class="col-6">
         <label for="pwd">Confirmacion Password:</label>
         <input type="password" class="form-control"  placeholder="Ejemplo: 7291586478" name="passwordConfirm" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
         </div>
    <div>
 
         <div class="col-6">
-        <label for="pwd">Es un usuario integral:</label>
-        <input type="checkbox" class="form-control"  placeholder="Ejemplo: 7291586478" name="isIntegral">
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
+          <label for="pwd">Es un usuario integral:</label>
+            <input type="checkbox" class="form-control"  placeholder="Ejemplo: 7291586478" name="isIntegral">
         </div>
 
       
@@ -216,7 +178,8 @@
      </div>
       </div>
       </div>
-</g:form>
+  </g:form>
+</div>
 
 
 
@@ -250,8 +213,6 @@
 </div>
 <!-- The Modal -->
 
-
-  <asset:javascript src="application.js" />
   <asset:javascript src="cliente.js" />
 </body>
 

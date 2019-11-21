@@ -2,7 +2,7 @@
 
 <head>
   <title>Gestor Cartera - Inicio</title>
-  <meta name="" content="">
+  <meta name="layout" content="theme">
   <asset:stylesheet src="application.css"/>
 </head>
 

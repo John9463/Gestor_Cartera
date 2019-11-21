@@ -27,7 +27,7 @@
 						 </div>
 					</div>
                
-                  <g:form controller="login" action="" method="post" name="login">
+                  <g:form controller="login" method="post" name="login">
 
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email o Usuario: </label>
@@ -42,7 +42,7 @@
                            <div class="col-md-12 text-center ">
                                <!-- <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesión</button> -->
                                <%-- <g:link class=" btn btn-block mybtn btn-primary tx-tfm" params="[user: 'title', password:]" controller="login" action="logIn"> Iniciar Sesion </g:link > --%>
-                              <g:actionSubmit value="Iniciar Sesion" action="logIn"/>
+                              <g:actionSubmit value="Iniciar Sesion" action="check" />
                            </div>
                         
                            <div class="form-group">

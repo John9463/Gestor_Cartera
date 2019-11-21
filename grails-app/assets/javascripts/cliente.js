@@ -2,6 +2,55 @@ document.getElementById("defaultOpen").click();
 
 var keys = ["correo", "fechaNac", "nombre", "apellMa", "apellPa", "ciudad", "rfc", "colonia", "calle", "cp", "tipo", "noCasa", "tel", "password", "username", "isIntegral"]
 
+
+$(function() {
+    $("form[name='form-cliente']").validate({
+        rules: {
+
+            correo: {
+                required: "Es requerido ingresar un correo electronico",
+                email: "El formato del correo no es aceptado"
+            },
+            fechaNac: {
+                required: "Es requerido la fecha de nacimiento"
+            },
+            nombre: {
+                required: "Ingresa un nombre"
+            },
+            cp: {
+                required: true,
+                minlength: 5
+
+            },
+            noCasa: {
+                minlength: 5
+            },
+            tel: {
+                minlength: 7,
+                maxlength: 10
+            },
+            username: {
+                remote: ''
+            },
+            password: {
+
+            },
+            passwordConfirm: {
+
+            }
+
+        },
+        messages: {
+
+
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+});
+
+
 function show(it) {
     var tab = document.getElementById('add-mod')
     var form = document.getElementById('form-cliente')

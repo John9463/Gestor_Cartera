@@ -9,9 +9,8 @@ class UrlMappings {
             }
         }
 
-        "/"(view: "/login/login")
-        "/index"(view: 'index')
-        "/$controller/$action/$id"(controller: controller, action: action)
+        "/"(controller: 'login', action: 'index')
+        "/login/check"(controller: 'login',action: 'checkss')
         "500"(view: '/error')
         "404"(view: '/notFound')
     }

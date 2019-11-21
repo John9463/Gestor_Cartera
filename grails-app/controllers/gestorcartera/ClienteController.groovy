@@ -14,33 +14,28 @@ class ClienteController {
 
         if (!clientes.isEmpty())
             defaultModel+=[clientes: clientes]
-        if (chainModel)
-            defaultModel+=chainModel
 
             render view: 'cliente', model: defaultModel
     }
 
     def save() {
         def cliente = clientsService.save(params)
-        def model = [complete: true, message: 'El cliente NO fue guardado']
 
-        if (cliente)
-            model.message = 'El cliente fue guardado Exitosamente'
+        flash.target = cliente ? "Cliente Guardado" : "Cliente NO Guardado"
+        flash.alert = cliente ? 'alert-success' : 'alert-warning'
+        flash.message = cliente ? "Se guardo correctamente la informacion el Cliente" : "No se pudo guardar el Cliente"
 
-            chain action: 'index', model: model
+        chain action: 'index'
     }
 
     def update() {
         def cliente = clientsService.update(params)
-        def model = [show: true, message: 'El cliente NO fue guardado']
 
-        flash.header = "hola mundo"
+        flash.target = cliente ? "Cliente modificado" : "Cliente NO modificado"
         flash.alert = cliente ? 'alert-success' : 'alert-warning'
-        flash.message = "respuesta de lo que sucedio"
-        flash.show = true
+        flash.message = cliente ? "Se actualizo correctamente el Cliente" : "No se actualizo el cliente"
 
-
-        forward controller: 'dashboard', action: 'index', model: model
+        chain action: 'index'
     }
 
     def get(int id) {
