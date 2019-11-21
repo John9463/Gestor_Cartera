@@ -22,15 +22,27 @@ class SeguroController {
     }
 
     def get(int id) {
-        respond seguroService.get(request.JSON.id)
+        respond seguroService.get(id)
     }
 
     def save() {
-        respond seguroService.save(params)
+        def cliente = seguroService.save(params)
+
+        flash.target = cliente ? "Seguro Guardado" : "Seguro NO Guardado"
+        flash.alert = cliente ? 'alert-success' : 'alert-warning'
+        flash.message = cliente ? "Se guardo correctamente la informacion de el Seguro" : "No se pudo guardar el Seguro"
+
+        chain action: 'index'
     }
 
     def update() {
-        respond seguroService.update(params)
+        def cliente = seguroService.update(params)
+
+        flash.target = cliente ? "Seguro Actualizado" : "Seguro NO Actualizado"
+        flash.alert = cliente ? 'alert-success' : 'alert-warning'
+        flash.message = cliente ? "Se actualizo correctamente la informacion de el Seguro" : "No se pudo actualizarel Seguro"
+
+        chain action: 'index'
     }
 
     def delete() {

@@ -28,11 +28,12 @@
   <table id="table" class="table table-striped">
     <thead>
       <tr>
-        <th>Id Seguro:</th>
+        <th>Seguro:</th>
         <th>Nombre</th>
         <th>Aseguradora</th>
         <th>Cobertura</th>
         <th>sumaAsegurada</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <g:each var="seguro" in="${ seguros }">
@@ -56,105 +57,82 @@
   <g:form controller="seguro" action="save" class="was-validated" name="form-seguro">
 
       <div class="form-group">
-        <div class="row pt-4">
-
-          <div class="col-4">
-            <label for="uname">Nombre seguro:</label>
-            <input type="text" class="form-control" placeholder="Ejemplo: miseguro" name="nombre" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-          <div class="col-4">
-            <label for="uname">Aseguradora:</label>
-              <select name="aseguradora" required>
-                <opti on selected>Selecciona una Aseguradora</option>
-                <g:each var="aseguradora" in="${aseguradoras}">
-                  <option>${aseguradora}</option>
-                </g:each>
-              </select>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-          <div class="col-4">
-            <label for="pwd">Tipo:</label>
-            <select name="tipo" required>
-                <option selected>Selecciona un Tipo</option>
-                <g:each var="tipo" in="${tipos}">
-                  <option >${tipo}</option>
-                </g:each>
-              </select>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>  
-
-        </div>
-        <div class="row pt-4">
-          <div class="col-6">
-              <label for="uname">Valor Seguro:</label>
-               <input type="number" class="form-control"  placeholder="Ejemplo: 1547" name="valorSeguro " required>
-              <div class="valid-feedback">Correcto.</div>
-              <div class="invalid-feedback">El campo es requerido.</div>
-            </div>
-
-            <div class="col-6">
-              <label for="uname">Emisor:</label>
-               <input type="number" class="form-control"  placeholder="Ejemplo: 1547" name="emisor" required>
-              <div class="valid-feedback">Correcto.</div>
-              <div class="invalid-feedback">El campo es requerido.</div>
-            </div>
-          </div>
-      </div>
-
-
       
         <div class="row pt-4">
 
-          <div class="col-6">
-            <label for="pwd">Renovacion:</label>
-            <input type="date" class="form-control"  placeholder="Ejemplo: 1547" name="renovacion" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
+          <div class="col-4">
+            <label for="uname">Nombre Seguro:</label>
+            <input type="text" class="form-control" placeholder="Ejemplo: miseguro" name="nombre" required>
+          </div>
+       
+          <div class="col-4">
+              <label for="uname">Emisor:</label>
+              <input type="number" class="form-control"  placeholder="Ejemplo: 1547" name="emisor" required>
           </div>
 
-          <div class="col-6">
+          <div class="col-4">
+            <label for="uname">Valor Seguro:</label>
+            <input type="number" class="form-control"  placeholder="Ejemplo: 1547" name="valorSeguro" required>
+          </div>
+
+        </div>
+
+        <div class="row pt-4">
+          
+          <div class="col-4">
+            <label for="pwd">Tipo:</label><br>
+            <select name="tipo" required>
+                  <option selected>Selecciona un Tipo</option>
+                <g:each var="tipo" in="${tipos}">
+                  <option >${tipo}</option>
+                </g:each>
+            </select>
+          </div>  
+
+          <div class="col-4">
             <label for="pwd">Cobertura:</label>
             <select name="cobertura" required>
-                <option></option>
+                <option>Seleccione una cobertura</option>
                 <g:each var="cobertura" in="${coberturas}">
                   <option >${cobertura}</option>
                 </g:each>
               </select>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
-        </div>
-     
+          <div class="col-4">
+            <label for="uname">Aseguradoras:</label>
+              <select name="aseguradora" required>
+                    <option selected>Selecciona una Aseguradora</option>
+                  <g:each var="aseguradora" in="${aseguradoras}">
+                    <option>${aseguradora}</option>
+                  </g:each>
+              </select>
+          </div>    
 
-      
-     
+        </div>    
+
         <div class="row pt-4">
+
+          <div class="col-sm-4">
+            <label for="pwd">Renovacion:</label>
+            <input type="date" class="form-control"  placeholder="Ejemplo: 1547" name="renovacion" required>
+          </div>
 
           <div class="col-sm-4">
             <label for="pwd">Suma Asegurada:</label>
             <input type="text " class="form-control"  placeholder="Ejemplo: $15.50" name="sumaAsegurada" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-sm-4">
             <label for="pwd">Prima Neta:</label>
             <input type="number" class="form-control" placeholder="" name="primaNeta" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
         </div>
-     
-      
-    <button type="submit" class="btn btn-primary">Guardar</button>
+
+
+      <input type="number" class="form-control" id="id" name="id" hidden>
+      <button type="submit" class="btn btn-primary">Guardar</button>
      </div>
       </div>
       </div>

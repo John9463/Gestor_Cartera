@@ -15,9 +15,13 @@ class SeguroService {
     }
 
     def save(def params) {
-        if (params) {
+        new Seguro(params).save()
+    }
 
-        }
+    def update(def params){
+        def seguro = get(params.id.toInteger())
+        seguro.properties = params
+        seguro.save()
     }
 
     def list() {

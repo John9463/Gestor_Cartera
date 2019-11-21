@@ -3,19 +3,15 @@ document.getElementById("defaultOpen").click();
 
 var superid
 
-var keys = ["numeroRemision"
-,"fechaDesde"
-,"seguro"
-,"financiamiento"
-,"periodo"
-,"status"
-,"cliente"
-,"comisionCedida"
-,"primaTotal"
-,"ramo"
-,"gastosExpedicion"
-,"fechaExpedicion"
-,"clave"
+var keys = ["nombre",
+,"aseguradora"
+,"tipo"
+,"valorSeguro"
+,"emisor"
+,"renovacion"
+,"cobertura"
+,"sumaAsegurada"
+,"primaNeta"
 ]
 
 
@@ -96,24 +92,23 @@ function show(it){
 
 function edit(id){
      fetch('/seguro/get/'+id)
-     .then( Response => Response.json())
-     .then( poliza => {
-          for (let key in poliza){
+     .then( response => response.json())
+     .then( seguro => {
+          console.log(seguro)
+          for (let key in seguro){
                let input = $("[name='"+key+"']")
-
-               if(key == 'fechaDesde' || key == 'fechaExpedicion'){
-                    let d = poliza[key]
-                    let date = d.substring(0,10)
+               
+               if(key === 'renovacion'){
+                    let d = seguro[key]
+                    let date = d.substring(0, 10)
                     input.val(date)
-               }else if(key === 'cliente'){
-                   input.val(poliza.cliente.id)
-               }else{
-                    input.val(poliza[key])
-               }
+               }else
+                    input.val(seguro[key]) 
+               
           }
           document.getElementById('id').value = id
           show('mod')
-     }).catch((err) => alert("Problems in server" + err) );
+     }).catch((err) =>console.log(err) );
      
 }
 
