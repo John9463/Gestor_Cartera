@@ -24,30 +24,27 @@ class PolizaController {
     def save() {
         def poliza = polizaService.save(params)
 
-        def actionValue = poliza ? 'ok' : 'nok'
-        def messageValue = poliza ? 'Se guardo correctamente la Poliza' : 'No se pudo alamacenar la Poliza'
+        flash.target = poliza ? "Poliza Guardada" : "Poliza NO Guardado"
+        flash.alert = poliza ? 'alert-success' : 'alert-warning'
+        flash.message = poliza ? "Se guardo correctamente la informacion de la Poliza" : "No se pudo guardar la Poliza"
 
-        chain action: 'index', model: [confirm: Util.responseConfirm(actionValue, messageValue, 'poliza').properties]
+        chain action: 'index'
     }
 
     def update() {
         def poliza = polizaService.update(params)
 
-        def actionValue = poliza ? 'OK' : 'NOK'
-        def messageValue = poliza ? 'Se actualizo correctamente la Poliza' : 'No se pudo actualizar la Poliza'
+        flash.target = poliza ? "Poliza Actualizada" : "Poliza NO Actualizada"
+        flash.alert = poliza ? 'alert-success' : 'alert-warning'
+        flash.message = poliza ? "Se guardo correctamente la informacion de la Poliza" : "No se pudo guardar la Poliza"
 
-        chain action: 'index', model: [confirm: Util.responseConfirm(actionValue, messageValue, 'poliza').properties]
+        chain action: 'index'
     }
 
     def delete(int id) {
         polizaService.delete(id)
-        def poliza = polizaService.exist(id)
-
-        def actionValue = !poliza ? 'ok' : 'nok'
-        def messageValue = !poliza ? 'Se elimino correctamente la Poliza' : 'No se pudo eliminar la Poliza'
 
         respond Util.responseConfirm(actionValue, messageValue, 'poliza')
-
     }
 
     def get(int id) {

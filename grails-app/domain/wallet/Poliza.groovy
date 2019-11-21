@@ -13,7 +13,6 @@ class Poliza implements GormEntity<Poliza> {
     Usuario usuario
     Seguro seguro
     String ramo
-    String clave
     String status
     String periodo
     long primaTotal

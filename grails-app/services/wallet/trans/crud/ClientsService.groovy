@@ -19,7 +19,7 @@ class ClientsService {
 
     def update(def params) {
         def cliente = Cliente.get(params.id)
-        cliente.isIntegral == params.isIntegral == 'on'
+        cliente.isIntegral == params.isIntegral
         cliente.clave = params.clave
 
         def usuario = new Usuario(params)

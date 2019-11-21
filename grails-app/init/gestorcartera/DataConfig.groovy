@@ -71,7 +71,6 @@ class DataConfig {
             usuario         : Usuario.get(1),
             seguro          : Seguro.get(1),
             ramo            : Util.getUtilitiesClassPoliza().getRamos().get(0),
-            clave           : 'Dwas93Sde',
             status          : Util.getUtilitiesClassPoliza().getStatus().get(1),
             periodo         : Util.getUtilitiesClassPoliza().getPeriodos().get(2),
             primaTotal      : 231.toLong(),

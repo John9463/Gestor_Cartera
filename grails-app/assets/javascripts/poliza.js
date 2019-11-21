@@ -16,6 +16,7 @@ $(()=>{
     }, "Value must not equal arg.");
 
     $("form[name='form-poliza']").validate({
+        onsubmit: false,
         rules: {
             seguro: {
                 'valueNotEquals': 'Seleccione un Seguro'
@@ -77,10 +78,13 @@ $(()=>{
 
             },
             pimaTotal:{
-              r  
+              
             }
+        },
+        submitHandler: function(form) {
+            if(form.valid())
+                form.submit();
         }
-    
     })    
 
 })

@@ -29,7 +29,7 @@
     <thead>
       <tr>
         <th>Poliza</th>
-        <th>Clave Cliente</th>
+        <th>Status</th>
         <th>Desde</th>
         <th>Hasta</th>
         <th>Acciones</th>
@@ -40,7 +40,7 @@
         <tbody>
           <tr>
             <td>${poliza.id}</td>
-            <td>${poliza.clave}</td>
+            <td>${poliza.status}</td>
             <td>${poliza.fechaDesde}</td>
             <td>${poliza.fechaExpedicion}</td>
             <td><button onclick="edit(${poliza.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${poliza.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
@@ -57,58 +57,49 @@
 
         <div class="row pt-4">
           <div class="col-4">
-            <label for="uname">ID SEGURO:</label>
+            <label for="uname">Seguros:</label>
             <select name="seguro" required >
                 <option selected>Seleccione un Seguro</option>
-              <g:each var="aseguradora" in="${ aseguradoras }">
-                  <optgroup label="${ aseguradora.name }">
-                    <g:each var="seguro" in="${aseguradora.seguros}">
-                        <option value="${seguro.id}">${seguro.nombre}</option>
-                    </g:each>
-                  </optgroup>
-              </g:each>
+                <g:each var="aseguradora" in="${ aseguradoras }">
+                    <optgroup label="${ aseguradora.name }">
+                      <g:each var="seguro" in="${aseguradora.seguros}">
+                          <option value="${seguro.id}">${seguro.nombre}</option>
+                      </g:each>
+                    </optgroup>
+                </g:each>
             </select>
           </div>
 
           <div class="col-4">
-            <label for="uname">ID CLIENTE:</label>
+            <label for="uname">ID Cliente:</label>
             <input type="number" class="form-control" placeholder="Ejemplo: 15" name="cliente" id="cliente_id" required>
-          </div>
-
-          <div class="col-4">
-            <label for="pwd">CLAVE CLIENTE:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: USR4325" name="clave" required>
           </div>
         </div>
 
         <div class="row pt-4">
 
             <div class="col-4">
-              <label for="pwd">PERIODO:</label>
+              <label for="pwd">Periodo:</label>
               <select height="30px" name="periodo" required>
                   <option selected>Seleccione un periodo</option>
                   <g:each var="periodo" in="${periodos}">
                       <option>${periodo}</option>
                   </g:each>
                 </select>
-              <div class="valid-feedback">Correcto.</div>
-              <div class="invalid-feedback">El campo es requerido.</div>
             </div>
 
             <div class="col-4">
-              <label for="uname">RAMO:</label>
+              <label for="uname">Ramo:</label>
               <select height="30px" name="ramo" required>
                 <option selected>Seleccione un ramo</option>
                 <g:each var="ramo" in="${ramos}">
                     <option>${ramo}</option>
                 </g:each>
               </select>
-              <div class="valid-feedback">Correcto.</div>
-              <div class="invalid-feedback">El campo es requerido.</div>
             </div>
 
             <div class="col-4">
-              <label for="uname">STATUS:</label>
+              <label for="uname">Status:</label>
               <select name="status" required>
                 <option selected>Seleccione un status</option>
                 <g:each var="st" in="${status}">
@@ -122,12 +113,12 @@
 
 
           <div class="col-6">
-            <label for="pwd">NUMERO DE REMISION:</label>
+            <label for="pwd">NO. Remision:</label>
             <input type="number" class="form-control"  placeholder="Ejemplo: 1547" minlength="2" maxlength="4" name="numeroRemision" required>
           </div>
 
           <div class="col-6">
-            <label for="pwd">COMISION CONCEDIDA:</label>
+            <label for="pwd">Comision Concedida:</label>
             <input type="number" class="form-control"  placeholder="Ejemplo: 147" name="comisionCedida" required>
           </div>
 
@@ -136,12 +127,12 @@
         <div class="row pt-4">
 
           <div class="col-sm-4">
-            <label for="pwd">GASTOS DE EXPEDICION:</label>
+            <label for="pwd">Gastos de Expedicion:</label>
             <input type="number" class="form-control"  placeholder="Ejemplo: $15.50" name="gastosExpedicion" required>
           </div>
 
           <div class="col-sm-4">
-            <label for="pwd">DESDE:</label>
+            <label for="pwd">Desde:</label>
             <input type="date" class="form-control"  placeholder="Enter password" name="fechaDesde" required>
           </div>
 
@@ -152,26 +143,24 @@
 
         </div>
      
-      <div class="row pt-4">
-          <div class="col-12">
-            <label for="pwd">FINANCIAMIENTO:</label>
-            <input type="number" class="form-control"  placeholder="Ejemplo: $15.50" name="financiamiento" required>
-          </div> 
-      </div>
+        <div class="row pt-4">
+            <div class="col-12">
+              <label for="pwd">Financiamiento:</label>
+              <input type="number" class="form-control"  placeholder="Ejemplo: $15.50" name="financiamiento" required>
+            </div> 
+        </div>
 
-      <div class="row pt-4">
-              <div class="col-6">
-              <label for="pwd">PRIMA TOTAL:</label>
-              <input type="number" class="form-control"  placeholder="Ejemplo: $20.00" name="primaTotal" required>
-              </div>          
-      </div>
+        <div class="row pt-4">
+                <div class="col-6">
+                <label for="pwd">Prima Total:</label>
+                <input type="number" class="form-control"  placeholder="Ejemplo: $20.00" name="primaTotal" required>
+                </div>          
+        </div>
 
-      <input type="number" class="form-control" id="id" name="id" hidden>
-      <button type="submit" class="btn btn-primary">Guardar</button>
+        <input type="number" class="form-control" id="id" name="id" hidden>
+        <button type="submit" class="btn btn-primary">Guardar</button>
     
-     
     </div>
-      
   </g:form>
 </div>
 
