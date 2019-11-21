@@ -4,57 +4,84 @@ var superid
 
 var keys = ["numeroRemision", "fechaDesde", "seguro", "financiamiento", "periodo", "status", "cliente", "comisionCedida", "primaTotal", "ramo", "gastosExpedicion", "fechaExpedicion", "clave"]
 
-$('#form-poliza-source').validate({
-    rules: {
-        seguro: 'required',
-        cliente: {
-            required: true
+
+
+$(()=>{
+
+    // $( "input:blank" ).css( "background-color", "#bbbbff" );
+
+    $.validator.addMethod("valueNotEquals", function(value, element, arg){
+        console.log(arg)
+        return arg !== value;
+    }, "Value must not equal arg.");
+
+    $("form[name='form-poliza']").validate({
+        rules: {
+            seguro: {
+                'valueNotEquals': 'Seleccione un Seguro'
+            },
+            cliente: {
+                required: true,
+                remote: '/cliente/exist/'+$("input[name='cliente']").val()
+            },
+            periodo: "required",
+            ramo: "required",
+            status: "required",
+            numeroRemision: {
+                required: true,
+                minlength: 2,
+                maxlength: 4
+            },
+            comisionCedida: {
+                required: true,
+                minlength: 2,
+                maxlength: 4
+            },
+            gastosExpedicion: {
+                required: true,
+                maxlength: 4
+            }
         },
-        periodo: "required",
-        ramo: "required",
-        status: "required",
-        numeroRemision: {
-            required: true,
-            minlength: 2,
-            maxlength: 4
-        },
-        comisionCedida: {
-            required: true,
-            minlength: 2,
-            maxlength: 4
-        },
-        gastosExpedicion: {
-            required: true,
-            minlength: 2,
-            maxlength: 4
+        messages: {
+            seguro: {
+                required: 'Seleccione un Seguro'
+            },
+            cliente: {
+                required: 'Es necesario ingresar un cliente',
+                remote: 'No existe ningun usuario con el id ingresado'
+            },
+            periodo: 'Seleccione un periodo de tiempo',
+            ramo: 'Seleccione un ramo',
+            status: 'Seleccione un status',
+            numeroRemision: {
+                required: 'El campo es requerido',
+                minlength: "El campo no puede ser menor a 2",
+                maxlength: "El campo no puede ser mayor de 5"
+            },
+            comisionCedida: {
+                required: 'El campo es requerido',
+                minlength: "El campo no puede ser menor a 2",
+                maxlength: "El campo no puede ser mayor de 5"
+            },
+            gastosExpedicion: {
+                required: 'El campo es requerido',
+                maxlength: "El campo no puede ser mayor de 4"
+            },
+            fechaDesde:{
+
+            },
+            fechaExpedicion: {
+
+            },
+            financiamiento: {
+
+            },
+            pimaTotal:{
+              r  
+            }
         }
-    },
-    messages: {
-        seguro: {
-            required: 'Es necesario ingresar un usuario existente'
-        },
-        cliente: {
-            required: 'Es necesario ingresar un cliente'
-        },
-        periodo: 'Seleccione un periodo de tiempo',
-        ramo: 'Seleccione un ramo',
-        status: 'Seleccione un status',
-        numeroRemision: {
-            required: 'Campo es requerido',
-            minlength: "El campo no es valido",
-            maxlength: 'el campo es mayor a los permitidos'
-        },
-        comisionCedida: {
-            required: 'Campo es requerido',
-            minlength: 'El campo no es valido',
-            maxlength: 'El campo es mayor a los permitidos'
-        },
-        gastosExpedicion: {
-            required: 'Campo es requerido',
-            minlength: 'El campo no es valido',
-            maxlength: 'El campo es mayor a los permitidos'
-        }
-    }
+    
+    })    
 
 })
 

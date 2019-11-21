@@ -17,6 +17,15 @@
 //----------
 //= require paper-dashboard.min
 //= require_self
+$(() => {
+
+    $.validator.addMethod("valueNotEquals", function(value, element, arg){
+        console.log(arg)
+        return arg !== value;
+    }, "Value must not equal arg.");
+
+})
+
 
 function openTab(evt, cityName) {
     var i, tabcontent, tablinks;

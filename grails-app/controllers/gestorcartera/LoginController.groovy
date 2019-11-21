@@ -21,7 +21,7 @@ class LoginController implements Controller{
 
                 redirect controller: usuario.permissions.modules[0], action: 'index'
             }else{
-                flash.message = "El usuario y/o la contraseña no son correctas,Sugerencia: Verifica tu ${ usuario.username ? 'Contraseña' : 'Usuario' }."
+                flash.message = "El usuario y/o la contraseña no son correctas,Sugerencia: Verifica tu ${ usuario?.username ? 'Contraseña' : 'Usuario' }."
 
                 chain(action: 'index')
             }

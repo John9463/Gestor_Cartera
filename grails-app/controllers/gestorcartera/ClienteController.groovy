@@ -46,8 +46,8 @@ class ClienteController {
         respond clientsService.delete(request.JSON.id)
     }
 
-    def exist(int idCliente) {
-        respond clientsService.exist(idCliente)
+    def exist(int cliente) {
+        response << clientsService.exist(cliente)
     }
 
 

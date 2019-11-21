@@ -5,8 +5,8 @@ var keys = ["correo", "fechaNac", "nombre", "apellMa", "apellPa", "ciudad", "rfc
 
 $(function() {
     $("form[name='form-cliente']").validate({
+        onsubmit: false,
         rules: {
-
             correo: {
                 required: "Es requerido ingresar un correo electronico",
                 email: "El formato del correo no es aceptado"
@@ -33,19 +33,19 @@ $(function() {
                 remote: ''
             },
             password: {
-
+                required: true
             },
             passwordConfirm: {
-
+                equalTo: "#password"
             }
 
         },
         messages: {
-
-
+            password: 'La contraseña es requerida',
+            passwordConfirm: 'Ingresa la misma contraseña'
         },
         submitHandler: function(form) {
-            form.submit();
+          form.submit();
         }
     });
 });
