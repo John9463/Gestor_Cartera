@@ -19,76 +19,82 @@ var keys = ["numeroRemision"
 ]
 
 
-$('#form-poliza-source').validate({
+$('#form-automovil').validate({
     rules:{
         seguro: 'required',
         cliente: {
-            required: true
+             required: true,
+            remote: '/cliente/exist/'+$("input[name='cliente']").val()
         },
-        periodo: "required",
-        ramo: "required",
-        status: "required",
-        numeroRemision: {
+        vehiculo: "required",
+        modelo: "required",
+        tipos: "required",
+        placas: {
             required: true,
             minlength: 2,
-            maxlength: 4
+            maxlength: 8
         },
-        comisionCedida:{
+        uso:{
+             required: true
+        },
+        numSerie:{
              required: true,
              minlength: 2,
              maxlength: 4
         },
-        gastosExpedicion:{
-             required: true,
-             minlength: 2,
-             maxlength: 4
+        numMotor:{
+          required: true,
+          minlength: 2,
+          maxlength: 4
         }
     },
     messages:{
-        seguro:{
-            required: 'Es necesario ingresar un usuario existente'
-        },
-        cliente: {
-            required: 'Es necesario ingresar un cliente'
-        },
-        periodo: 'Seleccione un periodo de tiempo',
-        ramo: 'Seleccione un ramo',
-        status: 'Seleccione un status',
-        numeroRemision: {
-            required:'Campo es requerido',
-            minlength: "El campo no es valido",
-            maxlength: 'el campo es mayor a los permitidos'
-        },
-        comisionCedida: {
-            required: 'Campo es requerido',
-            minlength: 'El campo no es valido',
-            maxlength: 'El campo es mayor a los permitidos'
-        },
-        gastosExpedicion: {
-            required: 'Campo es requerido',
-            minlength: 'El campo no es valido',
-            maxlength: 'El campo es mayor a los permitidos'
-        }
+          seguro: 'required',
+          cliente: {
+               required: 'El campo cliente es obligatorio',
+               remote: 'No existe ningun Cliente con este id'
+          },
+          vehiculo: "El vehiculo es campo requerido",
+          modelo: "El modelo es campo requerido",
+          tipos: "Selecciona un tipo",
+          placas: {
+               required: 'Las placas con requeridas',
+               minlength: 'Faltan caracteres',
+               maxlength: 'Placas no validas'
+          },
+          uso:{
+               required: 'Ingresa un uso para el vehiculo'
+          },
+          numSerie:{
+               required: 'Ingresa un numero de serie',
+               minlength: 'Numero de serie demasiado corto',
+               maxlength: 'Numero de serie no valido'
+          },
+          numMotor:{
+               required: 'Ingresa un numero de motor',
+               minlength: 'Numero de motor demasiado corto',
+               maxlength: 'Numero de motor no valido'
+          }
     }
 
 })
 
 function show(it){
      var tab = document.getElementById('add-mod')
-     var form = document.getElementById('form-seguro')
+     var form = document.getElementById('form-automovil')
 
      if(it == 'add'){
           tab.removeAttribute('hidden')
-          tab.innerHTML = 'Crear Seguro'
-          form.action = '/seguro/save'
+          tab.innerHTML = 'Crear Automovil'
+          form.action = '/automovil/save'
           tab.click()
           clean() 
      }
 
      if(it == 'mod'){
           tab.removeAttribute('hidden')
-          tab.innerHTML = 'Editar Seguro'
-          form.action = '/seguro/update'
+          tab.innerHTML = 'Editar Automovil-'
+          form.action = '/automovil/update'
           tab.click()
      }
 
@@ -99,11 +105,11 @@ function edit(id){
      .then( response => response.json())
      .then( automovil => {
                console.log(automovil)
-
-          // for (let key in automovil){
-          //      let input = $("[name='"+key+"']")
-
-          // }
+          for (let key in automovil){
+               let input = $("[name='"+key+"']")
+               
+               input.val(automovil[key])
+          }
           document.getElementById('id').value = id
           show('mod')
      }).catch((err) => alert("Problems in server" + err) );

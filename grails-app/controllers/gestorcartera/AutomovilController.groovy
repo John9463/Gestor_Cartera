@@ -20,4 +20,14 @@ class AutomovilController {
     def get(int id){
         respond automovilService.get(id)
     }
+
+    def save(){
+        def auto = automovilService.save(params)
+
+        flash.target = auto ? "Automovil Guardado" : "Automovil NO Guardado"
+        flash.alert = auto ? 'alert-success' : 'alert-warning'
+        flash.message = auto ? "Se guardo correctamente la informacion de el Automovil" : "No se pudo guardar el Automovil"
+
+        chain action: 'index'
+    }
 }

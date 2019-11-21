@@ -28,10 +28,10 @@
   <table id="autos-table" class="table table-striped">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>Cliente id</th>
-        <th>Tipo Seguro</th>
-        <th>Modelo</th>
+        <th>Automovil</th>
+        <th>Cliente</th>
+        <th>Model</th>
+        <th>Uso</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -40,8 +40,8 @@
       <tr>
         <td>${auto.id}</td>
         <td>${auto.cliente.id}</td>
-        <td>${auto.seguro.tipo}</td>
         <td>${auto.modelo}</td>
+        <td>${auto.uso}</td>
         <td><button onclick="edit(${auto.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${auto.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
       </tr>
     </tbody>
@@ -50,176 +50,87 @@
 </div>
 
 <div id="Paris" class="tabcontent">
-  <g:form controller="Asesor" action="save" class="was-validated" name="form-Asesor">
-
+  <g:form controller="automovil" action="save" class="was-validated" name="form-automovil">
       <div class="form-group">
+        
         <div class="row pt-4">
 
           <div class="col-4">
-            <label for="uname">CORREO ELECTRONICO:</label>
-            <input type="email" class="form-control"  placeholder="Ejemplo: example@mail.com" name="correo" maxlenght="5" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
+            <label for="uname">ID Cliente:</label>
+            <input type="number" class="form-control"  placeholder="50" name="cliente" maxlenght="5" required>
           </div>
 
           <div class="col-4">
-            <label for="uname">FECHA DE NACIMIENTO:</label>
-            <input type="date" class="form-control"  placeholder="Ejemplo: 1020" name="fechaNac" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-          <div class="col-4">
-            <label for="pwd">NOMBRE:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: juan barreras" name="nombre" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-        </div>
-        <div class="row pt-4">
-          <div class="col-6">
-              <label for="pwd">APELLIDO PATERNO:</label>
-              <input type="text" class="form-control"  placeholder="Ejemplo: vargas" name="apellPa" required>
-              <div class="valid-feedback">Correcto.</div>
-              <div class="invalid-feedback">El campo es requerido.</div>
-            </div>
-
-            <div class="col-6">
-              <label for="pwd">APELLIDO MATERNO:</label>
-              <input type="text" class="form-control"  placeholder="Ejemplo: contreras" name="apellMa" required>
-              <div class="valid-feedback">Correcto.</div>
-              <div class="invalid-feedback">El campo es requerido.</div>
-            </div>
-          </div>
-      </div>
-
-
-      
-        <div class="row pt-4">
-
-          <div class="col-6">
-            <label for="pwd">CIUDAD:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: Toluca" name="ciudad" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-          <div class="col-6">
-            <label for="pwd">RFC:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: 147" name="rfc" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-        </div>
-     
-
-      
-     
-        <div class="row pt-4">
-
-          <div class="col-sm-4">
-            <label for="pwd">COLONIA:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: $15.50" name="colonia" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-          <div class="col-sm-4">
-            <label for="pwd">CALLE:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: Av. Dependencia" name="calle" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-          <div class="col-sm-4">
-            <label for="pwd">CODIGO POSTAL:</label>
-            <input type="number" class="form-control"  placeholder="Ejemplo: 50100" name="cp" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-        </div>
-     
-      <div class="row pt-4">
-
-          <div class="col-12">
-            <label for="pwd">TIPO:</label>
-            <select name="tipo">
-                <option>Seleccione un tipo</option>
-              <g:each var="tipo" in="${tipos}">
-                <option>${tipo}</option>
-              </g:each>
+            <label for="uname">Seguros:</label>
+            <select name="seguro" required >
+                <option selected>Seleccione un Seguro</option>
+                <g:each var="aseguradora" in="${ aseguradoras }">
+                    <optgroup label="${ aseguradora.name }">
+                      <g:each var="seguro" in="${aseguradora.seguros}">
+                          <option value="${seguro.id}">${seguro.nombre}</option>
+                      </g:each>
+                    </optgroup>
+                </g:each>
             </select>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
-             <div class="col-12">
-            <label for="pwd">Clave de Usuario:</label>
-            <input type="text" class="form-control" name="clave" required />
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
+          <div class="col-4">
+            <label for="pwd">Vehiculo:</label>
+            <input type="text" class="form-control"  placeholder="Ford" name="nombre" required>
           </div>
 
-        <input type="number" class="form-control" id="id" name="id" hidden>
-
         </div>
 
-<div class="row pt-4">
-        <div class="col-6">
-        <label for="pwd">NO. CASA:</label>
-        <input type="number" class="form-control"  placeholder="Ejemplo: 2000" name="noCasa" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
+        <div class="row pt-4">
+            <div class="col-4">
+              <label for="pwd">Modelo:</label>
+              <input type="text" class="form-control"  placeholder="2015" name="modelo" required>
+            </div>
+  
+            <div class="col-4">
+              <label for="uname">Tipos:</label>
+              <select name="tipo" required >
+                  <option selected>Seleccione un tipo</option>
+                  <g:each var="tipo" in="${ tipos }">
+                    <option value="${tipo}">${seguro.nombre}</option>    
+                  </g:each>
+              </select>
+            </div>
         </div>
 
-        <div class="col-6">
-        <label for="pwd">TELEFONO CELULAR:</label>
-        <input type="number" class="form-control"  placeholder="Ejemplo: 7291586478" name="tel" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
-        </div>
-   <div>
-    
-    <div class="row pt-4">
-        <div class="col-4">
-        <label for="pwd">Username:</label>
-        <input type="text" class="form-control"  placeholder="Ejemplo: 2000" name="username" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
-        </div>
+        <div class="row pt-4">
 
-        <div class="col-4">
-        <label for="pwd">Password:</label>
-        <input type="password" class="form-control"  placeholder="Ejemplo: 7291586478" name="password" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
-        </div>
+          <div class="col-5">
+            <label for="pwd">Placas:</label>
+            <input type="text" class="form-control"  placeholder="AWF500S" name="placas" required>
+          </div>
 
-        <div class="col-6">
-        <label for="pwd">Confirmacion Password:</label>
-        <input type="password" class="form-control"  placeholder="Ejemplo: 7291586478" name="passwordConfirm" required>
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
-        </div>
-   <div>
+          <div class="col-5">
+            <label for="pwd">Uso:</label>
+            <input type="text" class="form-control"  placeholder="Trabajo" name="uso" required>
+          </div>
 
-        <div class="col-6">
-        <label for="pwd">Es un usuario integral:</label>
-        <input type="checkbox" class="form-control"  placeholder="Ejemplo: 7291586478" name="isIntegral">
-        <div class="valid-feedback">Correcto.</div>
-        <div class="invalid-feedback">El campo es requerido.</div>
         </div>
-
       
-    <button type="submit" class="btn btn-primary">Guardar</button>
-     </div>
-      </div>
-      </div>
-</g:form>
+        <div class="row pt-4">
 
+          <div class="col-sm-4">
+            <label for="pwd">No. de Serie:</label>
+            <input type="text" class="form-control"  placeholder="Ejemplo: $15.50" name="numSerie" required>
+          </div>
+
+          <div class="col-sm-4">
+            <label for="pwd">No. Motor:</label>
+            <input type="text" class="form-control"  placeholder="Ejemplo: Av. Dependencia" name="numMotor" required>
+          </div>
+
+        </div>
+
+            <input type="number" class="form-control" id="id" name="id" hidden>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>          
+</g:form>
+</div>
 
 
 
@@ -252,8 +163,6 @@
 </div>
 <!-- The Modal -->
 
-
-  <asset:javascript src="application.js" />
   <asset:javascript src="automovil.js" />
 </body>
 

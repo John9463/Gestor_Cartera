@@ -15,15 +15,15 @@ var keys = ["nombre",
 ]
 
 
-$('#form-poliza-source').validate({
+$('#form-seguro').validate({
     rules:{
-        seguro: 'required',
-        cliente: {
+        nombre: 'required',
+        emisor: {
             required: true
         },
-        periodo: "required",
-        ramo: "required",
-        status: "required",
+        valorSeguro: "required",
+        tipo: "required",
+        cobertura: "required",
         numeroRemision: {
             required: true,
             minlength: 2,
