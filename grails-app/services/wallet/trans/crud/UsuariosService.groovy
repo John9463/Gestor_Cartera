@@ -14,5 +14,9 @@ class UsuariosService {
         Usuario.find { username == entry.user && password == entry.password }
     }
 
+    boolean exist(String user){
+        Usuario.find { username == user }
+    }
+
 
 }
