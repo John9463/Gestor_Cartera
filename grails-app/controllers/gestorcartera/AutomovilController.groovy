@@ -11,17 +11,17 @@ class AutomovilController {
         def autos = automovilService.list()
         def model = automovilService.model()
 
-        if(autos)
-            model+= [autos :autos]
+        if (autos)
+            model += [autos: autos]
 
-        render view:'automovil', model: model
+        render view: 'automovil', model: model
     }
 
-    def get(int id){
+    def get(int id) {
         respond automovilService.get(id)
     }
 
-    def save(){
+    def save() {
         def auto = automovilService.save(params)
 
         flash.target = auto ? "Automovil Guardado" : "Automovil NO Guardado"
