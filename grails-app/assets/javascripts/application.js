@@ -17,6 +17,13 @@
 //----------
 //= require paper-dashboard.min
 //= require_self
+
+function logOut(){
+    console.log('log out')
+    fetch('/login/logout').
+    then(response => window.location.href = "/" )
+  }
+
 $(() => {
 
     $.validator.addMethod("valueNotEquals", function(value, element, arg){
