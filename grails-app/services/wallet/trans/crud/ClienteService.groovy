@@ -5,7 +5,7 @@ import wallet.Cliente
 import wallet.Usuario
 
 @Transactional
-class ClientsService {
+class ClienteService {
 
     @Transactional(readOnly = true)
     def list() {
@@ -14,6 +14,7 @@ class ClientsService {
 
     def save(def params) {
         params.usuario = new Usuario(params)
+        params.isIntegral = params.isIntegral == 'on' ? 1 : 0
         new Cliente(params).save()
     }
 

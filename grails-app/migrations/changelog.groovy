@@ -1,6 +1,6 @@
 databaseChangeLog = {
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-1") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-1") {
         createTable(tableName: "asesor") {
             column(autoIncrement: "true", name: "id", type: "BIGINT") {
                 constraints(primaryKey: "true", primaryKeyName: "asesorPK")
@@ -24,7 +24,7 @@ databaseChangeLog = {
         }
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-2") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-2") {
         createTable(tableName: "asesor_clientes") {
             column(name: "cliente_id", type: "BIGINT") {
                 constraints(nullable: "false")
@@ -36,7 +36,7 @@ databaseChangeLog = {
         }
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-3") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-3") {
         createTable(tableName: "automovil") {
             column(autoIncrement: "true", name: "id", type: "BIGINT") {
                 constraints(primaryKey: "true", primaryKeyName: "automovilPK")
@@ -84,7 +84,7 @@ databaseChangeLog = {
         }
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-4") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-4") {
         createTable(tableName: "cliente") {
             column(autoIncrement: "true", name: "id", type: "BIGINT") {
                 constraints(primaryKey: "true", primaryKeyName: "clientePK")
@@ -108,7 +108,7 @@ databaseChangeLog = {
         }
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-5") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-5") {
         createTable(tableName: "cliente_asesores") {
             column(name: "asesor_id", type: "BIGINT") {
                 constraints(nullable: "false")
@@ -120,17 +120,7 @@ databaseChangeLog = {
         }
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-6") {
-        createTable(tableName: "cliente_poliza") {
-            column(name: "cliente_polizas_id", type: "BIGINT") {
-                constraints(nullable: "false")
-            }
-
-            column(name: "poliza_id", type: "BIGINT")
-        }
-    }
-
-    changeSet(author: "aldo (generated)", id: "1574360975834-7") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-6") {
         createTable(tableName: "poliza") {
             column(autoIncrement: "true", name: "id", type: "BIGINT") {
                 constraints(primaryKey: "true", primaryKeyName: "polizaPK")
@@ -172,10 +162,6 @@ databaseChangeLog = {
                 constraints(nullable: "false")
             }
 
-            column(name: "usuario_id", type: "BIGINT") {
-                constraints(nullable: "false")
-            }
-
             column(name: "fecha_desde", type: "datetime") {
                 constraints(nullable: "false")
             }
@@ -187,10 +173,14 @@ databaseChangeLog = {
             column(name: "fecha_expedicion", type: "datetime") {
                 constraints(nullable: "false")
             }
+
+            column(name: "cliente_id", type: "BIGINT") {
+                constraints(nullable: "false")
+            }
         }
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-8") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-7") {
         createTable(tableName: "recibo_pago") {
             column(autoIncrement: "true", name: "id", type: "BIGINT") {
                 constraints(primaryKey: "true", primaryKeyName: "recibo_pagoPK")
@@ -222,7 +212,7 @@ databaseChangeLog = {
         }
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-9") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-8") {
         createTable(tableName: "seguro") {
             column(autoIncrement: "true", name: "id", type: "BIGINT") {
                 constraints(primaryKey: "true", primaryKeyName: "seguroPK")
@@ -270,7 +260,7 @@ databaseChangeLog = {
         }
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-10") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-9") {
         createTable(tableName: "usuario") {
             column(autoIncrement: "true", name: "id", type: "BIGINT") {
                 constraints(primaryKey: "true", primaryKeyName: "usuarioPK")
@@ -338,55 +328,47 @@ databaseChangeLog = {
         }
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-11") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-10") {
         addForeignKeyConstraint(baseColumnNames: "cliente_id", baseTableName: "cliente_asesores", constraintName: "FK12s4fu4usv2m94flrrh7sx973", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "cliente", validate: "true")
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-12") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-11") {
         addForeignKeyConstraint(baseColumnNames: "asesor_id", baseTableName: "cliente_asesores", constraintName: "FK21d6t4m0jsv0ev1d27v8vulir", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "asesor", validate: "true")
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-13") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-12") {
         addForeignKeyConstraint(baseColumnNames: "asesor_id", baseTableName: "asesor_clientes", constraintName: "FK542bia14bfvpcpi59xl1acv7s", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "asesor", validate: "true")
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-14") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-13") {
         addForeignKeyConstraint(baseColumnNames: "seguro_id", baseTableName: "automovil", constraintName: "FK609qimn8e2ai31vtqxvke76f", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "seguro", validate: "true")
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-15") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-14") {
         addForeignKeyConstraint(baseColumnNames: "usuario_id", baseTableName: "asesor", constraintName: "FK62pqimnqcv394uf7v6h074051", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "usuario", validate: "true")
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-16") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-15") {
         addForeignKeyConstraint(baseColumnNames: "usuario_id", baseTableName: "cliente", constraintName: "FKc3u631ocxdrtm3ccpme0kjlmu", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "usuario", validate: "true")
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-17") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-16") {
         addForeignKeyConstraint(baseColumnNames: "cliente_id", baseTableName: "asesor_clientes", constraintName: "FKd2jtv9bmyvc5s2xcm77vsiot7", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "cliente", validate: "true")
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-18") {
-        addForeignKeyConstraint(baseColumnNames: "poliza_id", baseTableName: "cliente_poliza", constraintName: "FKe0o8cx8asqcjm3wxa2l7dvx2w", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "poliza", validate: "true")
+    changeSet(author: "aldo (generated)", id: "1574435128688-17") {
+        addForeignKeyConstraint(baseColumnNames: "cliente_id", baseTableName: "poliza", constraintName: "FKd75jfgvv0488xpmc3mka4nxu5", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "cliente", validate: "true")
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-19") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-18") {
         addForeignKeyConstraint(baseColumnNames: "seguro_id", baseTableName: "poliza", constraintName: "FKed7blor7cnw1rfumbfq3hr372", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "seguro", validate: "true")
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-20") {
-        addForeignKeyConstraint(baseColumnNames: "cliente_polizas_id", baseTableName: "cliente_poliza", constraintName: "FKef6q050nxmdhwu1fl1aad4u6p", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "cliente", validate: "true")
-    }
-
-    changeSet(author: "aldo (generated)", id: "1574360975834-21") {
-        addForeignKeyConstraint(baseColumnNames: "usuario_id", baseTableName: "poliza", constraintName: "FKm64i2fgcrt262pa8ksaqim75x", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "usuario", validate: "true")
-    }
-
-    changeSet(author: "aldo (generated)", id: "1574360975834-22") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-19") {
         addForeignKeyConstraint(baseColumnNames: "cliente_id", baseTableName: "automovil", constraintName: "FKoauc122vicryshn8j90xwas0s", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "cliente", validate: "true")
     }
 
-    changeSet(author: "aldo (generated)", id: "1574360975834-23") {
+    changeSet(author: "aldo (generated)", id: "1574435128688-20") {
         addForeignKeyConstraint(baseColumnNames: "poliza_id", baseTableName: "recibo_pago", constraintName: "FKok2ekoe7aehvu3mfju6so62k", deferrable: "false", initiallyDeferred: "false", referencedColumnNames: "id", referencedTableName: "poliza", validate: "true")
     }
 }

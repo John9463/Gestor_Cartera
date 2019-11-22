@@ -5,8 +5,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="layout" content="theme">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
 <asset:stylesheet src="application.css"/>
 
 </head>
@@ -42,7 +40,7 @@
         <td>${asesor.homoclave}</td>
         <td>${asesor.tipoAsesor}</td>
         <td>${asesor.isAdmin}</td>
-        <td><button onclick="edit('${asesor.id}'')"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete('${asesor.id}')"><i class="far fa-trash-alt">Borrar</i> </button> </td>
+        <td><button onclick="edit('${asesor.id}')"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete('${asesor.id}')"><i class="far fa-trash-alt">Borrar</i> </button> </td>
       </tr>
     </tbody>
     </g:each>
@@ -50,181 +48,133 @@
 </div>
 
 <div id="Paris" class="tabcontent">
-  <g:form controller="Asesor" action="save" class="was-validated" name="form-Asesor">
-
-      <div class="form-group">
-        <div class="row pt-4">
-
-          <div class="col-4">
-            <label for="uname">CORREO ELECTRONICO:</label>
-            <input type="email" class="form-control"  placeholder="Ejemplo: example@mail.com" name="correo" maxlenght="5" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-          <div class="col-4">
-            <label for="uname">FECHA DE NACIMIENTO:</label>
-            <input type="date" class="form-control"  placeholder="Ejemplo: 1020" name="fechaNac" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-          <div class="col-4">
-            <label for="pwd">NOMBRE:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: juan barreras" name="nombre" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
-          </div>
-
-        </div>
-        <div class="row pt-4">
-          <div class="col-6">
-              <label for="pwd">APELLIDO PATERNO:</label>
-              <input type="text" class="form-control"  placeholder="Ejemplo: vargas" name="apellPa" required>
-              <div class="valid-feedback">Correcto.</div>
-              <div class="invalid-feedback">El campo es requerido.</div>
-            </div>
-
-            <div class="col-6">
-              <label for="pwd">APELLIDO MATERNO:</label>
-              <input type="text" class="form-control"  placeholder="Ejemplo: contreras" name="apellMa" required>
-              <div class="valid-feedback">Correcto.</div>
-              <div class="invalid-feedback">El campo es requerido.</div>
-            </div>
-          </div>
-      </div>
-
-
+  <g:form controller="Asesor" action="save" class="was-validated" name="form-asesor">
+    <div class="form-group">
       
         <div class="row pt-4">
 
-          <div class="col-6">
-            <label for="pwd">CIUDAD:</label>
+            <div class="col-4">
+              <label for="pwd">Nombre:</label>
+              <input type="text" class="form-control"  placeholder="Ejemplo: juan barreras" name="nombre" required>
+            </div>
+
+            <div class="col-4">
+              <label for="pwd">Apellido Paterno:</label>
+              <input type="text" class="form-control"  placeholder="Ejemplo: vargas" name="apellPa" required>
+            </div>
+
+            <div class="col-4">
+              <label for="pwd">Apellido Materno:</label>
+              <input type="text" class="form-control"  placeholder="Ejemplo: contreras" name="apellMa" required>
+            </div>
+
+        </div>
+      
+        <div class="row pt-4">
+
+          <div class="col-4">
+            <label for="pwd">Ciudad:</label>
             <input type="text" class="form-control"  placeholder="Ejemplo: Toluca" name="ciudad" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
-          <div class="col-6">
+          <div class="col-4">
             <label for="pwd">RFC:</label>
             <input type="text" class="form-control"  placeholder="Ejemplo: 147" name="rfc" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
-          <div class="col-6">
-              <label for="pwd">HOMOCLAVE:</label>
-              <input type="text" class="form-control" name="homoclave" required>
-              <div class="valid-feedback">Correcto.</div>
-              <div class="invalid-feedback">El campo es requerido.</div>
-            </div>
+          <div class="col-4">
+            <label for="pwd">Homoclave:</label>
+            <input type="text" class="form-control" name="homoclave" required>
+          </div>
 
         </div>
-     
-
-      
      
         <div class="row pt-4">
 
           <div class="col-sm-4">
-            <label for="pwd">COLONIA:</label>
+            <label for="pwd">Colonia:</label>
             <input type="text" class="form-control"  placeholder="Ejemplo: $15.50" name="colonia" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-sm-4">
-            <label for="pwd">CALLE:</label>
+            <label for="pwd">Calle:</label>
             <input type="text" class="form-control"  placeholder="Ejemplo: Av. Dependencia" name="calle" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
           <div class="col-sm-4">
-            <label for="pwd">CODIGO POSTAL:</label>
+            <label for="pwd">Codigo Postal:</label>
             <input type="number" class="form-control"  placeholder="Ejemplo: 50100" name="cp" required>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
         </div>
      
-      <div class="row pt-4">
+            
+        <div class="row pt-4">
 
-          <div class="col-12">
-            <label for="pwd">TIPO:</label>
+          <div class="col-4">
+            <label for="uname">Fecha de nacimiento:</label>
+            <input type="date" class="form-control"  placeholder="Ejemplo: 1020" name="fechaNac" required>
+          </div>
+
+          <div class="col-4">
+            <label for="pwd">Tipo:</label><br>
             <select name="tipoAsesor">
                 <option>Seleccione un tipo</option>
               <g:each var="tipo" in="${tipos}">
                 <option>${tipo}</option>
               </g:each>
             </select>
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
           </div>
 
-             <div class="col-12">
-            <label for="pwd">Clave de Usuario:</label>
-            <input type="text" class="form-control" name="clave" required />
-            <div class="valid-feedback">Correcto.</div>
-            <div class="invalid-feedback">El campo es requerido.</div>
+          <div class="col-3">
+              <label for="pwd">Administrador:</label><br>
+              <input type="checkbox" class="form-control" name="isAdmin">
           </div>
 
-        <input type="number" class="form-control" id="id" name="id" hidden>
 
         </div>
 
-    <div class="row pt-4">
-        <div class="col-6">
-          <label for="pwd">NO. CASA:</label>
-            <input type="number" class="form-control"  placeholder="Ejemplo: 2000" name="noCasa" required>
-          <div class="valid-feedback">Correcto.</div>
-          <div class="invalid-feedback">El campo es requerido.</div>
-        </div>
+        <div class="row pt-2">
+            <div class="col-4">
+                <label for="pwd">NO. Casa:</label>
+                <input type="number" class="form-control"  placeholder="Ejemplo: 2000" name="noCasa" required>
+            </div>
 
-        <div class="col-6">
-          <label for="pwd">TELEFONO CELULAR:</label>
-            <input type="number" class="form-control"  placeholder="Ejemplo: 7291586478" name="tel" required>
-          <div class="valid-feedback">Correcto.</div>
-          <div class="invalid-feedback">El campo es requerido.</div>
+            <div class="col-4">
+                <label for="pwd">Telefono Celular:</label>
+                <input type="number" class="form-control"  placeholder="Ejemplo: 7291586478" name="tel" required>
+            </div>
+
         </div>
-    </div>
-  
     
-    <div class="row pt-4">
-        <div class="col-4">
-          <label for="pwd">Username:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: 2000" name="username" required>
-          <div class="valid-feedback">Correcto.</div>
-          <div class="invalid-feedback">El campo es requerido.</div>
-        </div>
+        <div class="row pt-4">
+            
+            <div class="col-4">
+              <label for="uname">Correo Electronico:</label>
+              <input type="email" class="form-control"  placeholder="Ejemplo: example@mail.com" name="correo" maxlenght="5" required>
+            </div>
 
-        <div class="col-4">
-          <label for="pwd">Password:</label>
-            <input type="password" class="form-control"  placeholder="Ejemplo: 7291586478" name="password" required>
-          <div class="valid-feedback">Correcto.</div>
-          <div class="invalid-feedback">El campo es requerido.</div>
-        </div>
+            <div class="col-4">
+                <label for="pwd">Username:</label>
+                <input type="text" class="form-control"  placeholder="Ejemplo: 2000" name="username" required>
+            </div>
 
-        <div class="col-6">
-          <label for="pwd">Confirmacion Password:</label>
-              <input type="password" class="form-control"  placeholder="Ejemplo: 7291586478" name="passwordConfirm" required>
-          <div class="valid-feedback">Correcto.</div>
-          <div class="invalid-feedback">El campo es requerido.</div>
-        </div>
+            <div class="col-4">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control"  placeholder="Ejemplo: 7291586478" name="password" required>
+            </div>
 
-        <div class="col-6">
-          <label for="pwd">Administrador:</label>
-            <input type="checkbox" class="form-control" name="isAdmin">
-          <div class="valid-feedback">Correcto.</div>
-          <div class="invalid-feedback">El campo es requerido.</div>
+            <div class="col-4">
+              <label for="pwd">Confirmacion Password:</label>
+                  <input type="password" class="form-control"  placeholder="Ejemplo: 7291586478" name="passwordConfirm" required>
+            </div>
+
         </div>
-    </div>
       
-    <button type="submit" class="btn btn-primary">Guardar</button>
-     </div>
-      </div>
-      </div>
+
+          <input type="number" class="form-control" id="id" name="id" hidden>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
   </g:form>
 </div>
 
@@ -251,7 +201,7 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="deletePoliza()">Confirmar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="deleteAsesor()">Confirmar</button>
       </div>
 
     </div>
@@ -259,9 +209,7 @@
 </div>
 <!-- The Modal -->
 
-
-  <asset:javascript src="application.js" />
-  <asset:javascript src="Asesor.js" />
+  <asset:javascript src="asesor.js" />
 </body>
 
 </html>

@@ -4,8 +4,8 @@ import grails.compiler.GrailsCompileStatic
 import groovy.transform.ToString
 import org.grails.datastore.gorm.GormEntity
 
-@ToString
 @GrailsCompileStatic
+@ToString
 class Usuario implements GormEntity<Usuario> {
 
     String username

@@ -68,7 +68,7 @@ class DataConfig {
 
     //,mapara de datos para un <code>Poliza</code> por default
     def defaultPoliza = [
-            usuario         : Usuario.get(1),
+            cliente         : Cliente.get(1),
             seguro          : Seguro.get(1),
             ramo            : Util.getUtilitiesClassPoliza().getRamos().get(0),
             status          : Util.getUtilitiesClassPoliza().getStatus().get(1),

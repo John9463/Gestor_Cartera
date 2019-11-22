@@ -1,15 +1,15 @@
 package gestorcartera
 
-import wallet.trans.crud.ClientsService
+import wallet.trans.crud.ClienteService
 import kit.Util
 
 class ClienteController {
     static responseFormats = ['json']
 
-    ClientsService clientsService
+    ClienteService clienteService
 
     def index() {
-        def clientes = clientsService.list()
+        def clientes = clienteService.list()
         def defaultModel = Util.getModelCliente()
 
         if (!clientes.isEmpty())
@@ -19,7 +19,7 @@ class ClienteController {
     }
 
     def save() {
-        def cliente = clientsService.save(params)
+        def cliente = clienteService.save(params)
 
         flash.target = cliente ? "Cliente Guardado" : "Cliente NO Guardado"
         flash.alert = cliente ? 'alert-success' : 'alert-warning'
@@ -29,25 +29,25 @@ class ClienteController {
     }
 
     def update() {
-        def cliente = clientsService.update(params)
+        def cliente = clienteService.update(params)
 
         flash.target = cliente ? "Cliente modificado" : "Cliente NO modificado"
         flash.alert = cliente ? 'alert-success' : 'alert-warning'
-        flash.message = cliente ? "Se actualizo correctamente el Cliente" : "No se actualizo el cliente"
+        flash.message = cliente ? "Se actualizo correctamente el Cliente" : "No se actualizo el Cliente"
 
         chain action: 'index'
     }
 
     def get(int id) {
-        respond clientsService.get(id)
+        respond clienteService.get(id)
     }
 
     def delete() {
-        respond clientsService.delete(request.JSON.id)
+        respond clienteService.delete(request.JSON.id)
     }
 
     def exist(int cliente) {
-        response << clientsService.exist(cliente)
+        response << clienteService.exist(cliente)
     }
 
 

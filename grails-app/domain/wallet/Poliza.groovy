@@ -10,7 +10,7 @@ class Poliza implements GormEntity<Poliza> {
 
     static hasMany = [recibosPago: ReciboPago]
 
-    Usuario usuario
+    Cliente cliente
     Seguro seguro
     String ramo
     String status
