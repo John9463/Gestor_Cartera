@@ -34,7 +34,7 @@ class LoginService {
                 permissions.domain = 'asesor'
 
                 if( asesor.isAdmin ){
-                    permissions.modules+= ['automovil','seguro','asesor','reporte']
+                    permissions.modules+= ['automovil','seguro','asesor']
                     permissions.domain+='_admin'
                 }
 

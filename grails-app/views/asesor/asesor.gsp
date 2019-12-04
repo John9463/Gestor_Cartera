@@ -22,7 +22,8 @@
 <input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por nombre.." title="Type in a name">
 
 <div id="London" class="tabcontent">
-  <button onclick="show('add')"><i class="far fa-plus-square">Crear Asesor</i></button>
+  <button class="btn btn-success" onclick="show('add')"><i class="far fa-plus-square">Crear Asesor</i></button>
+  <button class="btn btn-primary" href="/#">Reporte</button>
   <table id="table" class="table table-striped">
     <thead>
       <tr>
@@ -40,7 +41,9 @@
         <td>${asesor.homoclave}</td>
         <td>${asesor.tipoAsesor}</td>
         <td>${asesor.isAdmin}</td>
-        <td><button onclick="edit('${asesor.id}')"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete('${asesor.id}')"><i class="far fa-trash-alt">Borrar</i> </button> </td>
+        <td>
+        <button class="btn btn-danger" onclick="edit('${asesor.id}')"><i class="fas fa-edit">Editar</i></button>
+         <button class="btn btn-warning" data-toggle="modal" data-target="#myModal" onclick="previusDelete('${asesor.id}')"><i class="far fa-trash-alt">Borrar</i> </button> </td>
       </tr>
     </tbody>
     </g:each>

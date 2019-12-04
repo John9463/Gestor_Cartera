@@ -18,6 +18,13 @@ class AutomovilService {
         new Automovil(params).save()
     }
 
+    def update(def params){
+        def automovil = Automovil.load(params.id)
+
+        automovil.properties = params
+        automovil.save()
+    }
+
     def get(int id){
         Automovil.get(id)
     }
