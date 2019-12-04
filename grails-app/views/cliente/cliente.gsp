@@ -24,7 +24,7 @@
 
   <div id="London" class="tabcontent">
     <button class="btn btn-success" onclick="show('add')"><i class="far fa-plus-square">Crear Cliente</i></button>
-    <button class="btn btn-primary">Reporte</button>
+    <a href="/report/create/?type=cliente" class="btn btn-primary">Reporte</a>
     <table id="table" class="table table-striped">
       <thead>
         <tr>
