@@ -14,6 +14,13 @@ class AutomovilService {
         Automovil.list()
     }
 
+    def update(def params){
+        def automovil = Automovil.load(params.id)
+        automovil.properties = params
+
+        automovil.save(flush: true)
+    }
+
     def save(def params){
         new Automovil(params).save()
     }

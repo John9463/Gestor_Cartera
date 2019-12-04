@@ -30,4 +30,15 @@ class AutomovilController {
 
         chain action: 'index'
     }
+    
+    def update(){
+        def auto = automovilService.update(params)
+
+        flash.target = auto ? "Automovil Modificado" : "Automovil NO Modificado"
+        flash.alert = auto ? 'alert-success' : 'alert-warning'
+        flash.message = auto ? "Se modificio correctamente la informacion de el Automovil" : "No se pudo modificar el Automovil"
+
+        chain action: 'index'
+    }
+
 }
