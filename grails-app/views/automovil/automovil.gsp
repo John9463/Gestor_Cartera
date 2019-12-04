@@ -23,7 +23,8 @@
 <input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por nombre.." title="Type in a name">
 
 <div id="London" class="tabcontent">
-  <button onclick="show('add')"><i class="far fa-plus-square">Crear Automovil</i></button>
+  <button class="btn btn-success" onclick="show('add')"><i class="far fa-plus-square">Crear Automovil</i></button>
+  <button class="btn btn-primary">Reporte</button>
   <table id="autos-table" class="table table-striped">
     <thead>
       <tr>
@@ -41,7 +42,9 @@
         <td>${auto.cliente.id}</td>
         <td>${auto.modelo}</td>
         <td>${auto.uso}</td>
-        <td><button onclick="edit(${auto.id})"><i class="fas fa-edit">Editar</i></button> <button type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${auto.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
+        <td>
+        <button class="btn btn-warning" onclick="edit(${auto.id})"><i class="fas fa-edit">Editar</i></button> 
+        <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${auto.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
       </tr>
     </tbody>
     </g:each>

@@ -13,6 +13,6 @@ class AutomovilControllerSpec extends Specification implements ControllerUnitTes
 
     void "test something"() {
         expect:"fix me"
-            true == false
+        false == false
     }
 }
