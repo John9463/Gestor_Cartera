@@ -24,12 +24,18 @@ function logOut(){
     then(response => window.location.href = "/" )
   }
 
+  // JQUERY START
 $(() => {
 
-    $.validator.addMethod("valueNotEquals", function(value, element, arg){
-        console.log(arg)
-        return arg !== value;
-    }, "Value must not equal arg.");
+    $('.numbers').keypress(function(e) {
+        var verified = (e.which == 8 || e.which == undefined || e.which == 0) ? null : String.fromCharCode(e.which).match(/[^0-9]/);
+        if (verified) {e.preventDefault();}
+    });
+    
+    $('.letters').keypress(function(e) {
+        var verified = (e.which == 8 || e.which == undefined || e.which == 0) ? null : String.fromCharCode(e.which).match(/[^a-zA-ZñÑáéíóúÁÉÍÓÚ ]/g);
+        if (verified) {e.preventDefault();}
+    });
 
 })
 
