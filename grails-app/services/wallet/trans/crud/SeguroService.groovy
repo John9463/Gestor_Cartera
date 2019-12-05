@@ -6,6 +6,11 @@ import wallet.Seguro
 @Transactional
 class SeguroService {
 
+    boolean delete(int id) {
+        def seguro = Seguro.get(id)
+        seguro.delete()
+    }
+
     boolean exist(int id) {
         Seguro.exists(id)
     }

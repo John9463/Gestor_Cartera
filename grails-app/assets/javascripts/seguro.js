@@ -132,12 +132,8 @@ function deletePoliza(){
      fetch('/seguro/delete',request)
      .then( Response => Response.text() )
      .then( response => {
-          if(response == 'true'){
+          if(response == 'false'){
                location.reload()
-               alert("La seguro fue eliminada")
-          }else
-               alert("La seguro NO fue eliminada")
-
      }).catch((err) => alert("Problems in server" + err) );
      
 }

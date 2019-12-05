@@ -39,8 +39,6 @@ class ClienteService {
     def delete(int id) {
         def del = Cliente.get(id)
         del.delete()
-
-        exist(id)
     }
 
     boolean exist(int id) {

@@ -57,7 +57,7 @@ class Util {
     }
 
     static Map getModelSeguro() {
-        getUtilitiesClassSeguro().getProperties()
+        getUtilitiesClassSeguro().getProperties() + [aseguradoras: getUtilitiesClassSeguro().getAseguradoras()]
     }
 
     static UtilitiesCliente getUtilitiesClassCliente() {

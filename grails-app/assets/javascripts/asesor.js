@@ -127,14 +127,9 @@ function deleteAsesor(){
      fetch('/asesor/delete/'+superid)
      .then( response => response.text() )
      .then( confirm => {
-          if( confirm == 'true'){
+          if( confirm == 'false'){
                location.reload()
-               alert("El Asesor fue eliminada")
-          }else
-               alert("La Asesor NO fue eliminada")
-
      }).catch((err) => alert("Problems in server" + err) );
-     
 }
 
 function filter() {

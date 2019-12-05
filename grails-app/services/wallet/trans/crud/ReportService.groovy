@@ -6,23 +6,21 @@ import wallet.Cliente
 
 class ReportService {
 
-    public String SHEET_NAME
-
-    String fileName
     String sheetName
+    String fileName
 
-    def node
+    def domain
     def headers
     def data
 
     public static final String EXCEL_FILE_SUFIX = ".xlsx"
-    public static final String EXCEL_FILE_PREFIX = "books"
+    public static final String EXCEL_FILE_PREFIX = "templates-domain"
 
-
-    void exportExcelFromBooks(OutputStream outs, String type) {
+    void exportExcelFromBooks(OutputStream outs, String domainClass) {
         File file = File.createTempFile(EXCEL_FILE_PREFIX, EXCEL_FILE_SUFIX)
 
-        selectTypeReport(type)
+        preparedTypeReport(domainClass)
+        fileName = domainClass + EXCEL_FILE_SUFIX
 
         PoiSpreadsheetBuilder.create(outs).build {
             apply ReportsStylesheet
@@ -35,28 +33,49 @@ class ReportService {
                         }
                     }
                 }
-//                data.each { item ->
-//                    row {
-//                        item.properties.values().each {
-//                            cell(it)
-//                        }
-//                    }
-//                }
             }
         }
         file
     }
 
-    def selectTypeReport(String type){
+    def preparedTypeReport(String type) {
         switch (type){
+
             case 'cliente':
                 sheetName = type
-                fileName = type + '.xlsx'
-                node = Cliente
+                domain = Cliente
+                data = Cliente.list()
+                headers = Cliente.newInstance().properties.keySet()
+                break
+
+            case 'asesor':
+                sheetName = type
+                domain = Cliente
+                data = Cliente.list()
+                headers = Cliente.newInstance().properties.keySet()
+                break
+
+            case 'automovil':
+                sheetName = type
+                domain = Cliente
+                data = Cliente.list()
+                headers = Cliente.newInstance().properties.keySet()
+                break
+
+            case 'seguro':
+                sheetName = type
+                domain = Cliente
+                data = Cliente.list()
+                headers = Cliente.newInstance().properties.keySet()
+                break
+
+
+            case 'poliza':
+                sheetName = type
+                domain = Cliente
                 data = Cliente.list()
                 headers =  Cliente.newInstance().properties.keySet()
                 break
-
         }
 
     }

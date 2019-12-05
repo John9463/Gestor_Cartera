@@ -14,15 +14,13 @@ class AutomovilService {
         Automovil.list()
     }
 
-    def update(def params){
-        def automovil = Automovil.load(params.id)
-        automovil.properties = params
-
-        automovil.save(flush: true)
-    }
-
     def save(def params){
         new Automovil(params).save()
+    }
+
+    def delete(int id) {
+        def auto = Automovil.get(id)
+        auto.delete()
     }
 
     def update(def params){

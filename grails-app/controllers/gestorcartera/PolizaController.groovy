@@ -13,12 +13,12 @@ class PolizaController {
 
     def index() {
         def polizas = polizaService.list()
-        def defaultModel = Util.getModelPoliza(seguroService.aseguradoras)
+        def model = Util.getModelPoliza(seguroService.aseguradoras)
 
-        if (polizas.isEmpty())
-            render view: 'poliza', model: defaultModel
-        else
-            render view: 'poliza', model: [polizas: polizas] + defaultModel + params
+        if (polizas)
+            model += [polizas: polizas]
+
+        render view: 'poliza', model: model
     }
 
     def save() {
@@ -42,9 +42,7 @@ class PolizaController {
     }
 
     def delete(int id) {
-        polizaService.delete(id)
-
-        respond Util.responseConfirm(actionValue, messageValue, 'poliza')
+        response << polizaService.delete(id)
     }
 
     def get(int id) {

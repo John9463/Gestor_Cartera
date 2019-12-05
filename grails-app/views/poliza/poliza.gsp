@@ -24,7 +24,7 @@
 
 <div id="London" class="tabcontent">
   <button class="btn btn-success" onclick="show('add')"><i class="far fa-plus-square">Crear Poliza</i></button>
-  <button class="btn btn-primary" href="/#">Reporte</button>
+  <g:link controller="report" action="create" params="[domain: 'poliza']" download="polizas.xslx" class="btn btn-primary">Reporte</g:link>
   <table id="table" class="table table-striped">
     <thead>
       <tr>

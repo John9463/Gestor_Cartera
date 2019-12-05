@@ -41,8 +41,8 @@ class AsesorService {
     }
 
     def delete(int id){
-        def asesor = Asesor.get(id).delete()
+        def asesor = Asesor.get(id)
 
-        exist(id)
+        asesor.delete()
     }
 }

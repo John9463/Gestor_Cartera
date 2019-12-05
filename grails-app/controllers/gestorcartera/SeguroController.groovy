@@ -11,14 +11,12 @@ class SeguroController {
 
     def index() {
         def seguros = seguroService.list()
-        def defaultModel = Util.getModelSeguro()
+        def model = Util.getModelSeguro()
 
-        if (seguros.isEmpty()) {
-            render view: 'seguro', model: defaultModel
-        } else {
-            render view: 'seguro', model: [seguros: seguros] + [aseguradoras: Util.getUtilitiesClassSeguro().getAseguradoras()]
-        }
+        if (seguros)
+            model += [seguros: seguros]
 
+        render view: 'seguro', model: model
     }
 
     def get(int id) {
@@ -45,8 +43,8 @@ class SeguroController {
         chain action: 'index'
     }
 
-    def delete() {
-        respond seguroService.delete(request.JSON.id)
+    def delete(int id) {
+        response << seguroService.delete(id)
     }
 
     def exist(int idSeguro) {

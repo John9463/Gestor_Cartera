@@ -41,4 +41,8 @@ class AutomovilController {
         chain action: 'index'
     }
 
+    def delete(int id) {
+        response << automovilService.delete(id)
+    }
+
 }

@@ -21,12 +21,12 @@ class ReportController implements GrailsConfigurationAware{
         encoding = co.getProperty('grails.converters.encoding', String, 'UTF-8')
     }
 
-    def create(String type){
+    def create(String domain) {
         response.status = OK.value() // <2>
         response.setHeader "Content-disposition", "attachment; filename=${reportService.fileName}" // <3>
         response.contentType = "${xlsxMimeType};charset=${encoding}" // <4>
         OutputStream outs = response.outputStream
-        reportService.exportExcelFromBooks(outs, type) // <5>
+        reportService.exportExcelFromBooks(outs, domain) // <5>
         outs.flush()
         outs.close()
     }

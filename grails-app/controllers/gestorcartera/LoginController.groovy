@@ -11,6 +11,7 @@ class LoginController implements Controller{
         render view: 'login'
     }
 
+    //Verifica la existencia y otorga los permisos requeridos
     def check() {
         if(request.method == 'POST'){
             def usuario = loginService.getUserForLogin(params)

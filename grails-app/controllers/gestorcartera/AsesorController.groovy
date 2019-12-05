@@ -39,12 +39,7 @@ class AsesorController {
     }
 
     def delete(int id){
-        def asesor = asesorService.delete(id)
-
-        model.message = asesor ? '' : ''
-        model.action = asesor ? '' : ''
-
-        chain action: 'index', model: model
+        response << asesorService.delete(id)
     }
 
     def get(int id){

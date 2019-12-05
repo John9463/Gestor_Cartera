@@ -150,9 +150,8 @@ function deletePoliza() {
     fetch('/poliza/delete/' + superid)
         .then(response => response.text())
         .then(confirm => {
-            console.log(confirm)
-            if (confirm.action == 'ok')
+            if (confirm == 'false')
                 location.reload()
-            showAlert(confirm)
+
         }).catch((err) => alert("Problems trying delete Poliza : " + err));
 }
