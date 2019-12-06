@@ -2,7 +2,6 @@ package wallet.trans.crud
 
 import grails.gorm.transactions.Transactional
 import wallet.Automovil
-import wallet.Cliente
 import wallet.Seguro
 
 @Transactional

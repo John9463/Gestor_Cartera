@@ -85,7 +85,7 @@
         <div class="row pt-4">
             <div class="col-4">
               <label for="pwd">Modelo:</label>
-              <input type="text" class="form-control"  placeholder="2015" name="modelo" required>
+              <input type="text" class="form-control numbers"  placeholder="2015" name="modelo" required>
             </div>
   
             <div class="col-4">
@@ -108,7 +108,7 @@
 
           <div class="col-5">
             <label for="pwd">Uso:</label>
-            <input type="text" class="form-control"  placeholder="Trabajo" name="uso" required>
+            <input type="text" class="form-control letters"  placeholder="Trabajo" name="uso" required>
           </div>
 
         </div>
@@ -117,12 +117,12 @@
 
           <div class="col-sm-4">
             <label for="pwd">No. de Serie:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: $15.50" name="numSerie" required>
+            <input type="text" class="form-control numbers"  placeholder="15587" name="numSerie" required>
           </div>
 
           <div class="col-sm-4">
             <label for="pwd">No. Motor:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: Av. Dependencia" name="numMotor" required>
+            <input type="text" class="form-control numbers"  placeholder="1548" name="numMotor" required>
           </div>
 
         </div>
