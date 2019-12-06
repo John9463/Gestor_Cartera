@@ -142,13 +142,13 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Confirmacion Baja de Poliza</h4>
+        <h4 class="modal-title">Confirmacion Baja de Automovil</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        <b>¿Estas seguro que deseas eliminar la poliza?</b>
+        <b>¿Estas seguro que deseas eliminar la Automovil?</b>
         <br>
         <span>Esta accion no puede deshacerse una vez ejecutada. </span>
       </div>
@@ -156,7 +156,7 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="deletePoliza()">Confirmar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="deleteAutomovil()">Confirmar</button>
       </div>
 
     </div>

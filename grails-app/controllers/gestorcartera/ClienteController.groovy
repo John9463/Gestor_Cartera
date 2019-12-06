@@ -47,7 +47,7 @@ class ClienteController {
     }
 
     def exist(int cliente) {
-        respond clienteService.exist(cliente)
+        response << clienteService.exist(cliente)
     }
 
 

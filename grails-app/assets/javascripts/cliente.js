@@ -87,7 +87,7 @@ function previusDelete(id) {
     superid = id
 }
 
-function deletePoliza() {
+function deleteCliente() {
     fetch('/cliente/delete/' + superid)
         .then(response => response.text())
         .then(status => {
