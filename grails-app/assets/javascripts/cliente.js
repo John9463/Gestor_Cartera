@@ -3,7 +3,7 @@ document.getElementById("defaultOpen").click();
 var keys = ["correo", "fechaNac", "nombre", "apellMa", "apellPa", "ciudad", "rfc", "colonia", "calle", "cp", "tipo", "noCasa", "tel", "password", "username", "isIntegral"]
 
 
-$(function () {
+$(function() {
     $("form[name='form-cliente']").validate({
         onsubmit: false,
         rules: {
@@ -21,10 +21,10 @@ $(function () {
             passwordConfirm: 'Ingresa la misma contraseña'
         },
         submitHandler: function(form) {
-            if(form.valid())
+            if (form.valid())
                 return form.submit();
-            
-                return false;
+
+            return false;
         }
     });
 });
@@ -91,21 +91,21 @@ function deletePoliza() {
     fetch('/cliente/delete/' + superid)
         .then(response => response.text())
         .then(status => {
-            if (status == 'false') {
+            if (status == 'false')
                 location.reload()
         }).catch((err) => alert("Problems in server" + err));
 
 }
 
 
-function filter() {
+function filterCliente() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("filter-value");
     filter = input.value.toUpperCase();
-    table = document.getElementById("clientes-table");
+    table = document.getElementById("table-clientes");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
+        td = tr[i].getElementsByTagName("td")[3];
         if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
