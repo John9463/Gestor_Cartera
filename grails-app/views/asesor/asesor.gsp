@@ -58,17 +58,17 @@
 
             <div class="col-4">
               <label for="pwd">Nombre:</label>
-              <input type="text" class="form-control"  placeholder="Ejemplo: juan barreras" name="nombre" required>
+              <input type="text" class="form-control"  placeholder="Alexander" name="nombre" required>
             </div>
 
             <div class="col-4">
               <label for="pwd">Apellido Paterno:</label>
-              <input type="text" class="form-control"  placeholder="Ejemplo: vargas" name="apellPa" required>
+              <input type="text" class="form-control"  placeholder="Guitierez" name="apellPa" required>
             </div>
 
             <div class="col-4">
               <label for="pwd">Apellido Materno:</label>
-              <input type="text" class="form-control"  placeholder="Ejemplo: contreras" name="apellMa" required>
+              <input type="text" class="form-control"  placeholder="Contreras" name="apellMa" required>
             </div>
 
         </div>
@@ -77,12 +77,12 @@
 
           <div class="col-4">
             <label for="pwd">Ciudad:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: Toluca" name="ciudad" required>
+            <input type="text" class="form-control"  placeholder="Toluca" name="ciudad" required>
           </div>
 
           <div class="col-4">
             <label for="pwd">RFC:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: 147" name="rfc" required>
+            <input type="text" class="form-control"  placeholder="DRFE14762" name="rfc" required>
           </div>
 
           <div class="col-4">
@@ -96,17 +96,17 @@
 
           <div class="col-sm-4">
             <label for="pwd">Colonia:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: $15.50" name="colonia" required>
+            <input type="text" class="form-control"  placeholder="Parques Nacionales" name="colonia" required>
           </div>
 
           <div class="col-sm-4">
             <label for="pwd">Calle:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: Av. Dependencia" name="calle" required>
+            <input type="text" class="form-control"  placeholder="Parque Naucali" name="calle" required>
           </div>
 
           <div class="col-sm-4">
             <label for="pwd">Codigo Postal:</label>
-            <input type="number" class="form-control"  placeholder="Ejemplo: 50100" name="cp" required>
+            <input type="number" class="form-control"  placeholder="50300" name="cp" required>
           </div>
 
         </div>
@@ -116,7 +116,7 @@
 
           <div class="col-4">
             <label for="uname">Fecha de nacimiento:</label>
-            <input type="date" class="form-control"  placeholder="Ejemplo: 1020" name="fechaNac" required>
+            <input type="date" class="form-control" name="fechaNac" required>
           </div>
 
           <div class="col-4">
@@ -140,12 +140,12 @@
         <div class="row pt-2">
             <div class="col-4">
                 <label for="pwd">NO. Casa:</label>
-                <input type="number" class="form-control"  placeholder="Ejemplo: 2000" name="noCasa" required>
+                <input type="number" class="form-control"  placeholder="2000" name="noCasa" required>
             </div>
 
             <div class="col-4">
                 <label for="pwd">Telefono Celular:</label>
-                <input type="number" class="form-control"  placeholder="Ejemplo: 7291586478" name="tel" required>
+                <input type="number" class="form-control"  placeholder="7291586478" name="tel" required>
             </div>
 
         </div>
@@ -154,22 +154,22 @@
             
             <div class="col-4">
               <label for="uname">Correo Electronico:</label>
-              <input type="email" class="form-control"  placeholder="Ejemplo: example@mail.com" name="correo" maxlenght="5" required>
+              <input type="email" class="form-control"  placeholder="example@mail.com" name="correo" maxlenght="5" required>
             </div>
 
             <div class="col-4">
                 <label for="pwd">Username:</label>
-                <input type="text" class="form-control"  placeholder="Ejemplo: 2000" name="username" required>
+                <input type="text" class="form-control"  placeholder="user00" name="username" required>
             </div>
 
             <div class="col-4">
                 <label for="pwd">Password:</label>
-                <input type="password" class="form-control"  placeholder="Ejemplo: 7291586478" name="password" required>
+                <input type="password" class="form-control" name="password" required>
             </div>
 
             <div class="col-4">
               <label for="pwd">Confirmacion Password:</label>
-                  <input type="password" class="form-control"  placeholder="Ejemplo: 7291586478" name="passwordConfirm" required>
+                  <input type="password" class="form-control" name="passwordConfirm" required>
             </div>
 
         </div>

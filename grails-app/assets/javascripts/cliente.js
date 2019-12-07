@@ -31,22 +31,18 @@ $(function() {
 
 
 function show(it) {
-    var tab = document.getElementById('add-mod')
+    var title = document.getElementById('title-cliente')
     var form = document.getElementById('form-cliente')
 
-    if (it == 'add') {
-        tab.removeAttribute('hidden')
-        tab.innerHTML = 'Crear Cliente'
+    if (it === 'add') {
+        title.innerText = 'Alta de Cliente'
         form.action = '/cliente/save'
-        tab.click()
         clean()
     }
 
-    if (it == 'mod') {
-        tab.removeAttribute('hidden')
-        tab.innerHTML = 'Editar cliente'
+    if (it === 'mod') {
+        title.innerText = 'Modificacion de Cliente'
         form.action = '/cliente/update'
-        tab.click()
     }
 
 }
