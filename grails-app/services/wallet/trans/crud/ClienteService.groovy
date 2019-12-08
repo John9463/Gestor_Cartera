@@ -45,4 +45,8 @@ class ClienteService {
         Cliente.exists(id)
     }
 
+    boolean findByUsername(String name){
+        Cliente.find { usuario.username == name }
+    }
+
 }

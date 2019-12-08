@@ -1,9 +1,5 @@
 var superid
 
-var keys = ["correo", "fechaNac", "nombre", "apellMa", "apellPa", "ciudad", "rfc", "colonia", "calle", "cp", "tipoAsesor", "noCasa", "tel", "password", "username", "isAdmin", "homoclave"]
-
-
-
 $('#form-asesor').validate({
     rules: {
         seguro: 'required',
@@ -118,7 +114,9 @@ function edit(id) {
 }
 
 function clean() {
-    for (let key in keys) {
+    const keys = ["correo", "fechaNac", "nombre", "apellMa", "apellPa", "ciudad", "rfc", "colonia", "calle", "cp", "tipoAsesor", "noCasa", "tel", "password", "username", "isAdmin", "homoclave"]
+
+    for (let key of keys) {
         let input = $("[name='" + key + "']")
         input.val('')
     }

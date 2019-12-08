@@ -1,8 +1,5 @@
 var superid
 
-var keys = ["numeroRemision", "fechaDesde", "seguro", "financiamiento", "periodo", "status", "cliente", "comisionCedida", "primaTotal", "ramo", "gastosExpedicion", "fechaExpedicion", "clave"]
-
-
 $('#form-automovil').validate({
     rules: {
         seguro: 'required',
@@ -65,7 +62,7 @@ $('#form-automovil').validate({
 
 function save() {
 
-    let submit = document.getElementById('taget-submit')
+    let submit = document.getElementById('target-submit')
 
     submit.click();
 
@@ -92,10 +89,8 @@ function edit(id) {
     fetch('/automovil/get/' + id)
         .then(response => response.json())
         .then(automovil => {
-            console.log(automovil)
             for (let key in automovil) {
                 let input = $("[name='" + key + "']")
-
                 input.val(automovil[key])
             }
             document.getElementById('id').value = id
@@ -105,7 +100,8 @@ function edit(id) {
 }
 
 function clean() {
-    for (let key in keys) {
+    const keys = ["cliente", "seguro", "nombre", "modelo", "tipo", "placas", "uso", "numSerie", "numMotor"]
+    for (let key of keys) {
         let input = $("[name='" + key + "']")
         input.val('')
     }

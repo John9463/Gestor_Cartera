@@ -1,12 +1,9 @@
-var keys = ["correo", "fechaNac", "nombre", "apellMa", "apellPa", "ciudad", "rfc", "colonia", "calle", "cp", "tipo", "noCasa", "tel", "password", "username", "isIntegral"]
-
-
 $(function() {
     $("form[name='form-cliente']").validate({
         onsubmit: false,
         rules: {
             username: {
-                remote: ''
+                remote: '/cliente/existUsername?' + $("input[name='username']").val()
             },
             password: 'required',
             passwordConfirm: {
@@ -19,8 +16,9 @@ $(function() {
             passwordConfirm: 'Ingresa la misma contraseña'
         },
         submitHandler: function(form) {
-            if (form.valid())
-                return form.submit();
+            console.log($('#form-cliente').valid())
+            if ($('#form-cliente').valid())
+                $('#form-cliente').submit();
 
             return false;
         }
@@ -29,10 +27,9 @@ $(function() {
 
 function save() {
 
-    let submit = $('#taget-submit')
+    let submit = $('#target-submit')
 
-    if (submit.isvalid())
-        submit.click();
+    submit.click();
 
 }
 
@@ -79,7 +76,9 @@ function edit(id) {
 }
 
 function clean() {
-    for (let key in keys) {
+    const keys = ["correo", "fechaNac", "nombre", "apellMa", "apellPa", "ciudad", "rfc", "colonia", "calle", "cp", "tipo", "noCasa", "tel", "password", "username", "isIntegral"]
+
+    for (let key of keys) {
         let input = $("[name='" + key + "']")
         input.val('')
     }
@@ -96,9 +95,7 @@ function deleteCliente() {
             if (status == 'false')
                 location.reload()
         }).catch((err) => alert("Problems in server" + err));
-
 }
-
 
 function filterCliente() {
     var input, filter, table, tr, td, i, txtValue;

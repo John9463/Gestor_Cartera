@@ -1,8 +1,5 @@
 var superid
 
-var keys = ["nombre", , "aseguradora", "tipo", "valorSeguro", "emisor", "renovacion", "cobertura", "sumaAsegurada", "primaNeta"]
-
-
 $('#form-seguro').validate({
     rules: {
         nombre: 'required',
@@ -57,6 +54,14 @@ $('#form-seguro').validate({
 
 })
 
+function save() {
+
+    let submit = $('#target-submit')
+
+    submit.click();
+
+}
+
 function show(it) {
     let title = document.getElementById('title-seguro')
     let form = document.getElementById('form-seguro')
@@ -98,7 +103,9 @@ function edit(id) {
 }
 
 function clean() {
-    for (let key in keys) {
+    const keys = ["nombre", "aseguradora", "tipo", "valorSeguro", "emisor", "renovacion", "cobertura", "sumaAsegurada", "primaNeta"]
+
+    for (let key of keys) {
         let input = $("[name='" + key + "']")
         input.val('')
     }
@@ -109,7 +116,7 @@ function previusDelete(id) {
 }
 
 function deleteSeguro() {
-    fetch('/seguro/delete?id='+ superid)
+    fetch('/seguro/delete?id=' + superid)
         .then(Response => Response.text())
         .then(response => {
             if (response == 'false')

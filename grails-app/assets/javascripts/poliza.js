@@ -1,9 +1,4 @@
 var superid
-
-var keys = ["numeroRemision", "fechaDesde", "seguro", "financiamiento", "periodo", "status", "cliente", "comisionCedida", "primaTotal", "ramo", "gastosExpedicion", "fechaExpedicion", "clave"]
-
-
-
 $(() => {
 
     // $( "input:blank" ).css( "background-color", "#bbbbff" );
@@ -89,7 +84,7 @@ $(() => {
 
 function save() {
 
-    let submit = document.getElementById('taget-submit')
+    let submit = document.getElementById('target-submit')
 
     submit.click();
 
@@ -118,9 +113,7 @@ function edit(id) {
     fetch('/poliza/get/' + id)
         .then(response => response.json())
         .then(poliza => {
-            console.log(poliza)
             for (let key in poliza) {
-                console.log(key)
                 let input = $("[name='" + key + "']")
 
                 if (key == 'fechaDesde' || key == 'fechaExpedicion') {
@@ -140,7 +133,9 @@ function edit(id) {
 }
 
 function clean() {
-    for (let key in keys) {
+    const keys = ["numeroRemision", "fechaDesde", "seguro", "financiamiento", "periodo", "status", "cliente", "comisionCedida", "primaTotal", "ramo", "gastosExpedicion", "fechaExpedicion", "clave"]
+
+    for (let key of keys) {
         let input = $("[name='" + key + "']")
         input.val('')
     }

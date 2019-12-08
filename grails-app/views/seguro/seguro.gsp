@@ -14,7 +14,7 @@
 <%-- <h2>Vertical Tabs</h2>
 <p>Click on the buttons inside the tabbed menu:</p> --%>
 
-<div id="London" class="tabcontent">
+<div class="tabcontent">
   <input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por clave.." title="Type in a name">
   <button class="btn btn-success" data-toggle="modal" data-target="#modal-seguro" onclick="show('add')"><i class="far fa-plus-square">Crear Seguro</i></button>
   <g:link controller="report" action="create" params="[domain: 'seguro']" download="seguros.xslx" class="btn btn-primary">Reporte</g:link>

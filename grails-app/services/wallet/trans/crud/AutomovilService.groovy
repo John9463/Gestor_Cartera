@@ -17,7 +17,7 @@ class AutomovilService {
         new Automovil(params).save()
     }
 
-    def delete(int id) {
+    boolean delete(int id) {
         def auto = Automovil.get(id)
         auto.delete()
     }

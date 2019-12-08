@@ -50,5 +50,8 @@ class ClienteController {
         response << clienteService.exist(cliente)
     }
 
+    boolean existUsername(String username){
+        response << !clienteService.findByUsername(username)
+    }
 
 }

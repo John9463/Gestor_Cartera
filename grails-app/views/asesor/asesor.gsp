@@ -37,8 +37,8 @@
         <td>${asesor.tipoAsesor}</td>
         <td>${asesor.isAdmin}</td>
         <td>
-        <button class="btn btn-danger" data-toggle="modal" data-target="#modal-asesor" onclick="edit('${asesor.id}')"><i class="fas fa-edit">Editar</i></button>
-         <button class="btn btn-warning" data-toggle="modal" data-target="#myModal" onclick="previusDelete('${asesor.id}')"><i class="far fa-trash-alt">Borrar</i> </button> </td>
+        <button class="btn btn-warning" data-toggle="modal" data-target="#modal-asesor" onclick="edit('${asesor.id}')"><i class="fas fa-edit">Editar</i></button>
+         <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" onclick="previusDelete('${asesor.id}')"><i class="far fa-trash-alt">Borrar</i> </button> </td>
       </tr>
     </tbody>
     </g:each>
