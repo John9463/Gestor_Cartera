@@ -205,7 +205,7 @@
 
               </div>
               
-              <g:actionSubmit id="target-submit" class="btn btn-primary" value="Guardar" action="save" hidden="true" />
+              <button id="target-submit" type="submit" class="btn btn-primary" hidden>Guardar</button>
             </g:form>
             
           </div>
