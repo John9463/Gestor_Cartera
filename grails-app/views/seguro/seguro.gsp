@@ -183,7 +183,7 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="deletePoliza()">Confirmar</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" onclick="deleteSeguro()">Confirmar</button>
       </div>
 
     </div>

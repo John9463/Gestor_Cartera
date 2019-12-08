@@ -108,19 +108,13 @@ function previusDelete(id) {
     superid = id
 }
 
-function deletePoliza() {
-    let request = {
-        method: 'POST',
-        body: JSON.stringify({ id: superid })
-    }
-
-    fetch('/seguro/delete', request)
+function deleteSeguro() {
+    fetch('/seguro/delete?id='+ superid)
         .then(Response => Response.text())
         .then(response => {
             if (response == 'false')
                 location.reload()
         }).catch((err) => alert("Problems in server" + err));
-
 }
 
 function filter() {

@@ -33,6 +33,11 @@ class ReportService {
                         }
                     }
                 }
+//                data.each{ k, values ->
+//                    values.each{ value ->
+//                        cell( value )
+//                    }
+//                }
             }
         }
         file
@@ -44,9 +49,9 @@ class ReportService {
             case 'cliente':
                 sheetName = type
                 domain = Cliente
-                data = Cliente.list()
+                data = Cliente.list().collectEntries { [(it.hashCode()): it.properties.values() ] }
                 headers = Cliente.newInstance().properties.keySet()
-                break
+            break
 
             case 'asesor':
                 sheetName = type
