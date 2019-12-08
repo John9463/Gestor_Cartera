@@ -36,7 +36,7 @@ class ClienteService {
         cliente.getProperties() + usuario.getProperties()
     }
 
-    def delete(int id) {
+    boolean delete(int id) {
         def del = Cliente.get(id)
         del.delete()
     }

@@ -46,7 +46,7 @@ class ClienteController {
         response << clienteService.delete(id)
     }
 
-    def exist(int cliente) {
+    boolean exist(int cliente) {
         response << clienteService.exist(cliente)
     }
 

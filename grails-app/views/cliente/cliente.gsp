@@ -14,7 +14,7 @@
     <input type="text" id="filter-value" onkeyup="filterCliente()" placeholder="Buscar por clave.." title="Type in a name"/>
     <button class="btn btn-success" data-toggle="modal" data-target="#modal-cliente" onclick="show('add')"><i class="far fa-plus-square">Crear Cliente</i></button>
     <g:link controller="report" action="create" params="[domain: 'cliente']" download="clientes.xslx" class="btn btn-primary">Crear Reporte</g:link>
-      
+
       <table id="table-clientes" class="table table-striped">
         <thead>
           <tr>
@@ -44,6 +44,36 @@
       </table>
 
   </div>
+
+
+  <!-- The Modal DELETE -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Confirmacion Baja de Cliente</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <b>¿Estas seguro que deseas eliminar la Cliente?</b>
+          <br>
+          <span>Esta accion no puede deshacerse una vez ejecutada. </span>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="deleteCliente()">Confirmar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- The Modal -->
 
   <!-- The Modal SQL CREATE / UPDATE-->
     <div class="modal" id="modal-cliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -193,35 +223,6 @@
     </div>
   <!-- The Modal-->
 
-
-  <!-- The Modal DELETE -->
-  <div class="modal" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Confirmacion Baja de Cliente</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-
-        <!-- Modal body -->
-        <div class="modal-body">
-          <b>¿Estas seguro que deseas eliminar la Cliente?</b>
-          <br>
-          <span>Esta accion no puede deshacerse una vez ejecutada. </span>
-        </div>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-success" data-dismiss="modal" onclick="deleteCliente()">Confirmar</button>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  <!-- The Modal -->
 
   <asset:javascript src="cliente.js" />
 </body>
