@@ -14,16 +14,11 @@
 <%-- <h2>Vertical Tabs</h2>
 <p>Click on the buttons inside the tabbed menu:</p> --%>
 
-<div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'London')" id="defaultOpen">Lista Asesor</button>
-  <button id="add-mod" class="tablinks" onclick="openTab(event, 'Paris')" hidden>Crear Asesor</button>
-</div>
-
-<input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por nombre.." title="Type in a name">
-
 <div id="London" class="tabcontent">
-  <button class="btn btn-success" onclick="show('add')"><i class="far fa-plus-square">Crear Asesor</i></button>
+  <input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por nombre.." title="Type in a name">
+  <button class="btn btn-success" data-toggle="modal" data-target="#modal-asesor" onclick="show('add')"><i class="far fa-plus-square">Crear Asesor</i></button>
   <g:link controller="report" action="create" params="[domain: 'asesor']" download="asesores.xslx" class="btn btn-primary">Reporte</g:link>
+  
   <table id="table" class="table table-striped">
     <thead>
       <tr>
@@ -42,7 +37,7 @@
         <td>${asesor.tipoAsesor}</td>
         <td>${asesor.isAdmin}</td>
         <td>
-        <button class="btn btn-danger" onclick="edit('${asesor.id}')"><i class="fas fa-edit">Editar</i></button>
+        <button class="btn btn-danger" data-toggle="modal" data-target="#modal-asesor" onclick="edit('${asesor.id}')"><i class="fas fa-edit">Editar</i></button>
          <button class="btn btn-warning" data-toggle="modal" data-target="#myModal" onclick="previusDelete('${asesor.id}')"><i class="far fa-trash-alt">Borrar</i> </button> </td>
       </tr>
     </tbody>
@@ -50,136 +45,168 @@
   </table>
 </div>
 
-<div id="Paris" class="tabcontent">
-  <g:form controller="Asesor" action="save" class="was-validated" name="form-asesor">
-    <div class="form-group">
-      
-        <div class="row pt-4">
+<!-- The Modal SQL CREATE / UPDATE-->
+  <div class="modal" id="modal-asesor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
 
-            <div class="col-4">
-              <label for="pwd">Nombre:</label>
-              <input type="text" class="form-control"  placeholder="Alexander" name="nombre" required>
-            </div>
-
-            <div class="col-4">
-              <label for="pwd">Apellido Paterno:</label>
-              <input type="text" class="form-control"  placeholder="Guitierez" name="apellPa" required>
-            </div>
-
-            <div class="col-4">
-              <label for="pwd">Apellido Materno:</label>
-              <input type="text" class="form-control"  placeholder="Contreras" name="apellMa" required>
-            </div>
-
+      <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" id="title-asesor">Alta de Asesor</h4>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+           </button>
         </div>
-      
-        <div class="row pt-4">
+      <!-- Modal Header-->
 
-          <div class="col-4">
-            <label for="pwd">Ciudad:</label>
-            <input type="text" class="form-control"  placeholder="Toluca" name="ciudad" required>
-          </div>
+      <!-- Modal Body-->
+      <div class="modal-body">
 
-          <div class="col-4">
-            <label for="pwd">RFC:</label>
-            <input type="text" class="form-control"  placeholder="DRFE14762" name="rfc" required>
-          </div>
+          <g:form controller="Asesor" action="save" class="was-validated" name="form-asesor">
+            <div class="form-group">
+              
+                <div class="row pt-4">
 
-          <div class="col-4">
-            <label for="pwd">Homoclave:</label>
-            <input type="text" class="form-control" name="homoclave" required>
-          </div>
+                    <div class="col-4">
+                      <label for="pwd">Nombre:</label>
+                      <input type="text" class="form-control"  placeholder="Alexander" name="nombre" required>
+                    </div>
 
-        </div>
-     
-        <div class="row pt-4">
+                    <div class="col-4">
+                      <label for="pwd">Apellido Paterno:</label>
+                      <input type="text" class="form-control"  placeholder="Guitierez" name="apellPa" required>
+                    </div>
 
-          <div class="col-sm-4">
-            <label for="pwd">Colonia:</label>
-            <input type="text" class="form-control"  placeholder="Parques Nacionales" name="colonia" required>
-          </div>
+                    <div class="col-4">
+                      <label for="pwd">Apellido Materno:</label>
+                      <input type="text" class="form-control"  placeholder="Contreras" name="apellMa" required>
+                    </div>
 
-          <div class="col-sm-4">
-            <label for="pwd">Calle:</label>
-            <input type="text" class="form-control"  placeholder="Parque Naucali" name="calle" required>
-          </div>
+                </div>
+              
+                <div class="row pt-4">
 
-          <div class="col-sm-4">
-            <label for="pwd">Codigo Postal:</label>
-            <input type="number" class="form-control"  placeholder="50300" name="cp" required>
-          </div>
+                  <div class="col-4">
+                    <label for="pwd">Ciudad:</label>
+                    <input type="text" class="form-control"  placeholder="Toluca" name="ciudad" required>
+                  </div>
 
-        </div>
-     
+                  <div class="col-4">
+                    <label for="pwd">RFC:</label>
+                    <input type="text" class="form-control"  placeholder="DRFE14762" name="rfc" required>
+                  </div>
+
+                  <div class="col-4">
+                    <label for="pwd">Homoclave:</label>
+                    <input type="text" class="form-control" name="homoclave" required>
+                  </div>
+
+                </div>
             
-        <div class="row pt-4">
+                <div class="row pt-4">
 
-          <div class="col-4">
-            <label for="uname">Fecha de nacimiento:</label>
-            <input type="date" class="form-control" name="fechaNac" required>
-          </div>
+                  <div class="col-sm-4">
+                    <label for="pwd">Colonia:</label>
+                    <input type="text" class="form-control"  placeholder="Parques Nacionales" name="colonia" required>
+                  </div>
 
-          <div class="col-4">
-            <label for="pwd">Tipo:</label><br>
-            <select name="tipoAsesor">
-                <option>Seleccione un tipo</option>
-              <g:each var="tipo" in="${tipos}">
-                <option>${tipo}</option>
-              </g:each>
-            </select>
-          </div>
+                  <div class="col-sm-4">
+                    <label for="pwd">Calle:</label>
+                    <input type="text" class="form-control"  placeholder="Parque Naucali" name="calle" required>
+                  </div>
 
-          <div class="col-3">
-              <label for="pwd">Administrador:</label><br>
-              <input type="checkbox" class="form-control" name="isAdmin">
-          </div>
+                  <div class="col-sm-4">
+                    <label for="pwd">Codigo Postal:</label>
+                    <input type="number" class="form-control"  placeholder="50300" name="cp" required>
+                  </div>
 
-
-        </div>
-
-        <div class="row pt-2">
-            <div class="col-4">
-                <label for="pwd">NO. Casa:</label>
-                <input type="number" class="form-control"  placeholder="2000" name="noCasa" required>
-            </div>
-
-            <div class="col-4">
-                <label for="pwd">Telefono Celular:</label>
-                <input type="number" class="form-control"  placeholder="7291586478" name="tel" required>
-            </div>
-
-        </div>
-    
-        <div class="row pt-4">
+                </div>
             
-            <div class="col-4">
-              <label for="uname">Correo Electronico:</label>
-              <input type="email" class="form-control"  placeholder="example@mail.com" name="correo" maxlenght="5" required>
+                    
+                <div class="row pt-4">
+
+                  <div class="col-4">
+                    <label for="uname">Fecha de nacimiento:</label>
+                    <input type="date" class="form-control" name="fechaNac" required>
+                  </div>
+
+                  <div class="col-4">
+                    <label for="pwd">Tipo:</label><br>
+                    <select name="tipoAsesor">
+                        <option>Seleccione un tipo</option>
+                      <g:each var="tipo" in="${tipos}">
+                        <option>${tipo}</option>
+                      </g:each>
+                    </select>
+                  </div>
+
+                  <div class="col-3">
+                      <label for="pwd">Administrador:</label><br>
+                      <input type="checkbox" class="form-control" name="isAdmin">
+                  </div>
+
+
+                </div>
+
+                <div class="row pt-2">
+                    <div class="col-4">
+                        <label for="pwd">NO. Casa:</label>
+                        <input type="number" class="form-control"  placeholder="2000" name="noCasa" required>
+                    </div>
+
+                    <div class="col-4">
+                        <label for="pwd">Telefono Celular:</label>
+                        <input type="number" class="form-control"  placeholder="7291586478" name="tel" required>
+                    </div>
+
+                </div>
+            
+                <div class="row pt-4">
+                    
+                    <div class="col-4">
+                      <label for="uname">Correo Electronico:</label>
+                      <input type="email" class="form-control"  placeholder="example@mail.com" name="correo" maxlenght="5" required>
+                    </div>
+
+                    <div class="col-4">
+                        <label for="pwd">Username:</label>
+                        <input type="text" class="form-control"  placeholder="user00" name="username" required>
+                    </div>
+
+                    <div class="col-4">
+                        <label for="pwd">Password:</label>
+                        <input type="password" class="form-control" name="password" required>
+                    </div>
+
+                    <div class="col-4">
+                      <label for="pwd">Confirmacion Password:</label>
+                          <input type="password" class="form-control" name="passwordConfirm" required>
+                    </div>
+
+                </div>
+              
+
+                  <input type="number" class="form-control" id="id" name="id" hidden>
+                  <button id="target-submit" type="submit" class="btn btn-primary" hidden>Guardar</button>
             </div>
+          </g:form>
+      </div>
+      <!-- Modal Body -->
 
-            <div class="col-4">
-                <label for="pwd">Username:</label>
-                <input type="text" class="form-control"  placeholder="user00" name="username" required>
-            </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" onclick="save()">Confirmar</button>
+      </div>
 
-            <div class="col-4">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" name="password" required>
-            </div>
-
-            <div class="col-4">
-              <label for="pwd">Confirmacion Password:</label>
-                  <input type="password" class="form-control" name="passwordConfirm" required>
-            </div>
-
-        </div>
-      
-
-          <input type="number" class="form-control" id="id" name="id" hidden>
-          <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
     </div>
-  </g:form>
-</div>
+  </div>
+<!-- Modal -->
+
+
+
+
 
 
 

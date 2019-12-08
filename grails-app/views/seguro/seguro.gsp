@@ -14,16 +14,11 @@
 <%-- <h2>Vertical Tabs</h2>
 <p>Click on the buttons inside the tabbed menu:</p> --%>
 
-<div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'London')" id="defaultOpen">Lista Seguro</button>
-  <button id="add-mod" class="tablinks" onclick="openTab(event, 'Paris')" hidden>Crear Seguro</button>
-</div>
-
-<input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por clave.." title="Type in a name">
-
 <div id="London" class="tabcontent">
-  <button class="btn btn-success" onclick="show('add')"><i class="far fa-plus-square">Crear Seguro</i></button>
+  <input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por clave.." title="Type in a name">
+  <button class="btn btn-success" data-toggle="modal" data-target="#modal-seguro" onclick="show('add')"><i class="far fa-plus-square">Crear Seguro</i></button>
   <g:link controller="report" action="create" params="[domain: 'seguro']" download="seguros.xslx" class="btn btn-primary">Reporte</g:link>
+  
   <table id="table" class="table table-striped">
     <thead>
       <tr>
@@ -45,7 +40,7 @@
             <td>${seguro.cobertura}</td>
             <td>${seguro.sumaAsegurada}</td>
           <td>
-            <button class="btn btn-warning" onclick="edit(${seguro.id})"><i class="fas fa-edit">Editar</i></button>
+            <button class="btn btn-warning" data-toggle="modal" data-target="#modal-seguro" onclick="edit(${seguro.id})"><i class="fas fa-edit">Editar</i></button>
             <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${seguro.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
           </tr>
         </tbody>
@@ -54,92 +49,118 @@
   </table>
 </div>
 
-<div id="Paris" class="tabcontent">
-  <g:form controller="seguro" action="save" class="was-validated" name="form-seguro">
+<!-- The Modal SQL CREATE / UPDATE-->
+  <div class="modal" id="modal-seguro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
 
-      <div class="form-group">
-      
-        <div class="row pt-4">
-
-          <div class="col-4">
-            <label for="uname">Nombre Seguro:</label>
-            <input type="text" class="form-control" placeholder="Ejemplo: miseguro" name="nombre" required>
+        <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title" id="title-seguro">Alta de Seguro</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-       
-          <div class="col-4">
-              <label for="uname">Emisor:</label>
-              <input type="number" class="form-control"  placeholder="Ejemplo: 1547" name="emisor" required>
-          </div>
+        <!-- Modal Header -->
 
-          <div class="col-4">
-            <label for="uname">Valor Seguro:</label>
-            <input type="number" class="form-control"  placeholder="Ejemplo: 1547" name="valorSeguro" required>
-          </div>
 
+        <!-- Modal Body -->
+        <div class="modal-body">
+            <g:form controller="seguro" action="save" class="was-validated" name="form-seguro">
+
+                <div class="form-group">
+                
+                  <div class="row pt-4">
+
+                    <div class="col-4">
+                      <label for="uname">Nombre Seguro:</label>
+                      <input type="text" class="form-control" placeholder="Ejemplo: miseguro" name="nombre" required>
+                    </div>
+                
+                    <div class="col-4">
+                        <label for="uname">Emisor:</label>
+                        <input type="number" class="form-control"  placeholder="Ejemplo: 1547" name="emisor" required>
+                    </div>
+
+                    <div class="col-4">
+                      <label for="uname">Valor Seguro:</label>
+                      <input type="number" class="form-control"  placeholder="Ejemplo: 1547" name="valorSeguro" required>
+                    </div>
+
+                  </div>
+
+                  <div class="row pt-4">
+                    
+                    <div class="col-4">
+                      <label for="pwd">Tipo:</label><br>
+                      <select name="tipo" required>
+                            <option selected>Selecciona un Tipo</option>
+                          <g:each var="tipo" in="${tipos}">
+                            <option >${tipo}</option>
+                          </g:each>
+                      </select>
+                    </div>  
+
+                    <div class="col-4">
+                      <label for="pwd">Cobertura:</label>
+                      <select name="cobertura" required>
+                          <option>Seleccione una cobertura</option>
+                          <g:each var="cobertura" in="${coberturas}">
+                            <option >${cobertura}</option>
+                          </g:each>
+                        </select>
+                    </div>
+
+                    <div class="col-4">
+                      <label for="uname">Aseguradoras:</label>
+                        <select name="aseguradora" required>
+                              <option selected>Selecciona una Aseguradora</option>
+                            <g:each var="aseguradora" in="${aseguradoras}">
+                              <option>${aseguradora}</option>
+                            </g:each>
+                        </select>
+                    </div>    
+
+                  </div>    
+
+                  <div class="row pt-4">
+
+                    <div class="col-sm-4">
+                      <label for="pwd">Renovacion:</label>
+                      <input type="date" class="form-control"  placeholder="Ejemplo: 1547" name="renovacion" required>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <label for="pwd">Suma Asegurada:</label>
+                      <input type="text " class="form-control"  placeholder="Ejemplo: $15.50" name="sumaAsegurada" required>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <label for="pwd">Prima Neta:</label>
+                      <input type="number" class="form-control" placeholder="" name="primaNeta" required>
+                    </div>
+
+                  </div>
+                
+                </div>
+
+                <input type="number" class="form-control" id="id" name="id" hidden>
+                <button id="target-submit" type="submit" class="btn btn-primary" hidden>Guardar</button>
+             
+            </g:form>
         </div>
 
-        <div class="row pt-4">
-          
-          <div class="col-4">
-            <label for="pwd">Tipo:</label><br>
-            <select name="tipo" required>
-                  <option selected>Selecciona un Tipo</option>
-                <g:each var="tipo" in="${tipos}">
-                  <option >${tipo}</option>
-                </g:each>
-            </select>
-          </div>  
-
-          <div class="col-4">
-            <label for="pwd">Cobertura:</label>
-            <select name="cobertura" required>
-                <option>Seleccione una cobertura</option>
-                <g:each var="cobertura" in="${coberturas}">
-                  <option >${cobertura}</option>
-                </g:each>
-              </select>
-          </div>
-
-          <div class="col-4">
-            <label for="uname">Aseguradoras:</label>
-              <select name="aseguradora" required>
-                    <option selected>Selecciona una Aseguradora</option>
-                  <g:each var="aseguradora" in="${aseguradoras}">
-                    <option>${aseguradora}</option>
-                  </g:each>
-              </select>
-          </div>    
-
-        </div>    
-
-        <div class="row pt-4">
-
-          <div class="col-sm-4">
-            <label for="pwd">Renovacion:</label>
-            <input type="date" class="form-control"  placeholder="Ejemplo: 1547" name="renovacion" required>
-          </div>
-
-          <div class="col-sm-4">
-            <label for="pwd">Suma Asegurada:</label>
-            <input type="text " class="form-control"  placeholder="Ejemplo: $15.50" name="sumaAsegurada" required>
-          </div>
-
-          <div class="col-sm-4">
-            <label for="pwd">Prima Neta:</label>
-            <input type="number" class="form-control" placeholder="" name="primaNeta" required>
-          </div>
-
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success" onclick="save()">Confirmar</button>
         </div>
+        <!-- Modal footer -->
 
-
-      <input type="number" class="form-control" id="id" name="id" hidden>
-      <button type="submit" class="btn btn-primary">Guardar</button>
-     </div>
       </div>
-      </div>
-</g:form>
-</div>
-
+    </div>
+  </div>
+<!-- -->
 
 <!-- The Modal -->
 <div class="modal" id="myModal">

@@ -15,16 +15,11 @@
 <%-- <h2>Vertical Tabs</h2>
 <p>Click on the buttons inside the tabbed menu:</p> --%>
 
-<div class="tab">
-  <button class="tablinks" onclick="openTab(event, 'London')" id="defaultOpen">Lista Automoviles</button>
-  <button id="add-mod" class="tablinks" onclick="openTab(event, 'Paris')" hidden>Crear Automoviles</button>
-</div>
-
-<input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por nombre.." title="Type in a name">
-
 <div id="London" class="tabcontent">
-  <button class="btn btn-success" onclick="show('add')"><i class="far fa-plus-square">Crear Automovil</i></button>
+  <input type="text" id="filter-value" onkeyup="filter()" placeholder="Buscar por nombre.." title="Type in a name">
+  <button class="btn btn-success" data-toggle="modal" data-target="#modal-auto" onclick="show('add')"><i class="far fa-plus-square">Crear Automovil</i></button>
   <g:link controller="report" action="create" params="[domain: 'automovil']" download="automoviles.xslx" class="btn btn-primary">Reporte</g:link>
+  
   <table id="autos-table" class="table table-striped">
     <thead>
       <tr>
@@ -42,96 +37,128 @@
         <td>${auto.cliente.id}</td>
         <td>${auto.modelo}</td>
         <td>${auto.uso}</td>
-        <td><button class="btn btn-warning" onclick="edit(${auto.id})"><i class="fas fa-edit">Editar</i></button>
-         <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${auto.id})"><i class="far fa-trash-alt">Borrar</i> </button> </td>
+        <td>
+          <button class="btn btn-warning" data-toggle="modal" data-target="#modal-auto" onclick="edit(${auto.id})"><i class="fas fa-edit">Editar</i></button>
+          <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" onclick="previusDelete(${auto.id})"><i class="far fa-trash-alt">Borrar</i> </button> 
+           
+          </td>
       </tr>
     </tbody>
     </g:each>
   </table>
 </div>
 
-<div id="Paris" class="tabcontent">
-  <g:form controller="automovil" action="save" class="was-validated" name="form-automovil">
-      <div class="form-group">
-        
-        <div class="row pt-4">
+<!-- The Modal SQL CREATE / UPDATE-->
+  <div class="modal" id="modal-auto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
 
-          <div class="col-4">
-            <label for="uname">ID Cliente:</label>
-            <input type="number" class="form-control"  placeholder="50" name="cliente" maxlenght="5" required>
+        <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title" id="title-auto">Alta de Cliente</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
           </div>
+        <!-- Modal Header -->
 
-          <div class="col-4">
-            <label for="uname">Seguros:</label>
-            <select name="seguro" required >
-                <option selected>Seleccione un Seguro</option>
-                <g:each var="aseguradora" in="${ aseguradoras }">
-                    <optgroup label="${ aseguradora.name }">
-                      <g:each var="seguro" in="${aseguradora.seguros}">
-                          <option value="${seguro.id}">${seguro.nombre}</option>
-                      </g:each>
-                    </optgroup>
-                </g:each>
-            </select>
-          </div>
 
-          <div class="col-4">
-            <label for="pwd">Vehiculo:</label>
-            <input type="text" class="form-control"  placeholder="Ford" name="nombre" required>
-          </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <g:form controller="automovil" action="save" class="was-validated" name="form-automovil">
+                <div class="form-group">
+                  
+                  <div class="row pt-4">
 
+                    <div class="col-4">
+                      <label for="uname">ID Cliente:</label>
+                      <input type="number" class="form-control"  placeholder="50" name="cliente" maxlenght="5" required>
+                    </div>
+
+                    <div class="col-4">
+                      <label for="uname">Seguros:</label>
+                      <select name="seguro" required >
+                          <option selected>Seleccione un Seguro</option>
+                          <g:each var="aseguradora" in="${ aseguradoras }">
+                              <optgroup label="${ aseguradora.name }">
+                                <g:each var="seguro" in="${aseguradora.seguros}">
+                                    <option value="${seguro.id}">${seguro.nombre}</option>
+                                </g:each>
+                              </optgroup>
+                          </g:each>
+                      </select>
+                    </div>
+
+                    <div class="col-4">
+                      <label for="pwd">Vehiculo:</label>
+                      <input type="text" class="form-control"  placeholder="Ford" name="nombre" required>
+                    </div>
+
+                  </div>
+
+                  <div class="row pt-4">
+                      <div class="col-4">
+                        <label for="pwd">Modelo:</label>
+                        <input type="text" class="form-control"  placeholder="2015" name="modelo" required>
+                      </div>
+            
+                      <div class="col-4">
+                        <label for="uname">Tipos:</label>
+                        <select name="tipo" required >
+                            <option selected>Seleccione un tipo</option>
+                            <g:each var="tipo" in="${ tipos }">
+                              <option value="${tipo}">${seguro.nombre}</option>    
+                            </g:each>
+                        </select>
+                      </div>
+                  </div>
+
+                  <div class="row pt-4">
+
+                    <div class="col-5">
+                      <label for="pwd">Placas:</label>
+                      <input type="text" class="form-control"  placeholder="AWF500S" name="placas" required>
+                    </div>
+
+                    <div class="col-5">
+                      <label for="pwd">Uso:</label>
+                      <input type="text" class="form-control"  placeholder="Trabajo" name="uso" required>
+                    </div>
+
+                  </div>
+                
+                  <div class="row pt-4">
+
+                    <div class="col-sm-4">
+                      <label for="pwd">No. de Serie:</label>
+                      <input type="text" class="form-control"  placeholder="Ejemplo: $15.50" name="numSerie" required>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <label for="pwd">No. Motor:</label>
+                      <input type="text" class="form-control"  placeholder="Ejemplo: Av. Dependencia" name="numMotor" required>
+                    </div>
+
+                  </div>
+
+                      <input type="number" class="form-control" id="id" name="id" hidden>
+                      <button id="target-submit" type="submit" class="btn btn-primary" hidden>Guardar</button>
+                </div>          
+          </g:form>
         </div>
+        <!-- Modal Body -->
 
-        <div class="row pt-4">
-            <div class="col-4">
-              <label for="pwd">Modelo:</label>
-              <input type="text" class="form-control"  placeholder="2015" name="modelo" required>
-            </div>
-  
-            <div class="col-4">
-              <label for="uname">Tipos:</label>
-              <select name="tipo" required >
-                  <option selected>Seleccione un tipo</option>
-                  <g:each var="tipo" in="${ tipos }">
-                    <option value="${tipo}">${seguro.nombre}</option>    
-                  </g:each>
-              </select>
-            </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-success" onclick="save()">Confirmar</button>
         </div>
+        <!-- Modal footer -->
 
-        <div class="row pt-4">
+      </div>
+    </div>
+  </div>
 
-          <div class="col-5">
-            <label for="pwd">Placas:</label>
-            <input type="text" class="form-control"  placeholder="AWF500S" name="placas" required>
-          </div>
-
-          <div class="col-5">
-            <label for="pwd">Uso:</label>
-            <input type="text" class="form-control"  placeholder="Trabajo" name="uso" required>
-          </div>
-
-        </div>
-      
-        <div class="row pt-4">
-
-          <div class="col-sm-4">
-            <label for="pwd">No. de Serie:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: $15.50" name="numSerie" required>
-          </div>
-
-          <div class="col-sm-4">
-            <label for="pwd">No. Motor:</label>
-            <input type="text" class="form-control"  placeholder="Ejemplo: Av. Dependencia" name="numMotor" required>
-          </div>
-
-        </div>
-
-            <input type="number" class="form-control" id="id" name="id" hidden>
-            <button type="submit" class="btn btn-primary">Guardar</button>
-      </div>          
-</g:form>
-</div>
 
 
 

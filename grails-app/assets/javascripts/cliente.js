@@ -1,5 +1,3 @@
-document.getElementById("defaultOpen").click();
-
 var keys = ["correo", "fechaNac", "nombre", "apellMa", "apellPa", "ciudad", "rfc", "colonia", "calle", "cp", "tipo", "noCasa", "tel", "password", "username", "isIntegral"]
 
 
@@ -29,10 +27,18 @@ $(function() {
     });
 });
 
+function save() {
+
+    let submit = $('#taget-submit')
+
+    if (submit.isvalid())
+        submit.click();
+
+}
 
 function show(it) {
-    var title = document.getElementById('title-cliente')
-    var form = document.getElementById('form-cliente')
+    let title = document.getElementById('title-cliente')
+    let form = document.getElementById('form-cliente')
 
     if (it === 'add') {
         title.innerText = 'Alta de Cliente'

@@ -1,16 +1,14 @@
-document.getElementById("defaultOpen").click();
-
 var superid
 
 var keys = ["numeroRemision", "fechaDesde", "seguro", "financiamiento", "periodo", "status", "cliente", "comisionCedida", "primaTotal", "ramo", "gastosExpedicion", "fechaExpedicion", "clave"]
 
 
 
-$(()=>{
+$(() => {
 
     // $( "input:blank" ).css( "background-color", "#bbbbff" );
 
-    $.validator.addMethod("valueNotEquals", function(value, element, arg){
+    $.validator.addMethod("valueNotEquals", function(value, element, arg) {
         console.log(arg)
         return arg !== value;
     }, "Value must not equal arg.");
@@ -23,7 +21,7 @@ $(()=>{
             },
             cliente: {
                 required: true,
-                remote: '/cliente/exist/'+$("input[name='cliente']").val()
+                remote: '/cliente/exist/' + $("input[name='cliente']").val()
             },
             periodo: "required",
             ramo: "required",
@@ -68,7 +66,7 @@ $(()=>{
                 required: 'El campo es requerido',
                 maxlength: "El campo no puede ser mayor de 4"
             },
-            fechaDesde:{
+            fechaDesde: {
 
             },
             fechaExpedicion: {
@@ -77,35 +75,41 @@ $(()=>{
             financiamiento: {
 
             },
-            pimaTotal:{
-              
+            pimaTotal: {
+
             }
         },
         submitHandler: function(form) {
-            if(form.valid())
+            if (form.valid())
                 form.submit();
         }
-    })    
+    })
 
 })
 
+function save() {
+
+    let submit = document.getElementById('taget-submit')
+
+    submit.click();
+
+}
+
 function show(it) {
-    var tab = document.getElementById('add-mod')
-    var form = document.getElementById('form-poliza')
+    let title = document.getElementById('title-poliza')
+    let form = document.getElementById('form-poliza')
 
     if (it == 'add') {
-        tab.removeAttribute('hidden')
-        tab.innerHTML = 'Crear Poliza'
+
+        title.innerTest = 'Alta de Poliza'
         form.action = '/poliza/save'
-        tab.click()
+
         clean()
     }
 
     if (it == 'mod') {
-        tab.removeAttribute('hidden')
-        tab.innerHTML = 'Editar Poliza'
+        title.innerText = 'Modificacion de Poliza'
         form.action = '/poliza/update'
-        tab.click()
     }
 
 }

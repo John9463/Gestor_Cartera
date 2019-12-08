@@ -1,5 +1,3 @@
-document.getElementById("defaultOpen").click();
-
 var superid
 
 var keys = ["nombre", , "aseguradora", "tipo", "valorSeguro", "emisor", "renovacion", "cobertura", "sumaAsegurada", "primaNeta"]
@@ -60,22 +58,19 @@ $('#form-seguro').validate({
 })
 
 function show(it) {
-    var tab = document.getElementById('add-mod')
-    var form = document.getElementById('form-seguro')
+    let title = document.getElementById('title-seguro')
+    let form = document.getElementById('form-seguro')
 
     if (it == 'add') {
-        tab.removeAttribute('hidden')
-        tab.innerHTML = 'Crear Seguro'
+        title.innerText = 'Alta de Seguro'
         form.action = '/seguro/save'
-        tab.click()
+
         clean()
     }
 
     if (it == 'mod') {
-        tab.removeAttribute('hidden')
-        tab.innerHTML = 'Editar Seguro'
+        title.innerText = 'Modificacion de Seguro'
         form.action = '/seguro/update'
-        tab.click()
     }
 
 }

@@ -176,11 +176,18 @@
 
           </div>
           
-          <g:actionSubmit class="btn btn-primary" value="Guardar" action="save" />
+          <g:actionSubmit id="target-submit" class="btn btn-primary" value="Guardar" action="save" hidden="true" />
         
         </g:form>
       </div>
       <!-- Modal Body -->
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" onclick="save()">Confirmar</button>
+      </div>
+      <!-- Modal footer -->
 
       </div>
     </div>

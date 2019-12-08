@@ -1,5 +1,3 @@
-document.getElementById("defaultOpen").click();
-
 var superid
 
 var keys = ["numeroRemision", "fechaDesde", "seguro", "financiamiento", "periodo", "status", "cliente", "comisionCedida", "primaTotal", "ramo", "gastosExpedicion", "fechaExpedicion", "clave"]
@@ -65,23 +63,27 @@ $('#form-automovil').validate({
 
 })
 
+function save() {
+
+    let submit = document.getElementById('taget-submit')
+
+    submit.click();
+
+}
+
 function show(it) {
-    var tab = document.getElementById('add-mod')
-    var form = document.getElementById('form-automovil')
+    let title = document.getElementById('title-auto')
+    let form = document.getElementById('form-automovil')
 
     if (it == 'add') {
-        tab.removeAttribute('hidden')
-        tab.innerHTML = 'Crear Automovil'
+        title.innerText = 'Crear Automovil'
         form.action = '/automovil/save'
-        tab.click()
         clean()
     }
 
     if (it == 'mod') {
-        tab.removeAttribute('hidden')
-        tab.innerHTML = 'Editar Automovil'
+        title.innerText = 'Editar Automovil'
         form.action = '/automovil/update'
-        tab.click()
     }
 
 }
